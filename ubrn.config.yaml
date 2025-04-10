@@ -1,0 +1,10 @@
+name: VellaSDK
+rust:
+  directory: ./vella-sdk
+  manifestPath: Cargo.toml
+ios:
+    directory: ios
+    targets:
+    - aarch64-apple-ios
+    - aarch64-apple-ios-sim
+    frameworkName: ios/VellaSDK
