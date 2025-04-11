@@ -103,6 +103,14 @@ jobs:
       - name: Install cargo-ndk
         run: cargo install cargo-ndk
 
+      - name: Install Android targets
+        run: |
+          rustup target add \
+            aarch64-linux-android \
+            armv7-linux-androideabi \
+            i686-linux-android \
+            x86_64-linux-android
+
       - name: Build library for Android
         run: yarn ubrn:android --release
 
@@ -165,6 +173,13 @@ jobs:
           path: |
             **/ios/Pods
           key: ${{ steps.cocoapods-cache.outputs.cache-key }}
+
+      - name: Install iOS targets
+        run: |
+          rustup target add \
+            aarch64-apple-ios \
+            aarch64-apple-ios-sim \
+            x86_64-apple-ios
 
       - name: Build library for iOS
         run: yarn ubrn:ios --release
