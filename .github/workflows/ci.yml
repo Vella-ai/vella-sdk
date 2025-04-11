@@ -181,11 +181,10 @@ jobs:
             aarch64-apple-ios-sim \
             x86_64-apple-ios
 
-      - name: Set deployment target
-        run: export IPHONEOS_DEPLOYMENT_TARGET=17.0
-
       - name: Build library for iOS
         run: yarn ubrn:ios --release
+        env:
+          IPHONEOS_DEPLOYMENT_TARGET: '17.0'
 
       - name: Build example for iOS
         run: |
