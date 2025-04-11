@@ -100,6 +100,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Install cargo-ndk
+        run: cargo install cargo-ndk
+
       - name: Build library for Android
         run: yarn ubrn:android --release
 
