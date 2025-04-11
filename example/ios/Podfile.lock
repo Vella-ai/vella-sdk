@@ -1528,7 +1528,7 @@ PODS:
   - SocketRocket (0.7.1)
   - uniffi-bindgen-react-native (0.29.0-0):
     - React-Core
-  - vella-sdk (0.1.0):
+  - vella-sdk (0.1.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1833,7 +1833,7 @@ SPEC CHECKSUMS:
   ReactCommon: 547db015202a80a5b3e7e041586ea54c4a087180
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   uniffi-bindgen-react-native: ae8f59486efef1c9dd2d0febea3485a388e60fc0
-  vella-sdk: a5253ca7de8f6c46145c76b728a22d8accae232f
+  vella-sdk: 31bce7b8b6f7618d4d3d967acfe57f85368f1a08
   Yoga: e14bad835e12b6c7e2260fc320bd00e0f4b45add
 
 PODFILE CHECKSUM: 0f834743ae83124c89ebc20a8657dc781cba6245
