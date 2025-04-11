@@ -1,3 +1,5 @@
 *.pbxproj -text
 # specific for windows script files
 *.bat text eol=crlf
+cpp/generated/* linguist-detectable=false
+src/generated/* linguist-detectable=false
