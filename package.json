@@ -2,13 +2,13 @@
   "name": "vella-sdk",
   "version": "0.1.0",
   "description": "sdk for the vella app",
-  "source": "./src/index.tsx",
-  "main": "./lib/module/index.js",
-  "types": "./lib/typescript/src/index.d.ts",
+  "source": "./src/main.ts",
+  "main": "./lib/module/main.js",
+  "types": "./lib/typescript/src/main.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/typescript/src/index.d.ts",
-      "default": "./lib/module/index.js"
+      "types": "./lib/typescript/src/main.d.ts",
+      "default": "./lib/module/main.js"
     },
     "./package.json": "./package.json"
   },

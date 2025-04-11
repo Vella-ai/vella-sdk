@@ -23,6 +23,54 @@ interface NativeModuleInterface {
     buffer: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
   ): string;
+  ubrn_uniffi_vella_sdk_fn_clone_customtokenizerinner(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_vella_sdk_fn_free_customtokenizerinner(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): void;
+  ubrn_uniffi_vella_sdk_fn_constructor_customtokenizerinner_new(
+    dictionary: Uint8Array,
+    padding: Uint8Array,
+    truncation: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_ids(
+    ptr: bigint,
+    input: Uint8Array,
+    specialTokens: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_tokens(
+    ptr: bigint,
+    input: Uint8Array,
+    specialTokens: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_id_to_token(
+    ptr: bigint,
+    id: number,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_token_to_id(
+    ptr: bigint,
+    token: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize(
+    ptr: bigint,
+    input: Uint8Array,
+    specialTokens: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize_batch(
+    ptr: bigint,
+    input: Uint8Array,
+    specialTokens: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
   ubrn_uniffi_vella_sdk_fn_func_escape_text(
     text: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
@@ -48,7 +96,18 @@ interface NativeModuleInterface {
   ubrn_uniffi_vella_sdk_checksum_func_parse_email(): number;
   ubrn_uniffi_vella_sdk_checksum_func_parse_visible_html(): number;
   ubrn_uniffi_vella_sdk_checksum_func_parse_visible_text(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_tokens(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_id_to_token(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_token_to_id(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_tokenize(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_tokenize_batch(): number;
+  ubrn_uniffi_vella_sdk_checksum_constructor_customtokenizerinner_new(): number;
   ubrn_ffi_vella_sdk_uniffi_contract_version(): number;
+  ubrn_uniffi_internal_fn_method_customtokenizerinner_ffi__bless_pointer(
+    pointer: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): UniffiRustArcPtr;
 }
 
 // Casting globalThis to any allows us to look for `NativeVellaSdk`

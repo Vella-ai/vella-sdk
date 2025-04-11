@@ -31,19 +31,28 @@ import nativeModule, {
   type UniffiForeignFutureCompleteVoid,
 } from './vella_sdk-ffi';
 import {
+  type FfiConverter,
   type UniffiByteArray,
+  type UniffiObjectFactory,
+  type UniffiRustArcPtr,
+  type UnsafeMutableRawPointer,
   AbstractFfiConverterByteArray,
   FfiConverterArray,
   FfiConverterBool,
   FfiConverterInt32,
   FfiConverterInt64,
+  FfiConverterObject,
   FfiConverterOptional,
   FfiConverterUInt32,
+  FfiConverterUInt64,
   RustBuffer,
+  UniffiAbstractObject,
   UniffiEnum,
   UniffiError,
   UniffiInternalError,
   UniffiRustCaller,
+  destructorGuardSymbol,
+  pointerLiteralSymbol,
   uniffiCreateFfiConverterString,
   uniffiCreateRecord,
   uniffiTypeNameSymbol,
@@ -742,6 +751,272 @@ const FfiConverterTypeHeader = (() => {
   return new FFIConverter();
 })();
 
+export type PaddingParams = {
+  strategy: PaddingStrategy;
+  direction: PaddingDirection;
+  padToMultipleOf: /*u32*/ number | undefined;
+  padId: /*u32*/ number;
+  padTypeId: /*u32*/ number;
+  padToken: string;
+};
+
+/**
+ * Generated factory for {@link PaddingParams} record objects.
+ */
+export const PaddingParams = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<PaddingParams, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link PaddingParams}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link PaddingParams}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<PaddingParams>,
+  });
+})();
+
+const FfiConverterTypePaddingParams = (() => {
+  type TypeName = PaddingParams;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        strategy: FfiConverterTypePaddingStrategy.read(from),
+        direction: FfiConverterTypePaddingDirection.read(from),
+        padToMultipleOf: FfiConverterOptionalUInt32.read(from),
+        padId: FfiConverterUInt32.read(from),
+        padTypeId: FfiConverterUInt32.read(from),
+        padToken: FfiConverterString.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterTypePaddingStrategy.write(value.strategy, into);
+      FfiConverterTypePaddingDirection.write(value.direction, into);
+      FfiConverterOptionalUInt32.write(value.padToMultipleOf, into);
+      FfiConverterUInt32.write(value.padId, into);
+      FfiConverterUInt32.write(value.padTypeId, into);
+      FfiConverterString.write(value.padToken, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterTypePaddingStrategy.allocationSize(value.strategy) +
+        FfiConverterTypePaddingDirection.allocationSize(value.direction) +
+        FfiConverterOptionalUInt32.allocationSize(value.padToMultipleOf) +
+        FfiConverterUInt32.allocationSize(value.padId) +
+        FfiConverterUInt32.allocationSize(value.padTypeId) +
+        FfiConverterString.allocationSize(value.padToken)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type Token = {
+  id: /*u32*/ number;
+  token: string;
+  start: /*u32*/ number;
+  end: /*u32*/ number;
+};
+
+/**
+ * Generated factory for {@link Token} record objects.
+ */
+export const Token = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<Token, ReturnType<typeof defaults>>(defaults);
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link Token}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link Token}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<Token>,
+  });
+})();
+
+const FfiConverterTypeToken = (() => {
+  type TypeName = Token;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        id: FfiConverterUInt32.read(from),
+        token: FfiConverterString.read(from),
+        start: FfiConverterUInt32.read(from),
+        end: FfiConverterUInt32.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterUInt32.write(value.id, into);
+      FfiConverterString.write(value.token, into);
+      FfiConverterUInt32.write(value.start, into);
+      FfiConverterUInt32.write(value.end, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterUInt32.allocationSize(value.id) +
+        FfiConverterString.allocationSize(value.token) +
+        FfiConverterUInt32.allocationSize(value.start) +
+        FfiConverterUInt32.allocationSize(value.end)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type TokenizedBatch = {
+  tokenIds: Array<Array</*u32*/ number>>;
+  attentionMask: Array<Array</*u32*/ number>>;
+  typeIds: Array<Array</*u32*/ number>>;
+};
+
+/**
+ * Generated factory for {@link TokenizedBatch} record objects.
+ */
+export const TokenizedBatch = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<TokenizedBatch, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link TokenizedBatch}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link TokenizedBatch}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<TokenizedBatch>,
+  });
+})();
+
+const FfiConverterTypeTokenizedBatch = (() => {
+  type TypeName = TokenizedBatch;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        tokenIds: FfiConverterArrayArrayUInt32.read(from),
+        attentionMask: FfiConverterArrayArrayUInt32.read(from),
+        typeIds: FfiConverterArrayArrayUInt32.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterArrayArrayUInt32.write(value.tokenIds, into);
+      FfiConverterArrayArrayUInt32.write(value.attentionMask, into);
+      FfiConverterArrayArrayUInt32.write(value.typeIds, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterArrayArrayUInt32.allocationSize(value.tokenIds) +
+        FfiConverterArrayArrayUInt32.allocationSize(value.attentionMask) +
+        FfiConverterArrayArrayUInt32.allocationSize(value.typeIds)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type TruncationParams = {
+  direction: TruncationDirection;
+  maxLength: /*u32*/ number;
+  strategy: TruncationStrategy;
+  stride: /*u32*/ number;
+};
+
+/**
+ * Generated factory for {@link TruncationParams} record objects.
+ */
+export const TruncationParams = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<TruncationParams, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link TruncationParams}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link TruncationParams}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<TruncationParams>,
+  });
+})();
+
+const FfiConverterTypeTruncationParams = (() => {
+  type TypeName = TruncationParams;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        direction: FfiConverterTypeTruncationDirection.read(from),
+        maxLength: FfiConverterUInt32.read(from),
+        strategy: FfiConverterTypeTruncationStrategy.read(from),
+        stride: FfiConverterUInt32.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterTypeTruncationDirection.write(value.direction, into);
+      FfiConverterUInt32.write(value.maxLength, into);
+      FfiConverterTypeTruncationStrategy.write(value.strategy, into);
+      FfiConverterUInt32.write(value.stride, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterTypeTruncationDirection.allocationSize(value.direction) +
+        FfiConverterUInt32.allocationSize(value.maxLength) +
+        FfiConverterTypeTruncationStrategy.allocationSize(value.strategy) +
+        FfiConverterUInt32.allocationSize(value.stride)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
 const stringConverter = {
   stringToBytes: (s: string) =>
     uniffiCaller.rustCall((status) =>
@@ -890,6 +1165,163 @@ const FfiConverterTypeBatchResponse = (() => {
           const inner = value.inner;
           let size = ordinalConverter.allocationSize(2);
           size += FfiConverterTypeGmailError.allocationSize(inner[0]);
+          return size;
+        }
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+  }
+  return new FFIConverter();
+})();
+
+export enum PaddingDirection {
+  Left,
+  Right,
+}
+
+const FfiConverterTypePaddingDirection = (() => {
+  const ordinalConverter = FfiConverterInt32;
+  type TypeName = PaddingDirection;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      switch (ordinalConverter.read(from)) {
+        case 1:
+          return PaddingDirection.Left;
+        case 2:
+          return PaddingDirection.Right;
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      switch (value) {
+        case PaddingDirection.Left:
+          return ordinalConverter.write(1, into);
+        case PaddingDirection.Right:
+          return ordinalConverter.write(2, into);
+      }
+    }
+    allocationSize(value: TypeName): number {
+      return ordinalConverter.allocationSize(0);
+    }
+  }
+  return new FFIConverter();
+})();
+
+// Enum: PaddingStrategy
+export enum PaddingStrategy_Tags {
+  BatchLongest = 'BatchLongest',
+  Fixed = 'Fixed',
+}
+export const PaddingStrategy = (() => {
+  type BatchLongest__interface = {
+    tag: PaddingStrategy_Tags.BatchLongest;
+  };
+
+  class BatchLongest_ extends UniffiEnum implements BatchLongest__interface {
+    /**
+     * @private
+     * This field is private and should not be used, use `tag` instead.
+     */
+    readonly [uniffiTypeNameSymbol] = 'PaddingStrategy';
+    readonly tag = PaddingStrategy_Tags.BatchLongest;
+    constructor() {
+      super('PaddingStrategy', 'BatchLongest');
+    }
+
+    static new(): BatchLongest_ {
+      return new BatchLongest_();
+    }
+
+    static instanceOf(obj: any): obj is BatchLongest_ {
+      return obj.tag === PaddingStrategy_Tags.BatchLongest;
+    }
+  }
+
+  type Fixed__interface = {
+    tag: PaddingStrategy_Tags.Fixed;
+    inner: Readonly<[/*u32*/ number]>;
+  };
+
+  class Fixed_ extends UniffiEnum implements Fixed__interface {
+    /**
+     * @private
+     * This field is private and should not be used, use `tag` instead.
+     */
+    readonly [uniffiTypeNameSymbol] = 'PaddingStrategy';
+    readonly tag = PaddingStrategy_Tags.Fixed;
+    readonly inner: Readonly<[/*u32*/ number]>;
+    constructor(v0: /*u32*/ number) {
+      super('PaddingStrategy', 'Fixed');
+      this.inner = Object.freeze([v0]);
+    }
+
+    static new(v0: /*u32*/ number): Fixed_ {
+      return new Fixed_(v0);
+    }
+
+    static instanceOf(obj: any): obj is Fixed_ {
+      return obj.tag === PaddingStrategy_Tags.Fixed;
+    }
+  }
+
+  function instanceOf(obj: any): obj is PaddingStrategy {
+    return obj[uniffiTypeNameSymbol] === 'PaddingStrategy';
+  }
+
+  return Object.freeze({
+    instanceOf,
+    BatchLongest: BatchLongest_,
+    Fixed: Fixed_,
+  });
+})();
+
+export type PaddingStrategy = InstanceType<
+  (typeof PaddingStrategy)[keyof Omit<typeof PaddingStrategy, 'instanceOf'>]
+>;
+
+// FfiConverter for enum PaddingStrategy
+const FfiConverterTypePaddingStrategy = (() => {
+  const ordinalConverter = FfiConverterInt32;
+  type TypeName = PaddingStrategy;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      switch (ordinalConverter.read(from)) {
+        case 1:
+          return new PaddingStrategy.BatchLongest();
+        case 2:
+          return new PaddingStrategy.Fixed(FfiConverterUInt32.read(from));
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      switch (value.tag) {
+        case PaddingStrategy_Tags.BatchLongest: {
+          ordinalConverter.write(1, into);
+          return;
+        }
+        case PaddingStrategy_Tags.Fixed: {
+          ordinalConverter.write(2, into);
+          const inner = value.inner;
+          FfiConverterUInt32.write(inner[0], into);
+          return;
+        }
+        default:
+          // Throwing from here means that PaddingStrategy_Tags hasn't matched an ordinal.
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    allocationSize(value: TypeName): number {
+      switch (value.tag) {
+        case PaddingStrategy_Tags.BatchLongest: {
+          return ordinalConverter.allocationSize(1);
+        }
+        case PaddingStrategy_Tags.Fixed: {
+          const inner = value.inner;
+          let size = ordinalConverter.allocationSize(2);
+          size += FfiConverterUInt32.allocationSize(inner[0]);
           return size;
         }
         default:
@@ -1187,11 +1619,605 @@ const FfiConverterTypeParserError = (() => {
   return new FFIConverter();
 })();
 
+export enum SpecialTokens {
+  Yes,
+  No,
+}
+
+const FfiConverterTypeSpecialTokens = (() => {
+  const ordinalConverter = FfiConverterInt32;
+  type TypeName = SpecialTokens;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      switch (ordinalConverter.read(from)) {
+        case 1:
+          return SpecialTokens.Yes;
+        case 2:
+          return SpecialTokens.No;
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      switch (value) {
+        case SpecialTokens.Yes:
+          return ordinalConverter.write(1, into);
+        case SpecialTokens.No:
+          return ordinalConverter.write(2, into);
+      }
+    }
+    allocationSize(value: TypeName): number {
+      return ordinalConverter.allocationSize(0);
+    }
+  }
+  return new FFIConverter();
+})();
+
+// Error type: TokenizeError
+
+// Enum: TokenizeError
+export enum TokenizeError_Tags {
+  TokenizerCreationFailed = 'TokenizerCreationFailed',
+  InputEncodingFailed = 'InputEncodingFailed',
+  InvalidTruncationParams = 'InvalidTruncationParams',
+}
+export const TokenizeError = (() => {
+  type TokenizerCreationFailed__interface = {
+    tag: TokenizeError_Tags.TokenizerCreationFailed;
+  };
+
+  class TokenizerCreationFailed_
+    extends UniffiError
+    implements TokenizerCreationFailed__interface
+  {
+    /**
+     * @private
+     * This field is private and should not be used, use `tag` instead.
+     */
+    readonly [uniffiTypeNameSymbol] = 'TokenizeError';
+    readonly tag = TokenizeError_Tags.TokenizerCreationFailed;
+    constructor() {
+      super('TokenizeError', 'TokenizerCreationFailed');
+    }
+
+    static new(): TokenizerCreationFailed_ {
+      return new TokenizerCreationFailed_();
+    }
+
+    static instanceOf(obj: any): obj is TokenizerCreationFailed_ {
+      return obj.tag === TokenizeError_Tags.TokenizerCreationFailed;
+    }
+
+    static hasInner(obj: any): obj is TokenizerCreationFailed_ {
+      return false;
+    }
+  }
+
+  type InputEncodingFailed__interface = {
+    tag: TokenizeError_Tags.InputEncodingFailed;
+  };
+
+  class InputEncodingFailed_
+    extends UniffiError
+    implements InputEncodingFailed__interface
+  {
+    /**
+     * @private
+     * This field is private and should not be used, use `tag` instead.
+     */
+    readonly [uniffiTypeNameSymbol] = 'TokenizeError';
+    readonly tag = TokenizeError_Tags.InputEncodingFailed;
+    constructor() {
+      super('TokenizeError', 'InputEncodingFailed');
+    }
+
+    static new(): InputEncodingFailed_ {
+      return new InputEncodingFailed_();
+    }
+
+    static instanceOf(obj: any): obj is InputEncodingFailed_ {
+      return obj.tag === TokenizeError_Tags.InputEncodingFailed;
+    }
+
+    static hasInner(obj: any): obj is InputEncodingFailed_ {
+      return false;
+    }
+  }
+
+  type InvalidTruncationParams__interface = {
+    tag: TokenizeError_Tags.InvalidTruncationParams;
+  };
+
+  class InvalidTruncationParams_
+    extends UniffiError
+    implements InvalidTruncationParams__interface
+  {
+    /**
+     * @private
+     * This field is private and should not be used, use `tag` instead.
+     */
+    readonly [uniffiTypeNameSymbol] = 'TokenizeError';
+    readonly tag = TokenizeError_Tags.InvalidTruncationParams;
+    constructor() {
+      super('TokenizeError', 'InvalidTruncationParams');
+    }
+
+    static new(): InvalidTruncationParams_ {
+      return new InvalidTruncationParams_();
+    }
+
+    static instanceOf(obj: any): obj is InvalidTruncationParams_ {
+      return obj.tag === TokenizeError_Tags.InvalidTruncationParams;
+    }
+
+    static hasInner(obj: any): obj is InvalidTruncationParams_ {
+      return false;
+    }
+  }
+
+  function instanceOf(obj: any): obj is TokenizeError {
+    return obj[uniffiTypeNameSymbol] === 'TokenizeError';
+  }
+
+  return Object.freeze({
+    instanceOf,
+    TokenizerCreationFailed: TokenizerCreationFailed_,
+    InputEncodingFailed: InputEncodingFailed_,
+    InvalidTruncationParams: InvalidTruncationParams_,
+  });
+})();
+
+export type TokenizeError = InstanceType<
+  (typeof TokenizeError)[keyof Omit<typeof TokenizeError, 'instanceOf'>]
+>;
+
+// FfiConverter for enum TokenizeError
+const FfiConverterTypeTokenizeError = (() => {
+  const ordinalConverter = FfiConverterInt32;
+  type TypeName = TokenizeError;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      switch (ordinalConverter.read(from)) {
+        case 1:
+          return new TokenizeError.TokenizerCreationFailed();
+        case 2:
+          return new TokenizeError.InputEncodingFailed();
+        case 3:
+          return new TokenizeError.InvalidTruncationParams();
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      switch (value.tag) {
+        case TokenizeError_Tags.TokenizerCreationFailed: {
+          ordinalConverter.write(1, into);
+          return;
+        }
+        case TokenizeError_Tags.InputEncodingFailed: {
+          ordinalConverter.write(2, into);
+          return;
+        }
+        case TokenizeError_Tags.InvalidTruncationParams: {
+          ordinalConverter.write(3, into);
+          return;
+        }
+        default:
+          // Throwing from here means that TokenizeError_Tags hasn't matched an ordinal.
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    allocationSize(value: TypeName): number {
+      switch (value.tag) {
+        case TokenizeError_Tags.TokenizerCreationFailed: {
+          return ordinalConverter.allocationSize(1);
+        }
+        case TokenizeError_Tags.InputEncodingFailed: {
+          return ordinalConverter.allocationSize(2);
+        }
+        case TokenizeError_Tags.InvalidTruncationParams: {
+          return ordinalConverter.allocationSize(3);
+        }
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+  }
+  return new FFIConverter();
+})();
+
+export enum TruncationDirection {
+  Left,
+  Right,
+}
+
+const FfiConverterTypeTruncationDirection = (() => {
+  const ordinalConverter = FfiConverterInt32;
+  type TypeName = TruncationDirection;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      switch (ordinalConverter.read(from)) {
+        case 1:
+          return TruncationDirection.Left;
+        case 2:
+          return TruncationDirection.Right;
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      switch (value) {
+        case TruncationDirection.Left:
+          return ordinalConverter.write(1, into);
+        case TruncationDirection.Right:
+          return ordinalConverter.write(2, into);
+      }
+    }
+    allocationSize(value: TypeName): number {
+      return ordinalConverter.allocationSize(0);
+    }
+  }
+  return new FFIConverter();
+})();
+
+export enum TruncationStrategy {
+  LongestFirst,
+  OnlyFirst,
+  OnlySecond,
+}
+
+const FfiConverterTypeTruncationStrategy = (() => {
+  const ordinalConverter = FfiConverterInt32;
+  type TypeName = TruncationStrategy;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      switch (ordinalConverter.read(from)) {
+        case 1:
+          return TruncationStrategy.LongestFirst;
+        case 2:
+          return TruncationStrategy.OnlyFirst;
+        case 3:
+          return TruncationStrategy.OnlySecond;
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      switch (value) {
+        case TruncationStrategy.LongestFirst:
+          return ordinalConverter.write(1, into);
+        case TruncationStrategy.OnlyFirst:
+          return ordinalConverter.write(2, into);
+        case TruncationStrategy.OnlySecond:
+          return ordinalConverter.write(3, into);
+      }
+    }
+    allocationSize(value: TypeName): number {
+      return ordinalConverter.allocationSize(0);
+    }
+  }
+  return new FFIConverter();
+})();
+
+/**
+ * A tokenizer object from a custom dictionary.
+ */
+export interface CustomTokenizerInnerInterface {
+  /**
+   * Tokenizes an input string and return a list of token IDs.
+   */
+  getIds(
+    input: string,
+    specialTokens: SpecialTokens
+  ) /*throws*/ : Array</*u32*/ number>;
+  /**
+   * Tokenizes an input string and returns a list of token strings.
+   */
+  getTokens(
+    input: string,
+    specialTokens: SpecialTokens
+  ) /*throws*/ : Array<string>;
+  /**
+   * Gets the string value of a given token ID.
+   */
+  idToToken(id: /*u32*/ number): string | undefined;
+  /**
+   * Gets the ID value of a given token.
+   */
+  tokenToId(token: string): /*u32*/ number | undefined;
+  /**
+   * Tokenizes an input string and returns a list of tokens.
+   */
+  tokenize(
+    input: string,
+    specialTokens: SpecialTokens
+  ) /*throws*/ : Array<Token>;
+  /**
+   * Tokenizes a list of input strings and returns a list of token IDs.
+   */
+  tokenizeBatch(
+    input: Array<string>,
+    specialTokens: SpecialTokens
+  ) /*throws*/ : TokenizedBatch;
+}
+
+/**
+ * A tokenizer object from a custom dictionary.
+ */
+export class CustomTokenizerInner
+  extends UniffiAbstractObject
+  implements CustomTokenizerInnerInterface
+{
+  readonly [uniffiTypeNameSymbol] = 'CustomTokenizerInner';
+  readonly [destructorGuardSymbol]: UniffiRustArcPtr;
+  readonly [pointerLiteralSymbol]: UnsafeMutableRawPointer;
+  /**
+   * Creates a new custom tokenizer.
+   */
+  constructor(
+    dictionary: string,
+    padding: PaddingParams | undefined,
+    truncation: TruncationParams | undefined
+  ) /*throws*/ {
+    super();
+    const pointer = uniffiCaller.rustCallWithError(
+      /*liftError:*/ FfiConverterTypeTokenizeError.lift.bind(
+        FfiConverterTypeTokenizeError
+      ),
+      /*caller:*/ (callStatus) => {
+        return nativeModule().ubrn_uniffi_vella_sdk_fn_constructor_customtokenizerinner_new(
+          FfiConverterString.lower(dictionary),
+          FfiConverterOptionalTypePaddingParams.lower(padding),
+          FfiConverterOptionalTypeTruncationParams.lower(truncation),
+          callStatus
+        );
+      },
+      /*liftString:*/ FfiConverterString.lift
+    );
+    this[pointerLiteralSymbol] = pointer;
+    this[destructorGuardSymbol] =
+      uniffiTypeCustomTokenizerInnerObjectFactory.bless(pointer);
+  }
+
+  /**
+   * Tokenizes an input string and return a list of token IDs.
+   */
+  public getIds(
+    input: string,
+    specialTokens: SpecialTokens
+  ): Array</*u32*/ number> /*throws*/ {
+    return FfiConverterArrayUInt32.lift(
+      uniffiCaller.rustCallWithError(
+        /*liftError:*/ FfiConverterTypeTokenizeError.lift.bind(
+          FfiConverterTypeTokenizeError
+        ),
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_ids(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
+            FfiConverterString.lower(input),
+            FfiConverterTypeSpecialTokens.lower(specialTokens),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * Tokenizes an input string and returns a list of token strings.
+   */
+  public getTokens(
+    input: string,
+    specialTokens: SpecialTokens
+  ): Array<string> /*throws*/ {
+    return FfiConverterArrayString.lift(
+      uniffiCaller.rustCallWithError(
+        /*liftError:*/ FfiConverterTypeTokenizeError.lift.bind(
+          FfiConverterTypeTokenizeError
+        ),
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_tokens(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
+            FfiConverterString.lower(input),
+            FfiConverterTypeSpecialTokens.lower(specialTokens),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * Gets the string value of a given token ID.
+   */
+  public idToToken(id: /*u32*/ number): string | undefined {
+    return FfiConverterOptionalString.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_id_to_token(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
+            FfiConverterUInt32.lower(id),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * Gets the ID value of a given token.
+   */
+  public tokenToId(token: string): /*u32*/ number | undefined {
+    return FfiConverterOptionalUInt32.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_token_to_id(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
+            FfiConverterString.lower(token),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * Tokenizes an input string and returns a list of tokens.
+   */
+  public tokenize(
+    input: string,
+    specialTokens: SpecialTokens
+  ): Array<Token> /*throws*/ {
+    return FfiConverterArrayTypeToken.lift(
+      uniffiCaller.rustCallWithError(
+        /*liftError:*/ FfiConverterTypeTokenizeError.lift.bind(
+          FfiConverterTypeTokenizeError
+        ),
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
+            FfiConverterString.lower(input),
+            FfiConverterTypeSpecialTokens.lower(specialTokens),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * Tokenizes a list of input strings and returns a list of token IDs.
+   */
+  public tokenizeBatch(
+    input: Array<string>,
+    specialTokens: SpecialTokens
+  ): TokenizedBatch /*throws*/ {
+    return FfiConverterTypeTokenizedBatch.lift(
+      uniffiCaller.rustCallWithError(
+        /*liftError:*/ FfiConverterTypeTokenizeError.lift.bind(
+          FfiConverterTypeTokenizeError
+        ),
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize_batch(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
+            FfiConverterArrayString.lower(input),
+            FfiConverterTypeSpecialTokens.lower(specialTokens),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * {@inheritDoc uniffi-bindgen-react-native#UniffiAbstractObject.uniffiDestroy}
+   */
+  uniffiDestroy(): void {
+    const ptr = (this as any)[destructorGuardSymbol];
+    if (ptr !== undefined) {
+      const pointer = uniffiTypeCustomTokenizerInnerObjectFactory.pointer(this);
+      uniffiTypeCustomTokenizerInnerObjectFactory.freePointer(pointer);
+      uniffiTypeCustomTokenizerInnerObjectFactory.unbless(ptr);
+      delete (this as any)[destructorGuardSymbol];
+    }
+  }
+
+  static instanceOf(obj: any): obj is CustomTokenizerInner {
+    return uniffiTypeCustomTokenizerInnerObjectFactory.isConcreteType(obj);
+  }
+}
+
+const uniffiTypeCustomTokenizerInnerObjectFactory: UniffiObjectFactory<CustomTokenizerInnerInterface> =
+  {
+    create(pointer: UnsafeMutableRawPointer): CustomTokenizerInnerInterface {
+      const instance = Object.create(CustomTokenizerInner.prototype);
+      instance[pointerLiteralSymbol] = pointer;
+      instance[destructorGuardSymbol] = this.bless(pointer);
+      instance[uniffiTypeNameSymbol] = 'CustomTokenizerInner';
+      return instance;
+    },
+
+    bless(p: UnsafeMutableRawPointer): UniffiRustArcPtr {
+      return uniffiCaller.rustCall(
+        /*caller:*/ (status) =>
+          nativeModule().ubrn_uniffi_internal_fn_method_customtokenizerinner_ffi__bless_pointer(
+            p,
+            status
+          ),
+        /*liftString:*/ FfiConverterString.lift
+      );
+    },
+
+    unbless(ptr: UniffiRustArcPtr) {
+      ptr.markDestroyed();
+    },
+
+    pointer(obj: CustomTokenizerInnerInterface): UnsafeMutableRawPointer {
+      if ((obj as any)[destructorGuardSymbol] === undefined) {
+        throw new UniffiInternalError.UnexpectedNullPointer();
+      }
+      return (obj as any)[pointerLiteralSymbol];
+    },
+
+    clonePointer(obj: CustomTokenizerInnerInterface): UnsafeMutableRawPointer {
+      const pointer = this.pointer(obj);
+      return uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) =>
+          nativeModule().ubrn_uniffi_vella_sdk_fn_clone_customtokenizerinner(
+            pointer,
+            callStatus
+          ),
+        /*liftString:*/ FfiConverterString.lift
+      );
+    },
+
+    freePointer(pointer: UnsafeMutableRawPointer): void {
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) =>
+          nativeModule().ubrn_uniffi_vella_sdk_fn_free_customtokenizerinner(
+            pointer,
+            callStatus
+          ),
+        /*liftString:*/ FfiConverterString.lift
+      );
+    },
+
+    isConcreteType(obj: any): obj is CustomTokenizerInnerInterface {
+      return (
+        obj[destructorGuardSymbol] &&
+        obj[uniffiTypeNameSymbol] === 'CustomTokenizerInner'
+      );
+    },
+  };
+// FfiConverter for CustomTokenizerInnerInterface
+const FfiConverterTypeCustomTokenizerInner = new FfiConverterObject(
+  uniffiTypeCustomTokenizerInnerObjectFactory
+);
+
 // FfiConverter for /*i64*/bigint | undefined
 const FfiConverterOptionalInt64 = new FfiConverterOptional(FfiConverterInt64);
 
+// FfiConverter for PaddingParams | undefined
+const FfiConverterOptionalTypePaddingParams = new FfiConverterOptional(
+  FfiConverterTypePaddingParams
+);
+
+// FfiConverter for TruncationParams | undefined
+const FfiConverterOptionalTypeTruncationParams = new FfiConverterOptional(
+  FfiConverterTypeTruncationParams
+);
+
 // FfiConverter for string | undefined
 const FfiConverterOptionalString = new FfiConverterOptional(FfiConverterString);
+
+// FfiConverter for /*u32*/number | undefined
+const FfiConverterOptionalUInt32 = new FfiConverterOptional(FfiConverterUInt32);
 
 // FfiConverter for Array<BatchSection>
 const FfiConverterArrayTypeBatchSection = new FfiConverterArray(
@@ -1218,8 +2244,19 @@ const FfiConverterArrayTypeHeader = new FfiConverterArray(
   FfiConverterTypeHeader
 );
 
+// FfiConverter for Array<Token>
+const FfiConverterArrayTypeToken = new FfiConverterArray(FfiConverterTypeToken);
+
 // FfiConverter for Array<string>
 const FfiConverterArrayString = new FfiConverterArray(FfiConverterString);
+
+// FfiConverter for Array</*u32*/number>
+const FfiConverterArrayUInt32 = new FfiConverterArray(FfiConverterUInt32);
+
+// FfiConverter for Array<Array</*u32*/number>>
+const FfiConverterArrayArrayUInt32 = new FfiConverterArray(
+  FfiConverterArrayUInt32
+);
 
 /**
  * This should be called before anything else.
@@ -1281,6 +2318,62 @@ function uniffiEnsureInitialized() {
       'uniffi_vella_sdk_checksum_func_parse_visible_text'
     );
   }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids() !==
+    28986
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_tokens() !==
+    27258
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_get_tokens'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_id_to_token() !==
+    31500
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_id_to_token'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_token_to_id() !==
+    55982
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_token_to_id'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_tokenize() !==
+    39025
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_tokenize'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_tokenize_batch() !==
+    50675
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_tokenize_batch'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_constructor_customtokenizerinner_new() !==
+    38265
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_constructor_customtokenizerinner_new'
+    );
+  }
 }
 
 export default Object.freeze({
@@ -1288,6 +2381,7 @@ export default Object.freeze({
   converters: {
     FfiConverterTypeBatchResponse,
     FfiConverterTypeBatchSection,
+    FfiConverterTypeCustomTokenizerInner,
     FfiConverterTypeEmail,
     FfiConverterTypeEmailAddress,
     FfiConverterTypeEmailAddressWithText,
@@ -1296,5 +2390,14 @@ export default Object.freeze({
     FfiConverterTypeGmailErrorItem,
     FfiConverterTypeGmailMessage,
     FfiConverterTypeHeader,
+    FfiConverterTypePaddingDirection,
+    FfiConverterTypePaddingParams,
+    FfiConverterTypePaddingStrategy,
+    FfiConverterTypeSpecialTokens,
+    FfiConverterTypeToken,
+    FfiConverterTypeTokenizedBatch,
+    FfiConverterTypeTruncationDirection,
+    FfiConverterTypeTruncationParams,
+    FfiConverterTypeTruncationStrategy,
   },
 });
