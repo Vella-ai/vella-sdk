@@ -1,4 +1,4 @@
-use std::str::FromStr;
+use std::{fmt::Display, str::FromStr};
 
 use tokenizers::Tokenizer;
 
@@ -136,14 +136,21 @@ impl From<TruncationStrategy> for tokenizers::TruncationStrategy {
     }
 }
 
-#[derive(uniffi::Error, Debug, thiserror::Error)]
+#[derive(uniffi::Error, Debug)]
 pub enum TokenizeError {
-    #[error("Tokenizer creation failed")]
     TokenizerCreationFailed,
-    #[error("Input encoding failed")]
     InputEncodingFailed,
-    #[error("Invalid Truncation Params")]
     InvalidTruncationParams,
+}
+
+impl Display for TokenizeError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            TokenizeError::TokenizerCreationFailed => write!(f, "Tokenizer creation failed"),
+            TokenizeError::InputEncodingFailed => write!(f, "Input encoding failed"),
+            TokenizeError::InvalidTruncationParams => write!(f, "Invalid truncation params"),
+        }
+    }
 }
 
 /// A tokenizer object from a custom dictionary.

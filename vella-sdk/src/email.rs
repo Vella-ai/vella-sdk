@@ -1,21 +1,30 @@
+use std::fmt::Display;
+
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use regex::Regex;
 
-#[derive(uniffi::Error, Debug, thiserror::Error)]
+#[derive(uniffi::Error, Debug)]
 pub enum ParserError {
-    #[error("Failed to decode base64 input")]
     Base64DecodeFailed,
-    #[error("Decoded data is not a UTF8 string")]
     NonUtfInput,
-    #[error("Input string is empty")]
     EmptyInput,
-    #[error("Failed to parse email")]
     EmailParseFailed,
-    #[error("Email doesn't have a from header")]
     NoFromHeader,
-    #[error("Email doesn't have a to header")]
     NoToHeader,
+}
+
+impl Display for ParserError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            ParserError::Base64DecodeFailed => write!(f, "Failed to decode base64 input"),
+            ParserError::NonUtfInput => write!(f, "Decoded data is not a UTF8 string"),
+            ParserError::EmptyInput => write!(f, "Input string is empty"),
+            ParserError::EmailParseFailed => write!(f, "Failed to parse email"),
+            ParserError::NoFromHeader => write!(f, "Email doesn't have a from header"),
+            ParserError::NoToHeader => write!(f, "Email doesn't have a to header"),
+        }
+    }
 }
 
 type Return<T> = Result<T, ParserError>;
