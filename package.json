@@ -20,6 +20,7 @@
     "cpp",
     "*.podspec",
     "react-native.config.js",
+    "VellaSDK.xcframework",
     "!ios/build",
     "!android/build",
     "!android/gradle",
