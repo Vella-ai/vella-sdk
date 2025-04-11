@@ -26,5 +26,4 @@
     "target": "ESNext",
     "verbatimModuleSyntax": true
   },
-  "exclude": ["node_modules/uniffi-bindgen-react-native"]
 }
