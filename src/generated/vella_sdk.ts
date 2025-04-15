@@ -216,6 +216,7 @@ export type Email = {
   headers: Array<Header>;
   textBodies: Array<EmailText>;
   htmlBodies: Array<EmailText>;
+  markups: Array<string>;
 };
 
 /**
@@ -266,6 +267,7 @@ const FfiConverterTypeEmail = (() => {
         headers: FfiConverterArrayTypeHeader.read(from),
         textBodies: FfiConverterArrayTypeEmailText.read(from),
         htmlBodies: FfiConverterArrayTypeEmailText.read(from),
+        markups: FfiConverterArrayString.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
@@ -284,6 +286,7 @@ const FfiConverterTypeEmail = (() => {
       FfiConverterArrayTypeHeader.write(value.headers, into);
       FfiConverterArrayTypeEmailText.write(value.textBodies, into);
       FfiConverterArrayTypeEmailText.write(value.htmlBodies, into);
+      FfiConverterArrayString.write(value.markups, into);
     }
     allocationSize(value: TypeName): number {
       return (
@@ -301,7 +304,8 @@ const FfiConverterTypeEmail = (() => {
         FfiConverterOptionalString.allocationSize(value.mimeVersion) +
         FfiConverterArrayTypeHeader.allocationSize(value.headers) +
         FfiConverterArrayTypeEmailText.allocationSize(value.textBodies) +
-        FfiConverterArrayTypeEmailText.allocationSize(value.htmlBodies)
+        FfiConverterArrayTypeEmailText.allocationSize(value.htmlBodies) +
+        FfiConverterArrayString.allocationSize(value.markups)
       );
     }
   }
