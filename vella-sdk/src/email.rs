@@ -3,6 +3,7 @@ use std::fmt::Display;
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use regex::Regex;
+use scraper::{Html, Selector};
 
 #[derive(uniffi::Error, Debug)]
 pub enum ParserError {
@@ -70,6 +71,8 @@ struct Email {
 
     text_bodies: Vec<EmailText>,
     html_bodies: Vec<EmailText>,
+
+    markups: Vec<String>,
 }
 
 #[derive(Debug, uniffi::Record)]
@@ -244,6 +247,12 @@ fn parse_email(raw: String) -> Return<Email> {
         .map(parse_html)
         .collect();
 
+    let markups: Vec<String> = message
+        .html_bodies()
+        .map(|x| x.to_string())
+        .flat_map(parse_json_lds)
+        .collect();
+
     let content_id = message.content_id().map(ToOwned::to_owned);
     let message_id = message.message_id().map(ToOwned::to_owned);
     let thread_name = message.thread_name().map(ToOwned::to_owned);
@@ -268,7 +277,20 @@ fn parse_email(raw: String) -> Return<Email> {
         headers,
         text_bodies,
         html_bodies,
+        markups,
     })
+}
+
+fn parse_json_lds(html: String) -> Vec<String> {
+    let document = Html::parse_document(&html);
+    let selector = Selector::parse(r#"script[type="application/ld+json"]"#)
+        .expect("failed to create json ld scripts selector");
+
+    document
+        .select(&selector)
+        .filter_map(|el| el.text().next())
+        .map(|x| x.to_owned())
+        .collect()
 }
 
 #[derive(serde::Deserialize)]

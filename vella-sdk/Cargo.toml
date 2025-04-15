@@ -13,6 +13,7 @@ tokenizers = { version = "0.20.3", default-features = false, features = ["onig"]
 regex = { version = "1.11.1", default-features = false, features = ["std"] }
 serde_json = { version = "1.0.138", default-features = false }
 uniffi = "0.29.1"
+scraper = "0.23.1"
 
 [build-dependencies]
 uniffi = { version = "0.28.3", features = ["build"] }
