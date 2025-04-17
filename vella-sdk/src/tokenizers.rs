@@ -11,6 +11,12 @@ struct Token {
 }
 
 #[derive(uniffi::Record)]
+struct ReturnToken {
+    id: u32,
+    token: String,
+}
+
+#[derive(uniffi::Record)]
 struct TokenizedBatch {
     token_ids: Vec<Vec<u32>>,
     attention_mask: Vec<Vec<u32>>,
@@ -279,5 +285,13 @@ impl CustomTokenizerInner {
     /// Gets the string value of a given token ID.
     fn id_to_token(&self, id: u32) -> Option<String> {
         self.tokenizer.id_to_token(id)
+    }
+
+    /// Gets the configured pad token.
+    fn get_pad_token(&self) -> Option<ReturnToken> {
+        self.tokenizer.get_padding().map(|padding| ReturnToken {
+            id: padding.pad_id,
+            token: padding.pad_token.to_owned(),
+        })
     }
 }
