@@ -43,6 +43,10 @@ interface NativeModuleInterface {
     specialTokens: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
   ): Uint8Array;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
   ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_tokens(
     ptr: bigint,
     input: Uint8Array,
@@ -97,6 +101,7 @@ interface NativeModuleInterface {
   ubrn_uniffi_vella_sdk_checksum_func_parse_visible_html(): number;
   ubrn_uniffi_vella_sdk_checksum_func_parse_visible_text(): number;
   ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token(): number;
   ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_tokens(): number;
   ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_id_to_token(): number;
   ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_token_to_id(): number;

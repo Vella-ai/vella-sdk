@@ -829,6 +829,64 @@ const FfiConverterTypePaddingParams = (() => {
   return new FFIConverter();
 })();
 
+export type ReturnToken = {
+  id: /*u32*/ number;
+  token: string;
+};
+
+/**
+ * Generated factory for {@link ReturnToken} record objects.
+ */
+export const ReturnToken = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<ReturnToken, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link ReturnToken}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link ReturnToken}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<ReturnToken>,
+  });
+})();
+
+const FfiConverterTypeReturnToken = (() => {
+  type TypeName = ReturnToken;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        id: FfiConverterUInt32.read(from),
+        token: FfiConverterString.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterUInt32.write(value.id, into);
+      FfiConverterString.write(value.token, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterUInt32.allocationSize(value.id) +
+        FfiConverterString.allocationSize(value.token)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
 export type Token = {
   id: /*u32*/ number;
   token: string;
@@ -1915,6 +1973,10 @@ export interface CustomTokenizerInnerInterface {
     specialTokens: SpecialTokens
   ) /*throws*/ : Array</*u32*/ number>;
   /**
+   * Gets the configured pad token.
+   */
+  getPadToken(): ReturnToken | undefined;
+  /**
    * Tokenizes an input string and returns a list of token strings.
    */
   getTokens(
@@ -2000,6 +2062,23 @@ export class CustomTokenizerInner
             uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
             FfiConverterString.lower(input),
             FfiConverterTypeSpecialTokens.lower(specialTokens),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * Gets the configured pad token.
+   */
+  public getPadToken(): ReturnToken | undefined {
+    return FfiConverterOptionalTypeReturnToken.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
             callStatus
           );
         },
@@ -2212,6 +2291,11 @@ const FfiConverterOptionalTypePaddingParams = new FfiConverterOptional(
   FfiConverterTypePaddingParams
 );
 
+// FfiConverter for ReturnToken | undefined
+const FfiConverterOptionalTypeReturnToken = new FfiConverterOptional(
+  FfiConverterTypeReturnToken
+);
+
 // FfiConverter for TruncationParams | undefined
 const FfiConverterOptionalTypeTruncationParams = new FfiConverterOptional(
   FfiConverterTypeTruncationParams
@@ -2331,6 +2415,14 @@ function uniffiEnsureInitialized() {
     );
   }
   if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token() !==
+    39869
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token'
+    );
+  }
+  if (
     nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_tokens() !==
     27258
   ) {
@@ -2397,6 +2489,7 @@ export default Object.freeze({
     FfiConverterTypePaddingDirection,
     FfiConverterTypePaddingParams,
     FfiConverterTypePaddingStrategy,
+    FfiConverterTypeReturnToken,
     FfiConverterTypeSpecialTokens,
     FfiConverterTypeToken,
     FfiConverterTypeTokenizedBatch,

@@ -40,6 +40,9 @@ protected:
   jsi::Value cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_ids(
       jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
       size_t count);
+  jsi::Value cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token(
+      jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+      size_t count);
   jsi::Value cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_tokens(
       jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
       size_t count);
@@ -88,6 +91,10 @@ protected:
       jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
       size_t count);
   jsi::Value cpp_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids(
+      jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+      size_t count);
+  jsi::Value
+  cpp_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token(
       jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
       size_t count);
   jsi::Value

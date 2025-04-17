@@ -111,6 +111,8 @@ void *uniffi_vella_sdk_fn_constructor_customtokenizerinner_new(
 RustBuffer uniffi_vella_sdk_fn_method_customtokenizerinner_get_ids(
     void *ptr, RustBuffer input, RustBuffer special_tokens,
     RustCallStatus *uniffi_out_err);
+RustBuffer uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token(
+    void *ptr, RustCallStatus *uniffi_out_err);
 RustBuffer uniffi_vella_sdk_fn_method_customtokenizerinner_get_tokens(
     void *ptr, RustBuffer input, RustBuffer special_tokens,
     RustCallStatus *uniffi_out_err);
@@ -268,6 +270,7 @@ uint16_t uniffi_vella_sdk_checksum_func_parse_email();
 uint16_t uniffi_vella_sdk_checksum_func_parse_visible_html();
 uint16_t uniffi_vella_sdk_checksum_func_parse_visible_text();
 uint16_t uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids();
+uint16_t uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token();
 uint16_t uniffi_vella_sdk_checksum_method_customtokenizerinner_get_tokens();
 uint16_t uniffi_vella_sdk_checksum_method_customtokenizerinner_id_to_token();
 uint16_t uniffi_vella_sdk_checksum_method_customtokenizerinner_token_to_id();
@@ -1732,6 +1735,18 @@ NativeVellaSdk::NativeVellaSdk(
                 ->cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_ids(
                     rt, thisVal, args, count);
           });
+  props["ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(rt, "ubrn_uniffi_vella_sdk_fn_method_"
+                                        "customtokenizerinner_get_pad_token"),
+          1,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this
+                ->cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token(
+                    rt, thisVal, args, count);
+          });
   props["ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_tokens"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -1916,6 +1931,18 @@ NativeVellaSdk::NativeVellaSdk(
                 ->cpp_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids(
                     rt, thisVal, args, count);
           });
+  props["ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_"
+        "token"] = jsi::Function::createFromHostFunction(
+      rt,
+      jsi::PropNameID::forAscii(rt, "ubrn_uniffi_vella_sdk_checksum_method_"
+                                    "customtokenizerinner_get_pad_token"),
+      0,
+      [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+             const jsi::Value *args, size_t count) -> jsi::Value {
+        return this
+            ->cpp_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token(
+                rt, thisVal, args, count);
+      });
   props["ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_"
         "tokens"] = jsi::Function::createFromHostFunction(
       rt,
@@ -2150,6 +2177,19 @@ NativeVellaSdk::cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_ids(
 
   return uniffi::vella_sdk::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
 }
+jsi::Value NativeVellaSdk::
+    cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token(
+        jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+        size_t count) {
+  RustCallStatus status =
+      uniffi::vella_sdk::Bridging<RustCallStatus>::rustSuccess(rt);
+  auto value = uniffi_vella_sdk_fn_method_customtokenizerinner_get_pad_token(
+      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
+  uniffi::vella_sdk::Bridging<RustCallStatus>::copyIntoJs(
+      rt, callInvoker, status, args[count - 1]);
+
+  return uniffi::vella_sdk::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
+}
 jsi::Value
 NativeVellaSdk::cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_get_tokens(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
@@ -2336,6 +2376,15 @@ jsi::Value NativeVellaSdk::
         jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
         size_t count) {
   auto value = uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids();
+
+  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
+}
+jsi::Value NativeVellaSdk::
+    cpp_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token(
+        jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+        size_t count) {
+  auto value =
+      uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token();
 
   return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
