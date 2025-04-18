@@ -1,5 +1,6 @@
 use std::{fmt::Display, str::FromStr};
 
+use rayon::prelude::*;
 use tokenizers::Tokenizer;
 
 #[derive(uniffi::Record)]
@@ -231,15 +232,15 @@ impl CustomTokenizerInner {
             .encode_batch(input, special_tokens.into())
             .map_err(|_| TokenizeError::InputEncodingFailed)?;
 
-        let token_ids: Vec<_> = encodings.iter().map(|e| e.get_ids().to_vec()).collect();
+        let token_ids: Vec<_> = encodings.par_iter().map(|e| e.get_ids().to_vec()).collect();
 
         let attention_mask: Vec<_> = encodings
-            .iter()
+            .par_iter()
             .map(|e| e.get_attention_mask().to_vec())
             .collect();
 
         let type_ids: Vec<_> = encodings
-            .iter()
+            .par_iter()
             .map(|e| e.get_type_ids().to_vec())
             .collect();
 

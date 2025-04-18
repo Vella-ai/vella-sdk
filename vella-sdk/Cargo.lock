@@ -1797,6 +1797,7 @@ dependencies = [
  "html-escape",
  "lol_html",
  "mail-parser",
+ "rayon",
  "regex",
  "scraper",
  "serde",
