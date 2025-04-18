@@ -2,6 +2,7 @@ use std::fmt::Display;
 
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
+use rayon::prelude::*;
 use regex::Regex;
 use scraper::{Html, Selector};
 
@@ -118,7 +119,7 @@ fn parse_addr(value: &Addr<'_>) -> Option<EmailAddress> {
 
 fn parse_addrs(addrs: &[Addr<'_>]) -> Vec<EmailAddress> {
     addrs
-        .iter()
+        .par_iter()
         .filter_map(parse_addr)
         .collect::<Vec<EmailAddress>>()
 }
@@ -238,17 +239,20 @@ fn parse_email(raw: String) -> Return<Email> {
 
     let text_bodies: Vec<EmailText> = message
         .text_bodies()
+        .par_bridge()
         .map(|x| x.to_string())
         .map(parse_text)
         .collect();
     let html_bodies: Vec<EmailText> = message
         .html_bodies()
+        .par_bridge()
         .map(|x| x.to_string())
         .map(parse_html)
         .collect();
 
     let markups: Vec<String> = message
         .html_bodies()
+        .par_bridge()
         .map(|x| x.to_string())
         .flat_map(parse_json_lds)
         .collect();
@@ -288,8 +292,7 @@ fn parse_json_lds(html: String) -> Vec<String> {
 
     document
         .select(&selector)
-        .filter_map(|el| el.text().next())
-        .map(|x| x.to_owned())
+        .filter_map(|el| el.text().next().map(|x| x.to_owned()))
         .collect()
 }
 
@@ -374,6 +377,7 @@ fn parse_gmail(
 #[uniffi::export]
 fn parse_batch_response(body: String) -> Vec<BatchSection> {
     body.split("--")
+        .par_bridge()
         .filter_map(|section| -> Option<BatchSection> {
             let batch_name = section.lines().next()?.trim().to_owned();
             let json_start = section.find('{')?;
