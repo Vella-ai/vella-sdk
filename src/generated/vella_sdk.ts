@@ -30,6 +30,7 @@ import nativeModule, {
   type UniffiForeignFutureStructVoid,
   type UniffiForeignFutureCompleteVoid,
 } from './vella_sdk-ffi';
+import { SchemaOrg } from './schemaorg_rs';
 import {
   type FfiConverter,
   type UniffiByteArray,
@@ -60,6 +61,8 @@ import {
 } from 'uniffi-bindgen-react-native';
 
 // Get converters from the other files, if any.
+import uniffiSchemaorgRsModule from './schemaorg_rs';
+const { FfiConverterTypeSchemaOrg } = uniffiSchemaorgRsModule.converters;
 const uniffiCaller = new UniffiRustCaller();
 
 const uniffiIsDebug =
@@ -216,7 +219,7 @@ export type Email = {
   headers: Array<Header>;
   textBodies: Array<EmailText>;
   htmlBodies: Array<EmailText>;
-  markups: Array<string>;
+  markups: Array<SchemaOrg>;
 };
 
 /**
@@ -267,7 +270,7 @@ const FfiConverterTypeEmail = (() => {
         headers: FfiConverterArrayTypeHeader.read(from),
         textBodies: FfiConverterArrayTypeEmailText.read(from),
         htmlBodies: FfiConverterArrayTypeEmailText.read(from),
-        markups: FfiConverterArrayString.read(from),
+        markups: FfiConverterArrayTypeSchemaOrg.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
@@ -286,7 +289,7 @@ const FfiConverterTypeEmail = (() => {
       FfiConverterArrayTypeHeader.write(value.headers, into);
       FfiConverterArrayTypeEmailText.write(value.textBodies, into);
       FfiConverterArrayTypeEmailText.write(value.htmlBodies, into);
-      FfiConverterArrayString.write(value.markups, into);
+      FfiConverterArrayTypeSchemaOrg.write(value.markups, into);
     }
     allocationSize(value: TypeName): number {
       return (
@@ -305,7 +308,7 @@ const FfiConverterTypeEmail = (() => {
         FfiConverterArrayTypeHeader.allocationSize(value.headers) +
         FfiConverterArrayTypeEmailText.allocationSize(value.textBodies) +
         FfiConverterArrayTypeEmailText.allocationSize(value.htmlBodies) +
-        FfiConverterArrayString.allocationSize(value.markups)
+        FfiConverterArrayTypeSchemaOrg.allocationSize(value.markups)
       );
     }
   }
@@ -2306,6 +2309,11 @@ const FfiConverterOptionalString = new FfiConverterOptional(FfiConverterString);
 
 // FfiConverter for /*u32*/number | undefined
 const FfiConverterOptionalUInt32 = new FfiConverterOptional(FfiConverterUInt32);
+
+// FfiConverter for Array<SchemaOrg>
+const FfiConverterArrayTypeSchemaOrg = new FfiConverterArray(
+  FfiConverterTypeSchemaOrg
+);
 
 // FfiConverter for Array<BatchSection>
 const FfiConverterArrayTypeBatchSection = new FfiConverterArray(

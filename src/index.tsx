@@ -11,11 +11,13 @@ if (!rustInstalled) {
 }
 
 // Export the generated bindings to the app.
+export * from './generated/schemaorg_rs';
 export * from './generated/vella_sdk';
 
 // Now import the bindings so we can:
 // - intialize them
 // - export them as namespaced objects as the default export.
+import * as schemaorg_rs from './generated/schemaorg_rs';
 import * as vella_sdk from './generated/vella_sdk';
 
 // Initialize the generated bindings: mostly checksums, but also callbacks.
@@ -23,11 +25,13 @@ import * as vella_sdk from './generated/vella_sdk';
 //   is reloaded (e.g. during development with metro).
 let initialized = false;
 if (!initialized) {
+  schemaorg_rs.default.initialize();
   vella_sdk.default.initialize();
   initialized = true;
 }
 
 // Export the crates as individually namespaced objects.
 export default {
+  schemaorg_rs,
   vella_sdk,
 };
