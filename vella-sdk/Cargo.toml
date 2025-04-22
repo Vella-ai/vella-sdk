@@ -15,6 +15,7 @@ serde_json = { version = "1.0.138", default-features = false }
 uniffi = "0.29.1"
 scraper = "0.23.1"
 rayon = "1.10.0"
+schemaorg-rs = { version = "0.1.0", features = ["uniffi"] }
 
 [build-dependencies]
 uniffi = { version = "0.28.3", features = ["build"] }
@@ -23,7 +24,4 @@ uniffi = { version = "0.28.3", features = ["build"] }
 crate-type = ["cdylib", "staticlib", "lib"]
 
 [profile.release]
-opt-level = 3          # Maximum optimization level
-lto = true             # Link Time Optimization
-codegen-units = 1      # Ensures whole-program optimization
 strip = true           # Removes symbols for non-debug builds
