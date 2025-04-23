@@ -26,7 +26,6 @@ include_directories(
 
 add_library(vella-sdk            SHARED
     ../cpp/vella-sdk.cpp
-    ../cpp/generated/schemaorg_rs.cpp
     ../cpp/generated/vella_sdk.cpp
     cpp-adapter.cpp
 )
