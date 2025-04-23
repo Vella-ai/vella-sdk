@@ -1313,17 +1313,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f3cb5ba0dc43242ce17de99c180e96db90b235b8a9fdc9543c96d2209116bd9f"
 
 [[package]]
-name = "schemaorg-rs"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "066ddc8d57ce5a758bc6af59c01e4889c051b34ee755d039bc0715844c9cef19"
-dependencies = [
- "serde",
- "serde_with",
- "uniffi 0.29.1",
-]
-
-[[package]]
 name = "scopeguard"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2016,10 +2005,10 @@ dependencies = [
  "mail-parser",
  "rayon",
  "regex",
- "schemaorg-rs",
  "scraper",
  "serde",
  "serde_json",
+ "serde_with",
  "tokenizers",
  "uniffi 0.28.3",
  "uniffi 0.29.1",

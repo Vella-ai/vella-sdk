@@ -1,10 +1,10 @@
 use std::fmt::Display;
 
+use crate::schemaorg::Organization;
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use rayon::prelude::*;
 use regex::Regex;
-use schemaorg_rs::SchemaOrg;
 use scraper::{Html, Selector};
 
 #[derive(uniffi::Error, Debug)]
@@ -74,7 +74,8 @@ struct Email {
     text_bodies: Vec<EmailText>,
     html_bodies: Vec<EmailText>,
 
-    markups: Vec<SchemaOrg>,
+    markups: Vec<String>,
+    organizations: Vec<Organization>,
 }
 
 #[derive(Debug, uniffi::Record)]
@@ -251,12 +252,16 @@ fn parse_email(raw: String) -> Return<Email> {
         .map(parse_html)
         .collect();
 
-    let markups: Vec<SchemaOrg> = message
+    let markups: Vec<String> = message
         .html_bodies()
         .par_bridge()
         .map(|x| x.to_string())
         .flat_map(parse_json_lds)
-        .filter_map(|x| serde_json::from_str(&x).ok())
+        .collect();
+
+    let organizations: Vec<Organization> = markups
+        .par_iter()
+        .filter_map(|x| serde_json::from_str(x).ok())
         .collect();
 
     let content_id = message.content_id().map(ToOwned::to_owned);
@@ -284,6 +289,7 @@ fn parse_email(raw: String) -> Return<Email> {
         text_bodies,
         html_bodies,
         markups,
+        organizations,
     })
 }
 

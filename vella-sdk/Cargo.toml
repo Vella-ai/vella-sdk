@@ -15,7 +15,7 @@ serde_json = { version = "1.0.138", default-features = false }
 uniffi = "0.29.1"
 scraper = "0.23.1"
 rayon = "1.10.0"
-schemaorg-rs = { version = "0.1.0", features = ["uniffi"] }
+serde_with = "3.12.0"
 
 [build-dependencies]
 uniffi = { version = "0.28.3", features = ["build"] }
@@ -24,4 +24,6 @@ uniffi = { version = "0.28.3", features = ["build"] }
 crate-type = ["cdylib", "staticlib", "lib"]
 
 [profile.release]
-strip = true           # Removes symbols for non-debug builds
+opt-level = "z"         # Optimize for size ("s" = some size, "z" = max size reduction)
+codegen-units = 16      # More parallelism = faster compile times
+strip = true            # Still strip symbols for smaller binaries
