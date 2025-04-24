@@ -5,7 +5,17 @@ const os = require('os');
 const cliProgress = require('cli-progress');
 const tar = require('tar');
 
-const version = require('../package.json').version;
+let version;
+try {
+  version = require('../package.json').version;
+} catch (error) {
+  console.error(
+    '❌ Error: Could not load package.json or find version.',
+    error
+  );
+  process.exit(1);
+}
+
 const baseURL = `https://github.com/Vella-ai/vella-sdk/releases/download/${version}/`;
 const archiveName = `vella-sdk-libs-${version}.tar.gz`;
 const archiveUrl = baseURL + archiveName;
@@ -47,19 +57,41 @@ function formatBytes(bytes) {
   return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
 }
 
+async function checkBinariesExist() {
+  console.log(
+    `\n🔍 Checking if native binaries for v${version} already exist...`
+  );
+  for (const bin of binaries) {
+    const destPath = path.join(projectRoot, bin.dest);
+    try {
+      await fs.promises.access(destPath, fs.constants.F_OK);
+    } catch (err) {
+      if (err.code === 'ENOENT') {
+        console.log(`  ❌ Missing: ${bin.dest}`);
+        return false;
+      } else {
+        console.error(`  ⚠️ Error checking file ${destPath}: ${err.message}`);
+        return false;
+      }
+    }
+  }
+  console.log(`👍 All required binaries for v${version} are already present.`);
+  return true;
+}
+
 function downloadWithProgress(url, dest) {
   return new Promise((resolve, reject) => {
     console.log(`\n⬇️ Downloading ${path.basename(dest)}...`);
 
     const download = (currentUrl) => {
       https
-        .get(currentUrl, (res) => {
-          // Follow redirects
+        .get(currentUrl, { timeout: 30000 }, (res) => {
           if (
             res.statusCode >= 300 &&
             res.statusCode < 400 &&
             res.headers.location
           ) {
+            console.log(`  Redirecting to ${res.headers.location}...`);
             const redirectUrl = new URL(
               res.headers.location,
               currentUrl
@@ -81,7 +113,8 @@ function downloadWithProgress(url, dest) {
 
           const progressBar = new cliProgress.SingleBar(
             {
-              format: `{filename} [{bar}] {percentage}% | {formattedValue} / {formattedTotal}`,
+              format:
+                '{filename} [{bar}] {percentage}% | {formattedValue} / {formattedTotal}',
               hideCursor: true,
             },
             cliProgress.Presets.shades_classic
@@ -90,9 +123,9 @@ function downloadWithProgress(url, dest) {
           const displayFilename = path.basename(dest);
 
           progressBar.start(total, 0, {
-            filename: displayFilename,
+            filename: displayFilename.padEnd(archiveName.length, ' '),
             formattedTotal: total ? formatBytes(total) : 'Unknown size',
-            formattedValue: formatBytes(0),
+            formattedValue: formatBytes(0).padStart(10, ' '),
           });
 
           const file = fs.createWriteStream(dest);
@@ -100,9 +133,11 @@ function downloadWithProgress(url, dest) {
 
           res.on('data', (chunk) => {
             downloaded += chunk.length;
-            const currentProgress = Math.min(downloaded, total || downloaded);
+            const currentProgress = total
+              ? Math.min(downloaded, total)
+              : downloaded;
             progressBar.update(currentProgress, {
-              formattedValue: formatBytes(currentProgress),
+              formattedValue: formatBytes(currentProgress).padStart(10, ' '),
             });
           });
 
@@ -110,9 +145,10 @@ function downloadWithProgress(url, dest) {
 
           file.on('finish', () => {
             file.close(() => {
+              // Ensure progress bar reaches 100% if total size was known
               const finalProgress = total || downloaded;
               progressBar.update(finalProgress, {
-                formattedValue: formatBytes(finalProgress),
+                formattedValue: formatBytes(finalProgress).padStart(10, ' '),
               });
               progressBar.stop();
               resolve();
@@ -129,14 +165,25 @@ function downloadWithProgress(url, dest) {
         })
         .on('error', (err) => {
           reject(new Error(`Network error downloading ${url}: ${err.message}`));
+        })
+        .on('timeout', () => {
+          reject(new Error(`Network timeout downloading ${url}`));
         });
     };
+
     download(url);
   });
 }
 
 (async () => {
-  console.log(`📦 Fetching native binaries archive for v${version}...`);
+  const binariesAlreadyExist = await checkBinariesExist();
+  if (binariesAlreadyExist) {
+    console.log('\n🎉 Skipping download and extraction.');
+    process.exitCode = 0;
+    return;
+  }
+
+  console.log(`\n📦 Fetching native binaries archive for v${version}...`);
   let tempDir = null;
 
   try {
@@ -145,10 +192,12 @@ function downloadWithProgress(url, dest) {
     );
     const tempArchivePath = path.join(tempDir, archiveName);
     const tempExtractDir = path.join(tempDir, 'extracted');
-    await fs.promises.mkdir(tempExtractDir);
+    await fs.promises.mkdir(tempExtractDir); // Ensure extraction target exists
 
     await downloadWithProgress(archiveUrl, tempArchivePath);
-    console.log(`✅ Archive downloaded to temporary location.`);
+    console.log(
+      `✅ Archive downloaded to temporary location: ${tempArchivePath}`
+    );
 
     console.log(`\n📦 Extracting ${archiveName}...`);
     await tar.x({
@@ -158,6 +207,7 @@ function downloadWithProgress(url, dest) {
     console.log('✅ Extraction complete.');
 
     console.log('\n🚚 Moving binaries to final locations...');
+    let filesMovedCount = 0;
     for (const bin of binaries) {
       const sourcePath = path.join(tempExtractDir, bin.name);
       const destPath = path.join(projectRoot, bin.dest);
@@ -167,25 +217,43 @@ function downloadWithProgress(url, dest) {
       try {
         await fs.promises.access(sourcePath, fs.constants.F_OK);
         await fs.promises.rename(sourcePath, destPath);
-        console.log(`-> ${bin.dest}`);
+        console.log(`  -> ${bin.dest}`);
+        filesMovedCount++;
       } catch (err) {
         if (err.code === 'ENOENT') {
           console.warn(
-            `⚠️ WARNING: Binary ${bin.name} not found in archive, skipping.`
+            `⚠️ WARNING: Binary ${bin.name} not found in extracted archive at ${sourcePath}, skipping move.`
           );
         } else {
+          console.error(
+            `❌ Error moving ${bin.name} to ${destPath}: ${err.message}`
+          );
           throw err;
         }
       }
     }
 
-    console.log('\n🎉 All binaries processed successfully.');
+    if (filesMovedCount === binaries.length) {
+      console.log('\n🎉 All expected binaries processed successfully.');
+    } else if (filesMovedCount > 0) {
+      console.log(
+        `\n⚠️ Processed ${filesMovedCount} out of ${binaries.length} expected binaries.`
+      );
+    } else {
+      console.error(
+        `\n❌ No binaries were moved. Check archive content and paths.`
+      );
+      throw new Error('No binaries found or moved from the archive.');
+    }
   } catch (err) {
     console.error(`\n❌ Operation failed: ${err.message}`);
+    if (err.stack) {
+      console.error(err.stack);
+    }
     process.exitCode = 1;
   } finally {
     if (tempDir) {
-      console.log(`\n🧹 Cleaning up temporary files...`);
+      console.log(`\n🧹 Cleaning up temporary files in ${tempDir}...`);
       try {
         await fs.promises.rm(tempDir, { recursive: true, force: true });
         console.log('✅ Cleanup complete.');
@@ -193,6 +261,9 @@ function downloadWithProgress(url, dest) {
         console.error(
           `⚠️ Failed to cleanup temporary directory ${tempDir}: ${cleanupErr.message}`
         );
+        if (!process.exitCode) {
+          process.exitCode = 1;
+        }
       }
     }
   }
