@@ -21,6 +21,7 @@ const archiveName = `vella-sdk-libs-${version}.tar.gz`;
 const archiveUrl = baseURL + archiveName;
 
 const projectRoot = path.join(__dirname, '..');
+const versionFilePath = path.join(projectRoot, '.binary-version');
 
 const binaries = [
   {
@@ -53,29 +54,46 @@ function formatBytes(bytes) {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
   if (bytes === 0) return '0 Bytes';
   const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
-  if (i === 0) return bytes + ' ' + sizes[i];
-  return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
+  if (i === 0) return `${bytes} ${sizes[i]}`;
+  return `${(bytes / Math.pow(1024, i)).toFixed(1)} ${sizes[i]}`;
 }
 
-async function checkBinariesExist() {
-  console.log(
-    `\n🔍 Checking if native binaries for v${version} already exist...`
-  );
+async function shouldSkipDownload() {
+  console.log(`\n🔍 Checking state for v${version}...`);
+  let storedVersion = null;
+
+  try {
+    storedVersion = await fs.promises.readFile(versionFilePath, 'utf8');
+    storedVersion = storedVersion.trim();
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      // No stored version, download is needed
+      return false;
+    } else {
+      // Safer to download if we can't read the state
+      return false;
+    }
+  }
+
+  if (storedVersion !== version) {
+    return false;
+  }
+
   for (const bin of binaries) {
     const destPath = path.join(projectRoot, bin.dest);
     try {
       await fs.promises.access(destPath, fs.constants.F_OK);
     } catch (err) {
       if (err.code === 'ENOENT') {
-        console.log(`  ❌ Missing: ${bin.dest}`);
+        // A file is missing
         return false;
       } else {
-        console.error(`  ⚠️ Error checking file ${destPath}: ${err.message}`);
+        // Safer to download if we can't check a file
         return false;
       }
     }
   }
-  console.log(`👍 All required binaries for v${version} are already present.`);
+
   return true;
 }
 
@@ -91,7 +109,6 @@ function downloadWithProgress(url, dest) {
             res.statusCode < 400 &&
             res.headers.location
           ) {
-            console.log(`  Redirecting to ${res.headers.location}...`);
             const redirectUrl = new URL(
               res.headers.location,
               currentUrl
@@ -157,7 +174,13 @@ function downloadWithProgress(url, dest) {
 
           file.on('error', (err) => {
             progressBar.stop();
-            fs.unlink(dest, () => {});
+            fs.unlink(dest, (unlinkErr) => {
+              if (unlinkErr && unlinkErr.code !== 'ENOENT') {
+                console.error(
+                  `  ⚠️ Error deleting incomplete download ${dest}: ${unlinkErr.message}`
+                );
+              }
+            });
             reject(
               new Error(`File system error writing to ${dest}: ${err.message}`)
             );
@@ -176,9 +199,11 @@ function downloadWithProgress(url, dest) {
 }
 
 (async () => {
-  const binariesAlreadyExist = await checkBinariesExist();
-  if (binariesAlreadyExist) {
-    console.log('\n🎉 Skipping download and extraction.');
+  const skipDownload = await shouldSkipDownload();
+  if (skipDownload) {
+    console.log(
+      '\n🎉 Binaries are up-to-date. Skipping download and extraction.'
+    );
     process.exitCode = 0;
     return;
   }
@@ -192,7 +217,7 @@ function downloadWithProgress(url, dest) {
     );
     const tempArchivePath = path.join(tempDir, archiveName);
     const tempExtractDir = path.join(tempDir, 'extracted');
-    await fs.promises.mkdir(tempExtractDir); // Ensure extraction target exists
+    await fs.promises.mkdir(tempExtractDir);
 
     await downloadWithProgress(archiveUrl, tempArchivePath);
     console.log(
@@ -208,6 +233,8 @@ function downloadWithProgress(url, dest) {
 
     console.log('\n🚚 Moving binaries to final locations...');
     let filesMovedCount = 0;
+    const expectedFiles = binaries.length;
+
     for (const bin of binaries) {
       const sourcePath = path.join(tempExtractDir, bin.name);
       const destPath = path.join(projectRoot, bin.dest);
@@ -233,15 +260,36 @@ function downloadWithProgress(url, dest) {
       }
     }
 
-    if (filesMovedCount === binaries.length) {
+    if (filesMovedCount === expectedFiles) {
       console.log('\n🎉 All expected binaries processed successfully.');
+      try {
+        console.log(
+          `\n💾 Storing current version (${version}) to ${path.basename(versionFilePath)}...`
+        );
+        await fs.promises.writeFile(versionFilePath, version, 'utf8');
+        console.log('✅ Version stored.');
+      } catch (writeErr) {
+        console.error(
+          `❌ Critical Warning: Failed to write version file to ${versionFilePath}: ${writeErr.message}`
+        );
+        console.error(
+          '   This may cause binaries to be re-downloaded unnecessarily on next install.'
+        );
+      }
     } else if (filesMovedCount > 0) {
-      console.log(
-        `\n⚠️ Processed ${filesMovedCount} out of ${binaries.length} expected binaries.`
+      console.warn(
+        `\n⚠️ Processed ${filesMovedCount} out of ${expectedFiles} expected binaries.`
       );
+      console.warn(
+        `   Version file ${path.basename(versionFilePath)} will not be updated.`
+      );
+      process.exitCode = 1;
     } else {
       console.error(
         `\n❌ No binaries were moved. Check archive content and paths.`
+      );
+      console.error(
+        `   Version file ${path.basename(versionFilePath)} will not be updated.`
       );
       throw new Error('No binaries found or moved from the archive.');
     }
@@ -251,6 +299,20 @@ function downloadWithProgress(url, dest) {
       console.error(err.stack);
     }
     process.exitCode = 1;
+
+    try {
+      console.log(
+        `  Attempting to remove potentially outdated version file ${path.basename(versionFilePath)}...`
+      );
+      await fs.promises.unlink(versionFilePath);
+      console.log(`  Version file removed.`);
+    } catch (unlinkErr) {
+      if (unlinkErr.code !== 'ENOENT') {
+        console.warn(
+          `  ⚠️ Could not remove version file: ${unlinkErr.message}`
+        );
+      }
+    }
   } finally {
     if (tempDir) {
       console.log(`\n🧹 Cleaning up temporary files in ${tempDir}...`);

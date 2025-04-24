@@ -87,3 +87,5 @@ nitrogen/
 
 # Library builds
 *.a
+
+.binary-version
