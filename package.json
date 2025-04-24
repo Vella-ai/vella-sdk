@@ -21,6 +21,7 @@
     "*.podspec",
     "react-native.config.js",
     "VellaSDK.xcframework",
+    "scripts/postinstall.js",
     "!android/src/main/jniLibs/arm64-v8a/libvella_sdk.a",
     "!android/src/main/jniLibs/armeabi-v7a/libvella_sdk.a",
     "!android/src/main/jniLibs/x86_64/libvella_sdk.a",
