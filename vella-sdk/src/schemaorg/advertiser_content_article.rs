@@ -134,9 +134,7 @@ pub struct AdvertiserContentArticle {
     #[serde(rename = "publishingPrinciples")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub publishing_principles: Vec<
-        AdvertiserContentArticlePublishingPrinciplesFieldEnum,
-    >,
+    pub publishing_principles: Vec<AdvertiserContentArticlePublishingPrinciplesFieldEnum>,
     ///<https://schema.org/inLanguage>
     #[serde(rename = "inLanguage")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -326,9 +324,7 @@ pub struct AdvertiserContentArticle {
     #[serde(rename = "learningResourceType")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub learning_resource_type: Vec<
-        AdvertiserContentArticleLearningResourceTypeFieldEnum,
-    >,
+    pub learning_resource_type: Vec<AdvertiserContentArticleLearningResourceTypeFieldEnum>,
     ///<https://schema.org/alternativeHeadline>
     #[serde(rename = "alternativeHeadline")]
     #[serde_as(as = "OneOrMany<_>")]

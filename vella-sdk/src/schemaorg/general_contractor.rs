@@ -324,9 +324,7 @@ pub struct GeneralContractor {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        GeneralContractorDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<GeneralContractorDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -341,9 +339,7 @@ pub struct GeneralContractor {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        GeneralContractorActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<GeneralContractorActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

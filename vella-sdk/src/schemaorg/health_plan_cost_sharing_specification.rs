@@ -44,9 +44,7 @@ pub struct HealthPlanCostSharingSpecification {
     #[serde(rename = "mainEntityOfPage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub main_entity_of_page: Vec<
-        HealthPlanCostSharingSpecificationMainEntityOfPageFieldEnum,
-    >,
+    pub main_entity_of_page: Vec<HealthPlanCostSharingSpecificationMainEntityOfPageFieldEnum>,
     ///<https://schema.org/url>
     #[serde(rename = "url")]
     #[serde_as(as = "OneOrMany<_>")]

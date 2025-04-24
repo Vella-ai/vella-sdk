@@ -44,9 +44,7 @@ pub struct HomeAndConstructionBusiness {
     #[serde(rename = "unnamedSourcesPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub unnamed_sources_policy: Vec<
-        HomeAndConstructionBusinessUnnamedSourcesPolicyFieldEnum,
-    >,
+    pub unnamed_sources_policy: Vec<HomeAndConstructionBusinessUnnamedSourcesPolicyFieldEnum>,
     ///<https://schema.org/isicV4>
     #[serde(rename = "isicV4")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -71,9 +69,7 @@ pub struct HomeAndConstructionBusiness {
     #[serde(rename = "publishingPrinciples")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub publishing_principles: Vec<
-        HomeAndConstructionBusinessPublishingPrinciplesFieldEnum,
-    >,
+    pub publishing_principles: Vec<HomeAndConstructionBusinessPublishingPrinciplesFieldEnum>,
     ///<https://schema.org/hasPOS>
     #[serde(rename = "hasPOS")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -113,9 +109,7 @@ pub struct HomeAndConstructionBusiness {
     #[serde(rename = "ownershipFundingInfo")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub ownership_funding_info: Vec<
-        HomeAndConstructionBusinessOwnershipFundingInfoFieldEnum,
-    >,
+    pub ownership_funding_info: Vec<HomeAndConstructionBusinessOwnershipFundingInfoFieldEnum>,
     ///<https://schema.org/foundingLocation>
     #[serde(rename = "foundingLocation")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -330,9 +324,7 @@ pub struct HomeAndConstructionBusiness {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        HomeAndConstructionBusinessDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<HomeAndConstructionBusinessDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -347,9 +339,8 @@ pub struct HomeAndConstructionBusiness {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        HomeAndConstructionBusinessActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy:
+        Vec<HomeAndConstructionBusinessActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -374,9 +365,7 @@ pub struct HomeAndConstructionBusiness {
     #[serde(rename = "acceptedPaymentMethod")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub accepted_payment_method: Vec<
-        HomeAndConstructionBusinessAcceptedPaymentMethodFieldEnum,
-    >,
+    pub accepted_payment_method: Vec<HomeAndConstructionBusinessAcceptedPaymentMethodFieldEnum>,
     ///<https://schema.org/founder>
     #[serde(rename = "founder")]
     #[serde_as(as = "OneOrMany<_>")]

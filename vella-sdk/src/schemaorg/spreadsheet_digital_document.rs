@@ -99,9 +99,7 @@ pub struct SpreadsheetDigitalDocument {
     #[serde(rename = "publishingPrinciples")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub publishing_principles: Vec<
-        SpreadsheetDigitalDocumentPublishingPrinciplesFieldEnum,
-    >,
+    pub publishing_principles: Vec<SpreadsheetDigitalDocumentPublishingPrinciplesFieldEnum>,
     ///<https://schema.org/inLanguage>
     #[serde(rename = "inLanguage")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -291,9 +289,7 @@ pub struct SpreadsheetDigitalDocument {
     #[serde(rename = "learningResourceType")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub learning_resource_type: Vec<
-        SpreadsheetDigitalDocumentLearningResourceTypeFieldEnum,
-    >,
+    pub learning_resource_type: Vec<SpreadsheetDigitalDocumentLearningResourceTypeFieldEnum>,
     ///<https://schema.org/alternativeHeadline>
     #[serde(rename = "alternativeHeadline")]
     #[serde_as(as = "OneOrMany<_>")]

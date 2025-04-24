@@ -41,9 +41,8 @@ pub struct BankAccount {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        BankAccountFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<BankAccountFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/interestRate>
     #[serde(rename = "interestRate")]
     #[serde_as(as = "OneOrMany<_>")]

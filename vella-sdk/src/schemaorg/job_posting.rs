@@ -85,9 +85,7 @@ pub struct JobPosting {
     #[serde(rename = "securityClearanceRequirement")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub security_clearance_requirement: Vec<
-        JobPostingSecurityClearanceRequirementFieldEnum,
-    >,
+    pub security_clearance_requirement: Vec<JobPostingSecurityClearanceRequirementFieldEnum>,
     ///<https://schema.org/occupationalCategory>
     #[serde(rename = "occupationalCategory")]
     #[serde_as(as = "OneOrMany<_>")]

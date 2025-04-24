@@ -59,9 +59,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "credentialCategory")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub credential_category: Vec<
-        EducationalOccupationalCredentialCredentialCategoryFieldEnum,
-    >,
+    pub credential_category: Vec<EducationalOccupationalCredentialCredentialCategoryFieldEnum>,
     ///<https://schema.org/recognizedBy>
     #[serde(rename = "recognizedBy")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -76,9 +74,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "educationalLevel")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub educational_level: Vec<
-        EducationalOccupationalCredentialEducationalLevelFieldEnum,
-    >,
+    pub educational_level: Vec<EducationalOccupationalCredentialEducationalLevelFieldEnum>,
     ///<https://schema.org/validIn>
     #[serde(rename = "validIn")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -88,9 +84,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "competencyRequired")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub competency_required: Vec<
-        EducationalOccupationalCredentialCompetencyRequiredFieldEnum,
-    >,
+    pub competency_required: Vec<EducationalOccupationalCredentialCompetencyRequiredFieldEnum>,
     ///<https://schema.org/provider>
     #[serde(rename = "provider")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -130,9 +124,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "publishingPrinciples")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub publishing_principles: Vec<
-        EducationalOccupationalCredentialPublishingPrinciplesFieldEnum,
-    >,
+    pub publishing_principles: Vec<EducationalOccupationalCredentialPublishingPrinciplesFieldEnum>,
     ///<https://schema.org/inLanguage>
     #[serde(rename = "inLanguage")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -317,9 +309,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "learningResourceType")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub learning_resource_type: Vec<
-        EducationalOccupationalCredentialLearningResourceTypeFieldEnum,
-    >,
+    pub learning_resource_type: Vec<EducationalOccupationalCredentialLearningResourceTypeFieldEnum>,
     ///<https://schema.org/alternativeHeadline>
     #[serde(rename = "alternativeHeadline")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -389,9 +379,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "creativeWorkStatus")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub creative_work_status: Vec<
-        EducationalOccupationalCredentialCreativeWorkStatusFieldEnum,
-    >,
+    pub creative_work_status: Vec<EducationalOccupationalCredentialCreativeWorkStatusFieldEnum>,
     ///<https://schema.org/award>
     #[serde(rename = "award")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -536,9 +524,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "temporalCoverage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub temporal_coverage: Vec<
-        EducationalOccupationalCredentialTemporalCoverageFieldEnum,
-    >,
+    pub temporal_coverage: Vec<EducationalOccupationalCredentialTemporalCoverageFieldEnum>,
     ///<https://schema.org/mentions>
     #[serde(rename = "mentions")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -558,9 +544,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "acquireLicensePage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub acquire_license_page: Vec<
-        EducationalOccupationalCredentialAcquireLicensePageFieldEnum,
-    >,
+    pub acquire_license_page: Vec<EducationalOccupationalCredentialAcquireLicensePageFieldEnum>,
     ///<https://schema.org/sponsor>
     #[serde(rename = "sponsor")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -680,9 +664,7 @@ pub struct EducationalOccupationalCredential {
     #[serde(rename = "mainEntityOfPage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub main_entity_of_page: Vec<
-        EducationalOccupationalCredentialMainEntityOfPageFieldEnum,
-    >,
+    pub main_entity_of_page: Vec<EducationalOccupationalCredentialMainEntityOfPageFieldEnum>,
     ///<https://schema.org/url>
     #[serde(rename = "url")]
     #[serde_as(as = "OneOrMany<_>")]

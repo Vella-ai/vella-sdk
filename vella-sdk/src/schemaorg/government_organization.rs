@@ -299,9 +299,7 @@ pub struct GovernmentOrganization {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        GovernmentOrganizationDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<GovernmentOrganizationDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -316,9 +314,7 @@ pub struct GovernmentOrganization {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        GovernmentOrganizationActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<GovernmentOrganizationActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -343,9 +339,7 @@ pub struct GovernmentOrganization {
     #[serde(rename = "acceptedPaymentMethod")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub accepted_payment_method: Vec<
-        GovernmentOrganizationAcceptedPaymentMethodFieldEnum,
-    >,
+    pub accepted_payment_method: Vec<GovernmentOrganizationAcceptedPaymentMethodFieldEnum>,
     ///<https://schema.org/founder>
     #[serde(rename = "founder")]
     #[serde_as(as = "OneOrMany<_>")]

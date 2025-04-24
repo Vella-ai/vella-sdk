@@ -50,9 +50,7 @@ pub struct WorkBasedProgram {
     #[serde(rename = "educationalCredentialAwarded")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub educational_credential_awarded: Vec<
-        WorkBasedProgramEducationalCredentialAwardedFieldEnum,
-    >,
+    pub educational_credential_awarded: Vec<WorkBasedProgramEducationalCredentialAwardedFieldEnum>,
     ///<https://schema.org/salaryUponCompletion>
     #[serde(rename = "salaryUponCompletion")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -112,9 +110,8 @@ pub struct WorkBasedProgram {
     #[serde(rename = "occupationalCredentialAwarded")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub occupational_credential_awarded: Vec<
-        WorkBasedProgramOccupationalCredentialAwardedFieldEnum,
-    >,
+    pub occupational_credential_awarded:
+        Vec<WorkBasedProgramOccupationalCredentialAwardedFieldEnum>,
     ///<https://schema.org/educationalProgramMode>
     #[serde(rename = "educationalProgramMode")]
     #[serde_as(as = "OneOrMany<_>")]

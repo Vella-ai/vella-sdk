@@ -32,9 +32,7 @@ pub struct PaymentCard {
     #[serde(rename = "monthlyMinimumRepaymentAmount")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub monthly_minimum_repayment_amount: Vec<
-        PaymentCardMonthlyMinimumRepaymentAmountFieldEnum,
-    >,
+    pub monthly_minimum_repayment_amount: Vec<PaymentCardMonthlyMinimumRepaymentAmountFieldEnum>,
     ///<https://schema.org/cashBack>
     #[serde(rename = "cashBack")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -44,9 +42,8 @@ pub struct PaymentCard {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        PaymentCardFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<PaymentCardFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/interestRate>
     #[serde(rename = "interestRate")]
     #[serde_as(as = "OneOrMany<_>")]

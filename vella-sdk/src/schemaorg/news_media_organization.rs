@@ -19,9 +19,8 @@ pub struct NewsMediaOrganization {
     #[serde(rename = "missionCoveragePrioritiesPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub mission_coverage_priorities_policy: Vec<
-        NewsMediaOrganizationMissionCoveragePrioritiesPolicyFieldEnum,
-    >,
+    pub mission_coverage_priorities_policy:
+        Vec<NewsMediaOrganizationMissionCoveragePrioritiesPolicyFieldEnum>,
     ///<https://schema.org/ownershipFundingInfo>
     #[serde(rename = "ownershipFundingInfo")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -31,9 +30,8 @@ pub struct NewsMediaOrganization {
     #[serde(rename = "verificationFactCheckingPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub verification_fact_checking_policy: Vec<
-        NewsMediaOrganizationVerificationFactCheckingPolicyFieldEnum,
-    >,
+    pub verification_fact_checking_policy:
+        Vec<NewsMediaOrganizationVerificationFactCheckingPolicyFieldEnum>,
     ///<https://schema.org/diversityPolicy>
     #[serde(rename = "diversityPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -53,9 +51,7 @@ pub struct NewsMediaOrganization {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        NewsMediaOrganizationDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<NewsMediaOrganizationDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/ethicsPolicy>
     #[serde(rename = "ethicsPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -65,9 +61,7 @@ pub struct NewsMediaOrganization {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        NewsMediaOrganizationActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<NewsMediaOrganizationActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/masthead>
     #[serde(rename = "masthead")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -367,9 +361,7 @@ pub struct NewsMediaOrganization {
     #[serde(rename = "acceptedPaymentMethod")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub accepted_payment_method: Vec<
-        NewsMediaOrganizationAcceptedPaymentMethodFieldEnum,
-    >,
+    pub accepted_payment_method: Vec<NewsMediaOrganizationAcceptedPaymentMethodFieldEnum>,
     ///<https://schema.org/founder>
     #[serde(rename = "founder")]
     #[serde_as(as = "OneOrMany<_>")]

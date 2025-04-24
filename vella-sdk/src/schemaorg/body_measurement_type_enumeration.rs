@@ -24,9 +24,7 @@ pub struct BodyMeasurementTypeEnumeration {
     #[serde(rename = "mainEntityOfPage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub main_entity_of_page: Vec<
-        BodyMeasurementTypeEnumerationMainEntityOfPageFieldEnum,
-    >,
+    pub main_entity_of_page: Vec<BodyMeasurementTypeEnumerationMainEntityOfPageFieldEnum>,
     ///<https://schema.org/url>
     #[serde(rename = "url")]
     #[serde_as(as = "OneOrMany<_>")]

@@ -329,9 +329,7 @@ pub struct ArchiveOrganization {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        ArchiveOrganizationDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<ArchiveOrganizationDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -346,9 +344,7 @@ pub struct ArchiveOrganization {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        ArchiveOrganizationActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<ArchiveOrganizationActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

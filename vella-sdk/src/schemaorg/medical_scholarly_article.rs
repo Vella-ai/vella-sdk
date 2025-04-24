@@ -329,9 +329,7 @@ pub struct MedicalScholarlyArticle {
     #[serde(rename = "learningResourceType")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub learning_resource_type: Vec<
-        MedicalScholarlyArticleLearningResourceTypeFieldEnum,
-    >,
+    pub learning_resource_type: Vec<MedicalScholarlyArticleLearningResourceTypeFieldEnum>,
     ///<https://schema.org/alternativeHeadline>
     #[serde(rename = "alternativeHeadline")]
     #[serde_as(as = "OneOrMany<_>")]

@@ -885,9 +885,7 @@ pub struct LegislationObject {
     #[serde(rename = "legislationCountersignedBy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub legislation_countersigned_by: Vec<
-        LegislationObjectLegislationCountersignedByFieldEnum,
-    >,
+    pub legislation_countersigned_by: Vec<LegislationObjectLegislationCountersignedByFieldEnum>,
     ///<https://schema.org/legislationLegalForce>
     #[serde(rename = "legislationLegalForce")]
     #[serde_as(as = "OneOrMany<_>")]

@@ -64,9 +64,7 @@ pub struct Gene {
     #[serde(rename = "isInvolvedInBiologicalProcess")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub is_involved_in_biological_process: Vec<
-        GeneIsInvolvedInBiologicalProcessFieldEnum,
-    >,
+    pub is_involved_in_biological_process: Vec<GeneIsInvolvedInBiologicalProcessFieldEnum>,
     ///<https://schema.org/associatedDisease>
     #[serde(rename = "associatedDisease")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -81,9 +79,7 @@ pub struct Gene {
     #[serde(rename = "isLocatedInSubcellularLocation")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub is_located_in_subcellular_location: Vec<
-        GeneIsLocatedInSubcellularLocationFieldEnum,
-    >,
+    pub is_located_in_subcellular_location: Vec<GeneIsLocatedInSubcellularLocationFieldEnum>,
     ///<https://schema.org/hasMolecularFunction>
     #[serde(rename = "hasMolecularFunction")]
     #[serde_as(as = "OneOrMany<_>")]

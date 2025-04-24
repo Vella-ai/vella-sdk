@@ -24,9 +24,7 @@ pub struct EducationalOrganization {
     #[serde(rename = "unnamedSourcesPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub unnamed_sources_policy: Vec<
-        EducationalOrganizationUnnamedSourcesPolicyFieldEnum,
-    >,
+    pub unnamed_sources_policy: Vec<EducationalOrganizationUnnamedSourcesPolicyFieldEnum>,
     ///<https://schema.org/isicV4>
     #[serde(rename = "isicV4")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -91,9 +89,7 @@ pub struct EducationalOrganization {
     #[serde(rename = "ownershipFundingInfo")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub ownership_funding_info: Vec<
-        EducationalOrganizationOwnershipFundingInfoFieldEnum,
-    >,
+    pub ownership_funding_info: Vec<EducationalOrganizationOwnershipFundingInfoFieldEnum>,
     ///<https://schema.org/foundingLocation>
     #[serde(rename = "foundingLocation")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -303,9 +299,7 @@ pub struct EducationalOrganization {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        EducationalOrganizationDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<EducationalOrganizationDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -320,9 +314,7 @@ pub struct EducationalOrganization {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        EducationalOrganizationActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<EducationalOrganizationActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -347,9 +339,7 @@ pub struct EducationalOrganization {
     #[serde(rename = "acceptedPaymentMethod")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub accepted_payment_method: Vec<
-        EducationalOrganizationAcceptedPaymentMethodFieldEnum,
-    >,
+    pub accepted_payment_method: Vec<EducationalOrganizationAcceptedPaymentMethodFieldEnum>,
     ///<https://schema.org/founder>
     #[serde(rename = "founder")]
     #[serde_as(as = "OneOrMany<_>")]

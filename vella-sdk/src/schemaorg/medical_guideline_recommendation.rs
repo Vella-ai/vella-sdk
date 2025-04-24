@@ -84,9 +84,7 @@ pub struct MedicalGuidelineRecommendation {
     #[serde(rename = "mainEntityOfPage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub main_entity_of_page: Vec<
-        MedicalGuidelineRecommendationMainEntityOfPageFieldEnum,
-    >,
+    pub main_entity_of_page: Vec<MedicalGuidelineRecommendationMainEntityOfPageFieldEnum>,
     ///<https://schema.org/url>
     #[serde(rename = "url")]
     #[serde_as(as = "OneOrMany<_>")]

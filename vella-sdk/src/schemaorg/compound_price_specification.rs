@@ -52,9 +52,7 @@ pub struct CompoundPriceSpecification {
     #[serde(rename = "membershipPointsEarned")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub membership_points_earned: Vec<
-        CompoundPriceSpecificationMembershipPointsEarnedFieldEnum,
-    >,
+    pub membership_points_earned: Vec<CompoundPriceSpecificationMembershipPointsEarnedFieldEnum>,
     ///<https://schema.org/price>
     #[serde(rename = "price")]
     #[serde_as(as = "OneOrMany<_>")]

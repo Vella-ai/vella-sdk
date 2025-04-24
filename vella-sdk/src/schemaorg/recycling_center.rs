@@ -339,9 +339,7 @@ pub struct RecyclingCenter {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        RecyclingCenterActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<RecyclingCenterActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

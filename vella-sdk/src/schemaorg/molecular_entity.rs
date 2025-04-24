@@ -19,9 +19,7 @@ pub struct MolecularEntity {
     #[serde(rename = "monoisotopicMolecularWeight")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub monoisotopic_molecular_weight: Vec<
-        MolecularEntityMonoisotopicMolecularWeightFieldEnum,
-    >,
+    pub monoisotopic_molecular_weight: Vec<MolecularEntityMonoisotopicMolecularWeightFieldEnum>,
     ///<https://schema.org/potentialUse>
     #[serde(rename = "potentialUse")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -91,9 +89,8 @@ pub struct MolecularEntity {
     #[serde(rename = "isInvolvedInBiologicalProcess")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub is_involved_in_biological_process: Vec<
-        MolecularEntityIsInvolvedInBiologicalProcessFieldEnum,
-    >,
+    pub is_involved_in_biological_process:
+        Vec<MolecularEntityIsInvolvedInBiologicalProcessFieldEnum>,
     ///<https://schema.org/associatedDisease>
     #[serde(rename = "associatedDisease")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -108,9 +105,8 @@ pub struct MolecularEntity {
     #[serde(rename = "isLocatedInSubcellularLocation")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub is_located_in_subcellular_location: Vec<
-        MolecularEntityIsLocatedInSubcellularLocationFieldEnum,
-    >,
+    pub is_located_in_subcellular_location:
+        Vec<MolecularEntityIsLocatedInSubcellularLocationFieldEnum>,
     ///<https://schema.org/hasMolecularFunction>
     #[serde(rename = "hasMolecularFunction")]
     #[serde_as(as = "OneOrMany<_>")]

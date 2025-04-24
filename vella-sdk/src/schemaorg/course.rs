@@ -99,9 +99,7 @@ pub struct Course {
     #[serde(rename = "occupationalCredentialAwarded")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub occupational_credential_awarded: Vec<
-        CourseOccupationalCredentialAwardedFieldEnum,
-    >,
+    pub occupational_credential_awarded: Vec<CourseOccupationalCredentialAwardedFieldEnum>,
     ///<https://schema.org/courseCode>
     #[serde(rename = "courseCode")]
     #[serde_as(as = "OneOrMany<_>")]

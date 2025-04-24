@@ -24,9 +24,7 @@ pub struct FlightReservation {
     #[serde(rename = "passengerPriorityStatus")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub passenger_priority_status: Vec<
-        FlightReservationPassengerPriorityStatusFieldEnum,
-    >,
+    pub passenger_priority_status: Vec<FlightReservationPassengerPriorityStatusFieldEnum>,
     ///<https://schema.org/boardingGroup>
     #[serde(rename = "boardingGroup")]
     #[serde_as(as = "OneOrMany<_>")]

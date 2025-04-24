@@ -59,9 +59,8 @@ pub struct ChemicalSubstance {
     #[serde(rename = "isInvolvedInBiologicalProcess")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub is_involved_in_biological_process: Vec<
-        ChemicalSubstanceIsInvolvedInBiologicalProcessFieldEnum,
-    >,
+    pub is_involved_in_biological_process:
+        Vec<ChemicalSubstanceIsInvolvedInBiologicalProcessFieldEnum>,
     ///<https://schema.org/associatedDisease>
     #[serde(rename = "associatedDisease")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -76,9 +75,8 @@ pub struct ChemicalSubstance {
     #[serde(rename = "isLocatedInSubcellularLocation")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub is_located_in_subcellular_location: Vec<
-        ChemicalSubstanceIsLocatedInSubcellularLocationFieldEnum,
-    >,
+    pub is_located_in_subcellular_location:
+        Vec<ChemicalSubstanceIsLocatedInSubcellularLocationFieldEnum>,
     ///<https://schema.org/hasMolecularFunction>
     #[serde(rename = "hasMolecularFunction")]
     #[serde_as(as = "OneOrMany<_>")]

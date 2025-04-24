@@ -354,9 +354,7 @@ pub struct IndividualPhysician {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        IndividualPhysicianDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<IndividualPhysicianDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -371,9 +369,7 @@ pub struct IndividualPhysician {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        IndividualPhysicianActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<IndividualPhysicianActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

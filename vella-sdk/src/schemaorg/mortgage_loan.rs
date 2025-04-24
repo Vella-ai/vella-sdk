@@ -81,9 +81,8 @@ pub struct MortgageLoan {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        MortgageLoanFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<MortgageLoanFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/interestRate>
     #[serde(rename = "interestRate")]
     #[serde_as(as = "OneOrMany<_>")]

@@ -339,9 +339,7 @@ pub struct DepartmentStore {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        DepartmentStoreActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<DepartmentStoreActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

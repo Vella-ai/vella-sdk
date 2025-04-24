@@ -37,9 +37,7 @@ pub struct MerchantReturnPolicySeasonalOverride {
     #[serde(rename = "merchantReturnDays")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub merchant_return_days: Vec<
-        MerchantReturnPolicySeasonalOverrideMerchantReturnDaysFieldEnum,
-    >,
+    pub merchant_return_days: Vec<MerchantReturnPolicySeasonalOverrideMerchantReturnDaysFieldEnum>,
     ///<https://schema.org/returnMethod>
     #[serde(rename = "returnMethod")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -74,9 +72,7 @@ pub struct MerchantReturnPolicySeasonalOverride {
     #[serde(rename = "mainEntityOfPage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub main_entity_of_page: Vec<
-        MerchantReturnPolicySeasonalOverrideMainEntityOfPageFieldEnum,
-    >,
+    pub main_entity_of_page: Vec<MerchantReturnPolicySeasonalOverrideMainEntityOfPageFieldEnum>,
     ///<https://schema.org/url>
     #[serde(rename = "url")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -111,9 +107,7 @@ pub struct MerchantReturnPolicySeasonalOverride {
     #[serde(rename = "additionalType")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub additional_type: Vec<
-        MerchantReturnPolicySeasonalOverrideAdditionalTypeFieldEnum,
-    >,
+    pub additional_type: Vec<MerchantReturnPolicySeasonalOverrideAdditionalTypeFieldEnum>,
     ///<https://schema.org/potentialAction>
     #[serde(rename = "potentialAction")]
     #[serde_as(as = "OneOrMany<_>")]

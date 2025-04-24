@@ -23,9 +23,7 @@ pub struct HealthInsurancePlan {
     #[serde(rename = "usesHealthPlanIdStandard")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub uses_health_plan_id_standard: Vec<
-        HealthInsurancePlanUsesHealthPlanIdStandardFieldEnum,
-    >,
+    pub uses_health_plan_id_standard: Vec<HealthInsurancePlanUsesHealthPlanIdStandardFieldEnum>,
     ///<https://schema.org/healthPlanDrugOption>
     #[serde(rename = "healthPlanDrugOption")]
     #[serde_as(as = "OneOrMany<_>")]

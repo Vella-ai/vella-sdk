@@ -44,9 +44,7 @@ pub struct HealthAndBeautyBusiness {
     #[serde(rename = "unnamedSourcesPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub unnamed_sources_policy: Vec<
-        HealthAndBeautyBusinessUnnamedSourcesPolicyFieldEnum,
-    >,
+    pub unnamed_sources_policy: Vec<HealthAndBeautyBusinessUnnamedSourcesPolicyFieldEnum>,
     ///<https://schema.org/isicV4>
     #[serde(rename = "isicV4")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -111,9 +109,7 @@ pub struct HealthAndBeautyBusiness {
     #[serde(rename = "ownershipFundingInfo")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub ownership_funding_info: Vec<
-        HealthAndBeautyBusinessOwnershipFundingInfoFieldEnum,
-    >,
+    pub ownership_funding_info: Vec<HealthAndBeautyBusinessOwnershipFundingInfoFieldEnum>,
     ///<https://schema.org/foundingLocation>
     #[serde(rename = "foundingLocation")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -328,9 +324,7 @@ pub struct HealthAndBeautyBusiness {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        HealthAndBeautyBusinessDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<HealthAndBeautyBusinessDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -345,9 +339,7 @@ pub struct HealthAndBeautyBusiness {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        HealthAndBeautyBusinessActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<HealthAndBeautyBusinessActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -372,9 +364,7 @@ pub struct HealthAndBeautyBusiness {
     #[serde(rename = "acceptedPaymentMethod")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub accepted_payment_method: Vec<
-        HealthAndBeautyBusinessAcceptedPaymentMethodFieldEnum,
-    >,
+    pub accepted_payment_method: Vec<HealthAndBeautyBusinessAcceptedPaymentMethodFieldEnum>,
     ///<https://schema.org/founder>
     #[serde(rename = "founder")]
     #[serde_as(as = "OneOrMany<_>")]

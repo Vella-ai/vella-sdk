@@ -22,9 +22,8 @@ pub struct CurrencyConversionService {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        CurrencyConversionServiceFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<CurrencyConversionServiceFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/interestRate>
     #[serde(rename = "interestRate")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -34,9 +33,7 @@ pub struct CurrencyConversionService {
     #[serde(rename = "annualPercentageRate")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub annual_percentage_rate: Vec<
-        CurrencyConversionServiceAnnualPercentageRateFieldEnum,
-    >,
+    pub annual_percentage_rate: Vec<CurrencyConversionServiceAnnualPercentageRateFieldEnum>,
     ///<https://schema.org/provider>
     #[serde(rename = "provider")]
     #[serde_as(as = "OneOrMany<_>")]

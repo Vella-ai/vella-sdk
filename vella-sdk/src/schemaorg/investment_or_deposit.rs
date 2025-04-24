@@ -27,9 +27,8 @@ pub struct InvestmentOrDeposit {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        InvestmentOrDepositFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<InvestmentOrDepositFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/interestRate>
     #[serde(rename = "interestRate")]
     #[serde_as(as = "OneOrMany<_>")]

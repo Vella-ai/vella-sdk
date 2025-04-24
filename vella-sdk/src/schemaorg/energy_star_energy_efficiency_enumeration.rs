@@ -24,9 +24,7 @@ pub struct EnergyStarEnergyEfficiencyEnumeration {
     #[serde(rename = "mainEntityOfPage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub main_entity_of_page: Vec<
-        EnergyStarEnergyEfficiencyEnumerationMainEntityOfPageFieldEnum,
-    >,
+    pub main_entity_of_page: Vec<EnergyStarEnergyEfficiencyEnumerationMainEntityOfPageFieldEnum>,
     ///<https://schema.org/url>
     #[serde(rename = "url")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -61,9 +59,7 @@ pub struct EnergyStarEnergyEfficiencyEnumeration {
     #[serde(rename = "additionalType")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub additional_type: Vec<
-        EnergyStarEnergyEfficiencyEnumerationAdditionalTypeFieldEnum,
-    >,
+    pub additional_type: Vec<EnergyStarEnergyEfficiencyEnumerationAdditionalTypeFieldEnum>,
     ///<https://schema.org/potentialAction>
     #[serde(rename = "potentialAction")]
     #[serde_as(as = "OneOrMany<_>")]

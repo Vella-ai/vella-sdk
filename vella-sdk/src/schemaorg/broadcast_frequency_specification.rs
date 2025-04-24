@@ -14,9 +14,8 @@ pub struct BroadcastFrequencySpecification {
     #[serde(rename = "broadcastSignalModulation")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub broadcast_signal_modulation: Vec<
-        BroadcastFrequencySpecificationBroadcastSignalModulationFieldEnum,
-    >,
+    pub broadcast_signal_modulation:
+        Vec<BroadcastFrequencySpecificationBroadcastSignalModulationFieldEnum>,
     ///<https://schema.org/broadcastSubChannel>
     #[serde(rename = "broadcastSubChannel")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -26,9 +25,8 @@ pub struct BroadcastFrequencySpecification {
     #[serde(rename = "broadcastFrequencyValue")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub broadcast_frequency_value: Vec<
-        BroadcastFrequencySpecificationBroadcastFrequencyValueFieldEnum,
-    >,
+    pub broadcast_frequency_value:
+        Vec<BroadcastFrequencySpecificationBroadcastFrequencyValueFieldEnum>,
     ///<https://schema.org/name>
     #[serde(rename = "name")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -38,9 +36,7 @@ pub struct BroadcastFrequencySpecification {
     #[serde(rename = "mainEntityOfPage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub main_entity_of_page: Vec<
-        BroadcastFrequencySpecificationMainEntityOfPageFieldEnum,
-    >,
+    pub main_entity_of_page: Vec<BroadcastFrequencySpecificationMainEntityOfPageFieldEnum>,
     ///<https://schema.org/url>
     #[serde(rename = "url")]
     #[serde_as(as = "OneOrMany<_>")]

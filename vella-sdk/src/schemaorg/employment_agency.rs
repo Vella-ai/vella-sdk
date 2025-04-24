@@ -339,9 +339,7 @@ pub struct EmploymentAgency {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        EmploymentAgencyActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<EmploymentAgencyActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

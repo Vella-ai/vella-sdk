@@ -44,9 +44,7 @@ pub struct TouristInformationCenter {
     #[serde(rename = "unnamedSourcesPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub unnamed_sources_policy: Vec<
-        TouristInformationCenterUnnamedSourcesPolicyFieldEnum,
-    >,
+    pub unnamed_sources_policy: Vec<TouristInformationCenterUnnamedSourcesPolicyFieldEnum>,
     ///<https://schema.org/isicV4>
     #[serde(rename = "isicV4")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -71,9 +69,7 @@ pub struct TouristInformationCenter {
     #[serde(rename = "publishingPrinciples")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub publishing_principles: Vec<
-        TouristInformationCenterPublishingPrinciplesFieldEnum,
-    >,
+    pub publishing_principles: Vec<TouristInformationCenterPublishingPrinciplesFieldEnum>,
     ///<https://schema.org/hasPOS>
     #[serde(rename = "hasPOS")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -113,9 +109,7 @@ pub struct TouristInformationCenter {
     #[serde(rename = "ownershipFundingInfo")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub ownership_funding_info: Vec<
-        TouristInformationCenterOwnershipFundingInfoFieldEnum,
-    >,
+    pub ownership_funding_info: Vec<TouristInformationCenterOwnershipFundingInfoFieldEnum>,
     ///<https://schema.org/foundingLocation>
     #[serde(rename = "foundingLocation")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -330,9 +324,7 @@ pub struct TouristInformationCenter {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        TouristInformationCenterDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<TouristInformationCenterDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -347,9 +339,7 @@ pub struct TouristInformationCenter {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        TouristInformationCenterActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<TouristInformationCenterActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -374,9 +364,7 @@ pub struct TouristInformationCenter {
     #[serde(rename = "acceptedPaymentMethod")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub accepted_payment_method: Vec<
-        TouristInformationCenterAcceptedPaymentMethodFieldEnum,
-    >,
+    pub accepted_payment_method: Vec<TouristInformationCenterAcceptedPaymentMethodFieldEnum>,
     ///<https://schema.org/founder>
     #[serde(rename = "founder")]
     #[serde_as(as = "OneOrMany<_>")]

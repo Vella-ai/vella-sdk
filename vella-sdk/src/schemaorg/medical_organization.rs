@@ -314,9 +314,7 @@ pub struct MedicalOrganization {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        MedicalOrganizationDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<MedicalOrganizationDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -331,9 +329,7 @@ pub struct MedicalOrganization {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        MedicalOrganizationActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<MedicalOrganizationActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

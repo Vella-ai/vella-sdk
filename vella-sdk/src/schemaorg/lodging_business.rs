@@ -391,9 +391,7 @@ pub struct LodgingBusiness {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        LodgingBusinessActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<LodgingBusinessActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

@@ -78,9 +78,7 @@ pub struct SpecialAnnouncement {
     #[serde(rename = "diseaseSpreadStatistics")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub disease_spread_statistics: Vec<
-        SpecialAnnouncementDiseaseSpreadStatisticsFieldEnum,
-    >,
+    pub disease_spread_statistics: Vec<SpecialAnnouncementDiseaseSpreadStatisticsFieldEnum>,
     ///<https://schema.org/diseasePreventionInfo>
     #[serde(rename = "diseasePreventionInfo")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -95,9 +93,7 @@ pub struct SpecialAnnouncement {
     #[serde(rename = "newsUpdatesAndGuidelines")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub news_updates_and_guidelines: Vec<
-        SpecialAnnouncementNewsUpdatesAndGuidelinesFieldEnum,
-    >,
+    pub news_updates_and_guidelines: Vec<SpecialAnnouncementNewsUpdatesAndGuidelinesFieldEnum>,
     ///<https://schema.org/gettingTestedInfo>
     #[serde(rename = "gettingTestedInfo")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -112,9 +108,8 @@ pub struct SpecialAnnouncement {
     #[serde(rename = "publicTransportClosuresInfo")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub public_transport_closures_info: Vec<
-        SpecialAnnouncementPublicTransportClosuresInfoFieldEnum,
-    >,
+    pub public_transport_closures_info:
+        Vec<SpecialAnnouncementPublicTransportClosuresInfoFieldEnum>,
     ///<https://schema.org/quarantineGuidelines>
     #[serde(rename = "quarantineGuidelines")]
     #[serde_as(as = "OneOrMany<_>")]

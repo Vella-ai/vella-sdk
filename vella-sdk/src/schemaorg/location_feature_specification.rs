@@ -70,9 +70,7 @@ pub struct LocationFeatureSpecification {
     #[serde(rename = "measurementTechnique")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub measurement_technique: Vec<
-        LocationFeatureSpecificationMeasurementTechniqueFieldEnum,
-    >,
+    pub measurement_technique: Vec<LocationFeatureSpecificationMeasurementTechniqueFieldEnum>,
     ///<https://schema.org/measurementMethod>
     #[serde(rename = "measurementMethod")]
     #[serde_as(as = "OneOrMany<_>")]

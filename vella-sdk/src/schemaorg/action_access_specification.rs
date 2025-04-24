@@ -39,9 +39,7 @@ pub struct ActionAccessSpecification {
     #[serde(rename = "requiresSubscription")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub requires_subscription: Vec<
-        ActionAccessSpecificationRequiresSubscriptionFieldEnum,
-    >,
+    pub requires_subscription: Vec<ActionAccessSpecificationRequiresSubscriptionFieldEnum>,
     ///<https://schema.org/category>
     #[serde(rename = "category")]
     #[serde_as(as = "OneOrMany<_>")]

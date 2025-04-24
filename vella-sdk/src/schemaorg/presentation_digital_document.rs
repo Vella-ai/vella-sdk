@@ -99,9 +99,7 @@ pub struct PresentationDigitalDocument {
     #[serde(rename = "publishingPrinciples")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub publishing_principles: Vec<
-        PresentationDigitalDocumentPublishingPrinciplesFieldEnum,
-    >,
+    pub publishing_principles: Vec<PresentationDigitalDocumentPublishingPrinciplesFieldEnum>,
     ///<https://schema.org/inLanguage>
     #[serde(rename = "inLanguage")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -291,9 +289,7 @@ pub struct PresentationDigitalDocument {
     #[serde(rename = "learningResourceType")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub learning_resource_type: Vec<
-        PresentationDigitalDocumentLearningResourceTypeFieldEnum,
-    >,
+    pub learning_resource_type: Vec<PresentationDigitalDocumentLearningResourceTypeFieldEnum>,
     ///<https://schema.org/alternativeHeadline>
     #[serde(rename = "alternativeHeadline")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -363,9 +359,7 @@ pub struct PresentationDigitalDocument {
     #[serde(rename = "creativeWorkStatus")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub creative_work_status: Vec<
-        PresentationDigitalDocumentCreativeWorkStatusFieldEnum,
-    >,
+    pub creative_work_status: Vec<PresentationDigitalDocumentCreativeWorkStatusFieldEnum>,
     ///<https://schema.org/award>
     #[serde(rename = "award")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -530,9 +524,7 @@ pub struct PresentationDigitalDocument {
     #[serde(rename = "acquireLicensePage")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub acquire_license_page: Vec<
-        PresentationDigitalDocumentAcquireLicensePageFieldEnum,
-    >,
+    pub acquire_license_page: Vec<PresentationDigitalDocumentAcquireLicensePageFieldEnum>,
     ///<https://schema.org/sponsor>
     #[serde(rename = "sponsor")]
     #[serde_as(as = "OneOrMany<_>")]

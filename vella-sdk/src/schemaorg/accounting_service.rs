@@ -18,9 +18,8 @@ pub struct AccountingService {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        AccountingServiceFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<AccountingServiceFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/branchOf>
     #[serde(rename = "branchOf")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -335,9 +334,7 @@ pub struct AccountingService {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        AccountingServiceDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<AccountingServiceDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -352,9 +349,7 @@ pub struct AccountingService {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        AccountingServiceActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<AccountingServiceActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

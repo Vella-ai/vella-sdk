@@ -324,9 +324,7 @@ pub struct SportingGoodsStore {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        SportingGoodsStoreDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<SportingGoodsStoreDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -341,9 +339,7 @@ pub struct SportingGoodsStore {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        SportingGoodsStoreActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<SportingGoodsStoreActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

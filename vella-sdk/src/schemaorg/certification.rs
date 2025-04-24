@@ -67,9 +67,7 @@ pub struct Certification {
     #[serde(rename = "certificationIdentification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub certification_identification: Vec<
-        CertificationCertificationIdentificationFieldEnum,
-    >,
+    pub certification_identification: Vec<CertificationCertificationIdentificationFieldEnum>,
     ///<https://schema.org/hasMeasurement>
     #[serde(rename = "hasMeasurement")]
     #[serde_as(as = "OneOrMany<_>")]

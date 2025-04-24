@@ -18,9 +18,8 @@ pub struct AutomatedTeller {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        AutomatedTellerFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<AutomatedTellerFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/branchOf>
     #[serde(rename = "branchOf")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -350,9 +349,7 @@ pub struct AutomatedTeller {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        AutomatedTellerActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<AutomatedTellerActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

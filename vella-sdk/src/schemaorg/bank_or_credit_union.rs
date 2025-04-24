@@ -18,9 +18,8 @@ pub struct BankOrCreditUnion {
     #[serde(rename = "feesAndCommissionsSpecification")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub fees_and_commissions_specification: Vec<
-        BankOrCreditUnionFeesAndCommissionsSpecificationFieldEnum,
-    >,
+    pub fees_and_commissions_specification:
+        Vec<BankOrCreditUnionFeesAndCommissionsSpecificationFieldEnum>,
     ///<https://schema.org/branchOf>
     #[serde(rename = "branchOf")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -335,9 +334,7 @@ pub struct BankOrCreditUnion {
     #[serde(rename = "diversityStaffingReport")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub diversity_staffing_report: Vec<
-        BankOrCreditUnionDiversityStaffingReportFieldEnum,
-    >,
+    pub diversity_staffing_report: Vec<BankOrCreditUnionDiversityStaffingReportFieldEnum>,
     ///<https://schema.org/duns>
     #[serde(rename = "duns")]
     #[serde_as(as = "OneOrMany<_>")]
@@ -352,9 +349,7 @@ pub struct BankOrCreditUnion {
     #[serde(rename = "actionableFeedbackPolicy")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub actionable_feedback_policy: Vec<
-        BankOrCreditUnionActionableFeedbackPolicyFieldEnum,
-    >,
+    pub actionable_feedback_policy: Vec<BankOrCreditUnionActionableFeedbackPolicyFieldEnum>,
     ///<https://schema.org/areaServed>
     #[serde(rename = "areaServed")]
     #[serde_as(as = "OneOrMany<_>")]

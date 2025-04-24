@@ -91,9 +91,7 @@ pub struct SoftwareApplication {
     #[serde(rename = "applicationSubCategory")]
     #[serde_as(as = "OneOrMany<_>")]
     #[serde(default)]
-    pub application_sub_category: Vec<
-        SoftwareApplicationApplicationSubCategoryFieldEnum,
-    >,
+    pub application_sub_category: Vec<SoftwareApplicationApplicationSubCategoryFieldEnum>,
     ///<https://schema.org/countriesNotSupported>
     #[serde(rename = "countriesNotSupported")]
     #[serde_as(as = "OneOrMany<_>")]
