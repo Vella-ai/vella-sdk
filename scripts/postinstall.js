@@ -33,6 +33,13 @@ const binaries = [
   },
 ];
 
+function formatBytes(bytes) {
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  if (bytes === 0) return '0 Bytes';
+  const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+  return Math.round(bytes / Math.pow(1024, i)) + ' ' + sizes[i];
+}
+
 function downloadWithProgress(url, dest) {
   return new Promise((resolve, reject) => {
     const dir = path.dirname(dest);
@@ -47,8 +54,7 @@ function downloadWithProgress(url, dest) {
             res.statusCode < 400 &&
             res.headers.location
           ) {
-            console.log(`🔀 Redirecting to: ${res.headers.location}`);
-            return download(res.headers.location); // Follow the redirect
+            return download(res.headers.location);
           }
 
           if (res.statusCode !== 200) {
@@ -62,20 +68,25 @@ function downloadWithProgress(url, dest) {
           const total = parseInt(res.headers['content-length'], 10);
           const progressBar = new cliProgress.SingleBar(
             {
-              format: `⬇️ {filename} [{bar}] {percentage}% | {value}/{total} bytes`,
+              format: `⬇️ {filename} [{bar}] {percentage}% | {formattedValue} / {formattedTotal}`,
               hideCursor: true,
             },
             cliProgress.Presets.shades_classic
           );
 
-          progressBar.start(total, 0, { filename: path.basename(dest) });
+          progressBar.start(total, 0, {
+            filename: path.basename(dest),
+            formattedTotal: formatBytes(total),
+          });
 
           const file = fs.createWriteStream(dest);
           let downloaded = 0;
 
           res.on('data', (chunk) => {
             downloaded += chunk.length;
-            progressBar.update(downloaded);
+            progressBar.update(downloaded, {
+              formattedValue: formatBytes(downloaded),
+            });
           });
 
           res.pipe(file);
