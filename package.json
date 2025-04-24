@@ -21,6 +21,15 @@
     "*.podspec",
     "react-native.config.js",
     "VellaSDK.xcframework",
+
+    "!android/src/main/jniLibs/arm64-v8a/libvella_sdk.a",
+    "!android/src/main/jniLibs/armeabi-v7a/libvella_sdk.a",
+    "!android/src/main/jniLibs/x86_64/libvella_sdk.a",
+    "!android/src/main/jniLibs/x86/libvella_sdk.a",
+
+    "!ios/VellaSDK.xcframework/ios-arm64/libvella_sdk.a",
+    "!ios/VellaSDK.xcframework/ios-arm64-simulator/libvella_sdk.a",
+
     "!ios/build",
     "!android/build",
     "!android/gradle",
@@ -43,7 +52,8 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "postinstall": "node scripts/postinstall.js"
   },
   "keywords": [
     "react-native",
@@ -72,8 +82,10 @@
     "@react-native-community/cli": "15.0.1",
     "@react-native/eslint-config": "^0.78.0",
     "@release-it/conventional-changelog": "^9.0.2",
+    "@types/cli-progress": "^3.11.6",
     "@types/jest": "^29.5.5",
     "@types/react": "^19.0.0",
+    "cli-progress": "^3.12.0",
     "commitlint": "^19.6.1",
     "del-cli": "^5.1.0",
     "eslint": "^9.22.0",
