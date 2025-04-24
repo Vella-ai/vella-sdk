@@ -4,7 +4,7 @@ const path = require('path');
 const cliProgress = require('cli-progress');
 
 const version = require('../package.json').version;
-const baseURL = `https://github.com/vella-ai/vella-sdk/releases/download/v${version}/`;
+const baseURL = `https://github.com/Vella-ai/vella-sdk/releases/download/${version}/`;
 
 const binaries = [
   {
@@ -38,43 +38,59 @@ function downloadWithProgress(url, dest) {
     const dir = path.dirname(dest);
     fs.mkdirSync(dir, { recursive: true });
 
-    https
-      .get(url, (res) => {
-        if (res.statusCode !== 200) {
-          return reject(
-            new Error(`Failed to download ${url} - status ${res.statusCode}`)
+    const download = (currentUrl) => {
+      https
+        .get(currentUrl, (res) => {
+          // Check for redirect (status 3xx)
+          if (
+            res.statusCode >= 300 &&
+            res.statusCode < 400 &&
+            res.headers.location
+          ) {
+            console.log(`🔀 Redirecting to: ${res.headers.location}`);
+            return download(res.headers.location); // Follow the redirect
+          }
+
+          if (res.statusCode !== 200) {
+            return reject(
+              new Error(
+                `Failed to download ${currentUrl} - status ${res.statusCode}`
+              )
+            );
+          }
+
+          const total = parseInt(res.headers['content-length'], 10);
+          const progressBar = new cliProgress.SingleBar(
+            {
+              format: `⬇️ {filename} [{bar}] {percentage}% | {value}/{total} bytes`,
+              hideCursor: true,
+            },
+            cliProgress.Presets.shades_classic
           );
-        }
 
-        const total = parseInt(res.headers['content-length'], 10);
-        const progressBar = new cliProgress.SingleBar(
-          {
-            format: `⬇️ {filename} [{bar}] {percentage}% | {value}/{total} bytes`,
-            hideCursor: true,
-          },
-          cliProgress.Presets.shades_classic
-        );
+          progressBar.start(total, 0, { filename: path.basename(dest) });
 
-        progressBar.start(total, 0, { filename: path.basename(dest) });
+          const file = fs.createWriteStream(dest);
+          let downloaded = 0;
 
-        const file = fs.createWriteStream(dest);
-        let downloaded = 0;
-
-        res.on('data', (chunk) => {
-          downloaded += chunk.length;
-          progressBar.update(downloaded);
-        });
-
-        res.pipe(file);
-        file.on('finish', () => {
-          file.close(() => {
-            progressBar.stop();
-            console.log(`✅ Downloaded: ${dest}`);
-            resolve();
+          res.on('data', (chunk) => {
+            downloaded += chunk.length;
+            progressBar.update(downloaded);
           });
-        });
-      })
-      .on('error', reject);
+
+          res.pipe(file);
+          file.on('finish', () => {
+            file.close(() => {
+              progressBar.stop();
+              console.log(`✅ Downloaded: ${dest}`);
+              resolve();
+            });
+          });
+        })
+        .on('error', reject);
+    };
+
+    download(url);
   });
 }
 
