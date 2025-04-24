@@ -256,7 +256,7 @@ fn parse_email(raw: String) -> Return<Email> {
         .html_bodies()
         .par_bridge()
         .map(|x| x.to_string())
-        .flat_map(parse_json_lds)
+        .flat_map(|x| parse_json_lds(&x))
         .collect();
 
     let organizations: Vec<Organization> = markups
@@ -293,15 +293,38 @@ fn parse_email(raw: String) -> Return<Email> {
     })
 }
 
-fn parse_json_lds(html: String) -> Vec<String> {
-    let document = Html::parse_document(&html);
+fn parse_json_lds(html: &str) -> Vec<String> {
+    let document = Html::parse_document(html);
     let selector = Selector::parse(r#"script[type="application/ld+json"]"#)
         .expect("failed to create json ld scripts selector");
 
-    document
-        .select(&selector)
-        .filter_map(|el| el.text().next().map(|x| x.to_owned()))
-        .collect()
+    let mut results = Vec::new();
+
+    for el in document.select(&selector) {
+        if let Some(raw) = el.text().next() {
+            let trimmed = raw.trim();
+
+            match serde_json::from_str::<serde_json::Value>(trimmed) {
+                Ok(serde_json::Value::Array(arr)) => {
+                    for val in arr {
+                        if let Ok(s) = serde_json::to_string(&val) {
+                            results.push(s);
+                        }
+                    }
+                }
+                Ok(val) => {
+                    if let Ok(s) = serde_json::to_string(&val) {
+                        results.push(s);
+                    }
+                }
+                Err(_) => {
+                    // Ignore and return nothing for this script
+                }
+            }
+        }
+    }
+
+    results
 }
 
 #[derive(serde::Deserialize)]
