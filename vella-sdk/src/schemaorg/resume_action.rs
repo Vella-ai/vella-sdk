@@ -14,7 +14,7 @@ pub type ResumeActionEndTimeFieldEnum = String;
 pub type ResumeActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ResumeAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ResumeAction {
     #[serde(rename = "@context")]
     pub context: String,

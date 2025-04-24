@@ -59,7 +59,7 @@ pub type BookSeriesGenreFieldEnum = String;
 pub type BookSeriesAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BookSeries>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BookSeries {
     #[serde(rename = "@context")]
     pub context: String,

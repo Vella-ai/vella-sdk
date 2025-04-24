@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type BuddhistTempleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BuddhistTemple>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BuddhistTemple {
     #[serde(rename = "@context")]
     pub context: String,

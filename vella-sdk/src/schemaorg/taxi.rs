@@ -10,7 +10,7 @@ pub type TaxiTermsOfServiceFieldEnum = String;
 pub type TaxiAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Taxi>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Taxi {
     #[serde(rename = "@context")]
     pub context: String,

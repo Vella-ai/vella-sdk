@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type MediaSubscriptionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MediaSubscription>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MediaSubscription {
     #[serde(rename = "@context")]
     pub context: String,

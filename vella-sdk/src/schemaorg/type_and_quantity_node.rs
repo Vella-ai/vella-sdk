@@ -10,7 +10,7 @@ pub type TypeAndQuantityNodeUnitCodeFieldEnum = String;
 pub type TypeAndQuantityNodeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TypeAndQuantityNode>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TypeAndQuantityNode {
     #[serde(rename = "@context")]
     pub context: String,

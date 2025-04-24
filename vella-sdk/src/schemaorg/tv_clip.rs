@@ -51,7 +51,7 @@ pub type TVClipGenreFieldEnum = String;
 pub type TVClipAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TVClip>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TVClip {
     #[serde(rename = "@context")]
     pub context: String,

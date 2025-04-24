@@ -51,7 +51,7 @@ pub type DataFeedGenreFieldEnum = String;
 pub type DataFeedAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DataFeed>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DataFeed {
     #[serde(rename = "@context")]
     pub context: String,

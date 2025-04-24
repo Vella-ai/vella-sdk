@@ -14,7 +14,7 @@ pub type AllocateActionEndTimeFieldEnum = String;
 pub type AllocateActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AllocateAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AllocateAction {
     #[serde(rename = "@context")]
     pub context: String,

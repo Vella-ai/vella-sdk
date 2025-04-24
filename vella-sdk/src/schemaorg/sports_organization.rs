@@ -10,7 +10,7 @@ pub type SportsOrganizationSportFieldEnum = String;
 pub type SportsOrganizationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SportsOrganization>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SportsOrganization {
     #[serde(rename = "@context")]
     pub context: String,

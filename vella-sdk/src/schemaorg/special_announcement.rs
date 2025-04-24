@@ -55,7 +55,7 @@ pub type SpecialAnnouncementGenreFieldEnum = String;
 pub type SpecialAnnouncementAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SpecialAnnouncement>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SpecialAnnouncement {
     #[serde(rename = "@context")]
     pub context: String,

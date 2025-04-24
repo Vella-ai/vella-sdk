@@ -51,7 +51,7 @@ pub type DiscussionForumPostingGenreFieldEnum = String;
 pub type DiscussionForumPostingAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DiscussionForumPosting>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DiscussionForumPosting {
     #[serde(rename = "@context")]
     pub context: String,

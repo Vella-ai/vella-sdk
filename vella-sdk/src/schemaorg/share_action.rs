@@ -14,7 +14,7 @@ pub type ShareActionEndTimeFieldEnum = String;
 pub type ShareActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ShareAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ShareAction {
     #[serde(rename = "@context")]
     pub context: String,

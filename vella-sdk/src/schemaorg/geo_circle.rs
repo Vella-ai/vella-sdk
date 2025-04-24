@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type GeoCircleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/GeoCircle>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct GeoCircle {
     #[serde(rename = "@context")]
     pub context: String,

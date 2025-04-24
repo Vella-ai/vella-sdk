@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ShippingRateSettingsAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ShippingRateSettings>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ShippingRateSettings {
     #[serde(rename = "@context")]
     pub context: String,

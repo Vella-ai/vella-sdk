@@ -14,7 +14,7 @@ pub type OrderOrderDateFieldEnum = String;
 pub type OrderAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Order>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Order {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type VesselAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Vessel>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Vessel {
     #[serde(rename = "@context")]
     pub context: String,

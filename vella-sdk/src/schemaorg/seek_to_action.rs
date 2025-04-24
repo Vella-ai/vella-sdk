@@ -14,7 +14,7 @@ pub type SeekToActionEndTimeFieldEnum = String;
 pub type SeekToActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SeekToAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SeekToAction {
     #[serde(rename = "@context")]
     pub context: String,

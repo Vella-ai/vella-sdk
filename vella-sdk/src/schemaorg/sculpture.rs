@@ -51,7 +51,7 @@ pub type SculptureGenreFieldEnum = String;
 pub type SculptureAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Sculpture>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Sculpture {
     #[serde(rename = "@context")]
     pub context: String,

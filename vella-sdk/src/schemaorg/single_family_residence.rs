@@ -10,7 +10,7 @@ pub type SingleFamilyResidencePetsAllowedFieldEnum = String;
 pub type SingleFamilyResidenceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SingleFamilyResidence>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SingleFamilyResidence {
     #[serde(rename = "@context")]
     pub context: String,

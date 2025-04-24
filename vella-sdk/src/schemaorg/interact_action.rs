@@ -14,7 +14,7 @@ pub type InteractActionEndTimeFieldEnum = String;
 pub type InteractActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/InteractAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct InteractAction {
     #[serde(rename = "@context")]
     pub context: String,

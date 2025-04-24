@@ -51,7 +51,7 @@ pub type CodeGenreFieldEnum = String;
 pub type CodeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Code>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Code {
     #[serde(rename = "@context")]
     pub context: String,

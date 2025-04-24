@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type BreadcrumbListAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BreadcrumbList>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BreadcrumbList {
     #[serde(rename = "@context")]
     pub context: String,

@@ -18,7 +18,7 @@ pub type BusinessEventStartDateFieldEnum = String;
 pub type BusinessEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BusinessEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BusinessEvent {
     #[serde(rename = "@context")]
     pub context: String,

@@ -18,7 +18,7 @@ pub type VacationRentalCheckinTimeFieldEnum = String;
 pub type VacationRentalAdditionalTypeFieldEnum = String;
 ///<https://schema.org/VacationRental>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct VacationRental {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DefenceEstablishmentAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DefenceEstablishment>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DefenceEstablishment {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type ReplyActionEndTimeFieldEnum = String;
 pub type ReplyActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReplyAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReplyAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -18,7 +18,7 @@ pub type ScheduleActionEndTimeFieldEnum = String;
 pub type ScheduleActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ScheduleAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ScheduleAction {
     #[serde(rename = "@context")]
     pub context: String,

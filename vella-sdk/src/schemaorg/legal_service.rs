@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type LegalServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LegalService>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LegalService {
     #[serde(rename = "@context")]
     pub context: String,

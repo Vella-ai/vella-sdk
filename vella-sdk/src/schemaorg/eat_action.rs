@@ -14,7 +14,7 @@ pub type EatActionEndTimeFieldEnum = String;
 pub type EatActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/EatAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct EatAction {
     #[serde(rename = "@context")]
     pub context: String,

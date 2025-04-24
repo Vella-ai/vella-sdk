@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type PlumberAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Plumber>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Plumber {
     #[serde(rename = "@context")]
     pub context: String,

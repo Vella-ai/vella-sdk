@@ -63,7 +63,7 @@ pub type TextObjectGenreFieldEnum = String;
 pub type TextObjectAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TextObject>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TextObject {
     #[serde(rename = "@context")]
     pub context: String,

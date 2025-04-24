@@ -51,7 +51,7 @@ pub type PresentationDigitalDocumentGenreFieldEnum = String;
 pub type PresentationDigitalDocumentAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PresentationDigitalDocument>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PresentationDigitalDocument {
     #[serde(rename = "@context")]
     pub context: String,

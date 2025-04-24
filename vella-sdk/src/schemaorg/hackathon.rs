@@ -18,7 +18,7 @@ pub type HackathonStartDateFieldEnum = String;
 pub type HackathonAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Hackathon>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Hackathon {
     #[serde(rename = "@context")]
     pub context: String,

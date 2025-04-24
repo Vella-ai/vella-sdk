@@ -14,7 +14,7 @@ pub type ReadActionEndTimeFieldEnum = String;
 pub type ReadActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReadAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReadAction {
     #[serde(rename = "@context")]
     pub context: String,

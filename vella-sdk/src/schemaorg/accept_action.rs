@@ -14,7 +14,7 @@ pub type AcceptActionEndTimeFieldEnum = String;
 pub type AcceptActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AcceptAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AcceptAction {
     #[serde(rename = "@context")]
     pub context: String,

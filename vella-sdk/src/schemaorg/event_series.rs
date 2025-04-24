@@ -18,7 +18,7 @@ pub type EventSeriesEndDateFieldEnum = String;
 pub type EventSeriesStartDateFieldEnum = String;
 ///<https://schema.org/EventSeries>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct EventSeries {
     #[serde(rename = "@context")]
     pub context: String,

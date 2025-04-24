@@ -10,7 +10,7 @@ pub type FinancialServiceFeesAndCommissionsSpecificationFieldEnum = String;
 pub type FinancialServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FinancialService>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FinancialService {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type TreatmentIndicationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TreatmentIndication>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TreatmentIndication {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type HowToStepGenreFieldEnum = String;
 pub type HowToStepAdditionalTypeFieldEnum = String;
 ///<https://schema.org/HowToStep>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct HowToStep {
     #[serde(rename = "@context")]
     pub context: String,

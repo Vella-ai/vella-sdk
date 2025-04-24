@@ -51,7 +51,7 @@ pub type DataCatalogGenreFieldEnum = String;
 pub type DataCatalogAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DataCatalog>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DataCatalog {
     #[serde(rename = "@context")]
     pub context: String,

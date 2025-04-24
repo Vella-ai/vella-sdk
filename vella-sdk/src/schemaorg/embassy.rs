@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type EmbassyAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Embassy>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Embassy {
     #[serde(rename = "@context")]
     pub context: String,

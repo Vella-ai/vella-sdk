@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type PerformingGroupAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PerformingGroup>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PerformingGroup {
     #[serde(rename = "@context")]
     pub context: String,

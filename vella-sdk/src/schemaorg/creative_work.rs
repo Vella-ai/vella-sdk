@@ -51,7 +51,7 @@ pub type CreativeWorkGenreFieldEnum = String;
 pub type CreativeWorkAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CreativeWork>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CreativeWork {
     #[serde(rename = "@context")]
     pub context: String,

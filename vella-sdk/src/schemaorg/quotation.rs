@@ -51,7 +51,7 @@ pub type QuotationGenreFieldEnum = String;
 pub type QuotationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Quotation>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Quotation {
     #[serde(rename = "@context")]
     pub context: String,

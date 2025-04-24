@@ -18,7 +18,7 @@ pub type UserInteractionStartDateFieldEnum = String;
 pub type UserInteractionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserInteraction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserInteraction {
     #[serde(rename = "@context")]
     pub context: String,

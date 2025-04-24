@@ -51,7 +51,7 @@ pub type ThesisGenreFieldEnum = String;
 pub type ThesisAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Thesis>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Thesis {
     #[serde(rename = "@context")]
     pub context: String,

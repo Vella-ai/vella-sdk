@@ -51,7 +51,7 @@ pub type WPSideBarGenreFieldEnum = String;
 pub type WPSideBarAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WPSideBar>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WPSideBar {
     #[serde(rename = "@context")]
     pub context: String,

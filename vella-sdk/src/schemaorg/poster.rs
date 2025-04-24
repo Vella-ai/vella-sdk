@@ -51,7 +51,7 @@ pub type PosterGenreFieldEnum = String;
 pub type PosterAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Poster>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Poster {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type WinActionEndTimeFieldEnum = String;
 pub type WinActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WinAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WinAction {
     #[serde(rename = "@context")]
     pub context: String,

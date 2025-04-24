@@ -14,7 +14,7 @@ pub type TakeActionEndTimeFieldEnum = String;
 pub type TakeActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TakeAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TakeAction {
     #[serde(rename = "@context")]
     pub context: String,

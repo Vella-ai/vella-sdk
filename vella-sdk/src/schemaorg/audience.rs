@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type AudienceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Audience>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Audience {
     #[serde(rename = "@context")]
     pub context: String,

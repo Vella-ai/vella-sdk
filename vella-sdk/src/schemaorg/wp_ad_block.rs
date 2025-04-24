@@ -51,7 +51,7 @@ pub type WPAdBlockGenreFieldEnum = String;
 pub type WPAdBlockAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WPAdBlock>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WPAdBlock {
     #[serde(rename = "@context")]
     pub context: String,

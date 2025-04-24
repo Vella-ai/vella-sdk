@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ComputerLanguageAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ComputerLanguage>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ComputerLanguage {
     #[serde(rename = "@context")]
     pub context: String,

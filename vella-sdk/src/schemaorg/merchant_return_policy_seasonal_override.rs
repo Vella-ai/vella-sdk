@@ -14,7 +14,7 @@ pub type MerchantReturnPolicySeasonalOverrideStartDateFieldEnum = String;
 pub type MerchantReturnPolicySeasonalOverrideAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MerchantReturnPolicySeasonalOverride>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MerchantReturnPolicySeasonalOverride {
     #[serde(rename = "@context")]
     pub context: String,

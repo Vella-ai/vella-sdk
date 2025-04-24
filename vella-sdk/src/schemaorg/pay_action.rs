@@ -14,7 +14,7 @@ pub type PayActionEndTimeFieldEnum = String;
 pub type PayActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PayAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PayAction {
     #[serde(rename = "@context")]
     pub context: String,

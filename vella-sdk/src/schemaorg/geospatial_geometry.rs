@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type GeospatialGeometryAdditionalTypeFieldEnum = String;
 ///<https://schema.org/GeospatialGeometry>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct GeospatialGeometry {
     #[serde(rename = "@context")]
     pub context: String,

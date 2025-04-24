@@ -51,7 +51,7 @@ pub type QuizGenreFieldEnum = String;
 pub type QuizAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Quiz>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Quiz {
     #[serde(rename = "@context")]
     pub context: String,

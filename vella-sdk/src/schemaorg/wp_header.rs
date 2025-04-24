@@ -51,7 +51,7 @@ pub type WPHeaderGenreFieldEnum = String;
 pub type WPHeaderAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WPHeader>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WPHeader {
     #[serde(rename = "@context")]
     pub context: String,

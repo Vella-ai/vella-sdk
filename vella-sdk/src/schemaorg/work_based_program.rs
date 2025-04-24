@@ -22,7 +22,7 @@ pub type WorkBasedProgramApplicationDeadlineFieldEnum = String;
 pub type WorkBasedProgramAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WorkBasedProgram>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WorkBasedProgram {
     #[serde(rename = "@context")]
     pub context: String,

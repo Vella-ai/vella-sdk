@@ -51,7 +51,7 @@ pub type ContactPageGenreFieldEnum = String;
 pub type ContactPageAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ContactPage>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ContactPage {
     #[serde(rename = "@context")]
     pub context: String,

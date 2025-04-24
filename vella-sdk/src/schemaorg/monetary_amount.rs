@@ -14,7 +14,7 @@ pub type MonetaryAmountValidThroughFieldEnum = String;
 pub type MonetaryAmountAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MonetaryAmount>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MonetaryAmount {
     #[serde(rename = "@context")]
     pub context: String,

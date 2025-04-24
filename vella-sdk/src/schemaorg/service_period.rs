@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ServicePeriodAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ServicePeriod>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ServicePeriod {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type SizeSpecificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SizeSpecification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SizeSpecification {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ItemListAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ItemList>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ItemList {
     #[serde(rename = "@context")]
     pub context: String,

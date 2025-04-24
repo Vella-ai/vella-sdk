@@ -14,7 +14,7 @@ pub type RejectActionEndTimeFieldEnum = String;
 pub type RejectActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RejectAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RejectAction {
     #[serde(rename = "@context")]
     pub context: String,

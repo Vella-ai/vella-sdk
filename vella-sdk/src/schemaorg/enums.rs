@@ -1,5 +1,5 @@
 ///<https://schema.org/EUEnergyEfficiencyEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum EUEnergyEfficiencyEnumerationEnum {
     ///<https://schema.org/EUEnergyEfficiencyCategoryA3Plus>
@@ -24,7 +24,7 @@ pub enum EUEnergyEfficiencyEnumerationEnum {
     EUEnergyEfficiencyCategoryA2Plus,
 }
 ///<https://schema.org/MusicReleaseFormatType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MusicReleaseFormatTypeEnum {
     ///<https://schema.org/VinylFormat>
@@ -43,7 +43,7 @@ pub enum MusicReleaseFormatTypeEnum {
     LaserDiscFormat,
 }
 ///<https://schema.org/WearableMeasurementTypeEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum WearableMeasurementTypeEnumerationEnum {
     ///<https://schema.org/WearableMeasurementLength>
@@ -72,7 +72,7 @@ pub enum WearableMeasurementTypeEnumerationEnum {
     WearableMeasurementWaist,
 }
 ///<https://schema.org/ActionStatusType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ActionStatusTypeEnum {
     ///<https://schema.org/ActiveActionStatus>
@@ -85,7 +85,7 @@ pub enum ActionStatusTypeEnum {
     FailedActionStatus,
 }
 ///<https://schema.org/BoardingPolicyType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum BoardingPolicyTypeEnum {
     ///<https://schema.org/ZoneBoardingPolicy>
@@ -94,7 +94,7 @@ pub enum BoardingPolicyTypeEnum {
     GroupBoardingPolicy,
 }
 ///<https://schema.org/BodyMeasurementTypeEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum BodyMeasurementTypeEnumerationEnum {
     ///<https://schema.org/BodyMeasurementWeight>
@@ -125,7 +125,7 @@ pub enum BodyMeasurementTypeEnumerationEnum {
     BodyMeasurementArm,
 }
 ///<https://schema.org/FulfillmentTypeEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FulfillmentTypeEnumerationEnum {
     ///<https://schema.org/FulfillmentTypeScheduledDelivery>
@@ -140,7 +140,7 @@ pub enum FulfillmentTypeEnumerationEnum {
     FulfillmentTypeDelivery,
 }
 ///<https://schema.org/WearableSizeSystemEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum WearableSizeSystemEnumerationEnum {
     ///<https://schema.org/WearableSizeSystemEurope>
@@ -173,7 +173,7 @@ pub enum WearableSizeSystemEnumerationEnum {
     WearableSizeSystemUS,
 }
 ///<https://schema.org/USNonprofitType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum USNonprofitTypeEnum {
     ///<https://schema.org/Nonprofit501c8>
@@ -250,7 +250,7 @@ pub enum USNonprofitTypeEnum {
     Nonprofit501e,
 }
 ///<https://schema.org/MedicalEvidenceLevel>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalEvidenceLevelEnum {
     ///<https://schema.org/EvidenceLevelB>
@@ -261,7 +261,7 @@ pub enum MedicalEvidenceLevelEnum {
     EvidenceLevelC,
 }
 ///<https://schema.org/GovernmentBenefitsType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum GovernmentBenefitsTypeEnum {
     ///<https://schema.org/BusinessSupport>
@@ -282,7 +282,7 @@ pub enum GovernmentBenefitsTypeEnum {
     PaidLeave,
 }
 ///<https://schema.org/HealthAspectEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum HealthAspectEnumerationEnum {
     ///<https://schema.org/SymptomsHealthAspect>
@@ -345,7 +345,7 @@ pub enum HealthAspectEnumerationEnum {
     PregnancyHealthAspect,
 }
 ///<https://schema.org/IncentiveType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum IncentiveTypeEnum {
     ///<https://schema.org/IncentiveTypeTaxCredit>
@@ -360,7 +360,7 @@ pub enum IncentiveTypeEnum {
     IncentiveTypeTaxWaiver,
 }
 ///<https://schema.org/OrderStatus>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum OrderStatusEnum {
     ///<https://schema.org/OrderReturned>
@@ -381,7 +381,7 @@ pub enum OrderStatusEnum {
     OrderPickupAvailable,
 }
 ///<https://schema.org/SteeringPositionValue>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum SteeringPositionValueEnum {
     ///<https://schema.org/RightHandDriving>
@@ -390,7 +390,7 @@ pub enum SteeringPositionValueEnum {
     LeftHandDriving,
 }
 ///<https://schema.org/DigitalPlatformEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DigitalPlatformEnumerationEnum {
     ///<https://schema.org/DesktopWebPlatform>
@@ -405,14 +405,14 @@ pub enum DigitalPlatformEnumerationEnum {
     AndroidPlatform,
 }
 ///<https://schema.org/EnergyStarEnergyEfficiencyEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum EnergyStarEnergyEfficiencyEnumerationEnum {
     ///<https://schema.org/EnergyStarCertified>
     EnergyStarCertified,
 }
 ///<https://schema.org/ItemAvailability>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ItemAvailabilityEnum {
     ///<https://schema.org/MadeToOrder>
@@ -441,7 +441,7 @@ pub enum ItemAvailabilityEnum {
     PreOrder,
 }
 ///<https://schema.org/MedicalImagingTechnique>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalImagingTechniqueEnum {
     ///<https://schema.org/XRay>
@@ -458,7 +458,7 @@ pub enum MedicalImagingTechniqueEnum {
     CT,
 }
 ///<https://schema.org/InfectiousAgentClass>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum InfectiousAgentClassEnum {
     ///<https://schema.org/Virus>
@@ -475,7 +475,7 @@ pub enum InfectiousAgentClassEnum {
     Bacteria,
 }
 ///<https://schema.org/IncentiveStatus>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum IncentiveStatusEnum {
     ///<https://schema.org/IncentiveStatusActive>
@@ -488,7 +488,7 @@ pub enum IncentiveStatusEnum {
     IncentiveStatusInDevelopment,
 }
 ///<https://schema.org/WearableSizeGroupEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum WearableSizeGroupEnumerationEnum {
     ///<https://schema.org/WearableSizeGroupBig>
@@ -527,7 +527,7 @@ pub enum WearableSizeGroupEnumerationEnum {
     WearableSizeGroupRegular,
 }
 ///<https://schema.org/MediaManipulationRatingEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MediaManipulationRatingEnumerationEnum {
     ///<https://schema.org/OriginalMediaContent>
@@ -544,7 +544,7 @@ pub enum MediaManipulationRatingEnumerationEnum {
     EditedOrCroppedContent,
 }
 ///<https://schema.org/GameAvailabilityEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum GameAvailabilityEnumerationEnum {
     ///<https://schema.org/DemoGameAvailability>
@@ -553,7 +553,7 @@ pub enum GameAvailabilityEnumerationEnum {
     FullGameAvailability,
 }
 ///<https://schema.org/PaymentMethodType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum PaymentMethodTypeEnum {
     ///<https://schema.org/ByInvoice>
@@ -574,7 +574,7 @@ pub enum PaymentMethodTypeEnum {
     PhoneCarrierPayment,
 }
 ///<https://schema.org/RsvpResponseType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum RsvpResponseTypeEnum {
     ///<https://schema.org/RsvpResponseNo>
@@ -585,7 +585,7 @@ pub enum RsvpResponseTypeEnum {
     RsvpResponseMaybe,
 }
 ///<https://schema.org/LegalForceStatus>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum LegalForceStatusEnum {
     ///<https://schema.org/InForce>
@@ -596,7 +596,7 @@ pub enum LegalForceStatusEnum {
     PartiallyInForce,
 }
 ///<https://schema.org/IPTCDigitalSourceEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum IPTCDigitalSourceEnumerationEnum {
     ///<https://schema.org/AlgorithmicallyEnhancedDigitalSource>
@@ -635,7 +635,7 @@ pub enum IPTCDigitalSourceEnumerationEnum {
     DataDrivenMediaDigitalSource,
 }
 ///<https://schema.org/MedicalStudyStatus>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalStudyStatusEnum {
     ///<https://schema.org/EnrollingByInvitation>
@@ -660,7 +660,7 @@ pub enum MedicalStudyStatusEnum {
     Withdrawn,
 }
 ///<https://schema.org/CertificationStatusEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum CertificationStatusEnumerationEnum {
     ///<https://schema.org/CertificationActive>
@@ -669,7 +669,7 @@ pub enum CertificationStatusEnumerationEnum {
     CertificationInactive,
 }
 ///<https://schema.org/UKNonprofitType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum UKNonprofitTypeEnum {
     ///<https://schema.org/UnincorporatedAssociationCharity>
@@ -682,7 +682,7 @@ pub enum UKNonprofitTypeEnum {
     UKTrust,
 }
 ///<https://schema.org/MedicalSpecialty>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalSpecialtyEnum {
     ///<https://schema.org/Psychiatric>
@@ -771,7 +771,7 @@ pub enum MedicalSpecialtyEnum {
     Rheumatologic,
 }
 ///<https://schema.org/TierBenefitEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum TierBenefitEnumerationEnum {
     ///<https://schema.org/TierBenefitLoyaltyPrice>
@@ -784,7 +784,7 @@ pub enum TierBenefitEnumerationEnum {
     TierBenefitLoyaltyReturns,
 }
 ///<https://schema.org/LegalValueLevel>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum LegalValueLevelEnum {
     ///<https://schema.org/AuthoritativeLegalValue>
@@ -797,7 +797,7 @@ pub enum LegalValueLevelEnum {
     UnofficialLegalValue,
 }
 ///<https://schema.org/PriceTypeEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum PriceTypeEnumerationEnum {
     ///<https://schema.org/MSRP>
@@ -818,7 +818,7 @@ pub enum PriceTypeEnumerationEnum {
     SRP,
 }
 ///<https://schema.org/DayOfWeek>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DayOfWeekEnum {
     ///<https://schema.org/Thursday>
@@ -839,7 +839,7 @@ pub enum DayOfWeekEnum {
     Monday,
 }
 ///<https://schema.org/ReturnFeesEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ReturnFeesEnumerationEnum {
     ///<https://schema.org/OriginalShippingFees>
@@ -854,7 +854,7 @@ pub enum ReturnFeesEnumerationEnum {
     FreeReturn,
 }
 ///<https://schema.org/GamePlayMode>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum GamePlayModeEnum {
     ///<https://schema.org/SinglePlayer>
@@ -865,7 +865,7 @@ pub enum GamePlayModeEnum {
     CoOp,
 }
 ///<https://schema.org/RestrictedDiet>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum RestrictedDietEnum {
     ///<https://schema.org/GlutenFreeDiet>
@@ -892,7 +892,7 @@ pub enum RestrictedDietEnum {
     HalalDiet,
 }
 ///<https://schema.org/MusicAlbumProductionType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MusicAlbumProductionTypeEnum {
     ///<https://schema.org/RemixAlbum>
@@ -915,7 +915,7 @@ pub enum MusicAlbumProductionTypeEnum {
     DJMixAlbum,
 }
 ///<https://schema.org/PhysicalExam>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum PhysicalExamEnum {
     ///<https://schema.org/Neck>
@@ -948,7 +948,7 @@ pub enum PhysicalExamEnum {
     Eye,
 }
 ///<https://schema.org/ReturnLabelSourceEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ReturnLabelSourceEnumerationEnum {
     ///<https://schema.org/ReturnLabelInBox>
@@ -959,7 +959,7 @@ pub enum ReturnLabelSourceEnumerationEnum {
     ReturnLabelCustomerResponsibility,
 }
 ///<https://schema.org/DriveWheelConfigurationValue>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DriveWheelConfigurationValueEnum {
     ///<https://schema.org/AllWheelDriveConfiguration>
@@ -972,7 +972,7 @@ pub enum DriveWheelConfigurationValueEnum {
     FourWheelDriveConfiguration,
 }
 ///<https://schema.org/OfferItemCondition>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum OfferItemConditionEnum {
     ///<https://schema.org/UsedCondition>
@@ -985,7 +985,7 @@ pub enum OfferItemConditionEnum {
     RefurbishedCondition,
 }
 ///<https://schema.org/PriceComponentTypeEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum PriceComponentTypeEnumerationEnum {
     ///<https://schema.org/CleaningFee>
@@ -1002,7 +1002,7 @@ pub enum PriceComponentTypeEnumerationEnum {
     Subscription,
 }
 ///<https://schema.org/MedicalTrialDesign>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalTrialDesignEnum {
     ///<https://schema.org/OpenTrial>
@@ -1025,7 +1025,7 @@ pub enum MedicalTrialDesignEnum {
     InternationalTrial,
 }
 ///<https://schema.org/IncentiveQualifiedExpenseType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum IncentiveQualifiedExpenseTypeEnum {
     ///<https://schema.org/IncentiveQualifiedExpenseTypeUtilityBill>
@@ -1038,7 +1038,7 @@ pub enum IncentiveQualifiedExpenseTypeEnum {
     IncentiveQualifiedExpenseTypeGoodsOrServices,
 }
 ///<https://schema.org/AdultOrientedEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum AdultOrientedEnumerationEnum {
     ///<https://schema.org/AlcoholConsideration>
@@ -1063,7 +1063,7 @@ pub enum AdultOrientedEnumerationEnum {
     HealthcareConsideration,
 }
 ///<https://schema.org/MedicalDevicePurpose>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalDevicePurposeEnum {
     ///<https://schema.org/Therapeutic>
@@ -1072,7 +1072,7 @@ pub enum MedicalDevicePurposeEnum {
     Diagnostic,
 }
 ///<https://schema.org/NLNonprofitType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum NLNonprofitTypeEnum {
     ///<https://schema.org/NonprofitSBBI>
@@ -1081,7 +1081,7 @@ pub enum NLNonprofitTypeEnum {
     NonprofitANBI,
 }
 ///<https://schema.org/CarUsageType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum CarUsageTypeEnum {
     ///<https://schema.org/RentalVehicleUsage>
@@ -1092,7 +1092,7 @@ pub enum CarUsageTypeEnum {
     DrivingSchoolVehicleUsage,
 }
 ///<https://schema.org/DrugPregnancyCategory>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DrugPregnancyCategoryEnum {
     ///<https://schema.org/FDAcategoryC>
@@ -1109,7 +1109,7 @@ pub enum DrugPregnancyCategoryEnum {
     FDAcategoryA,
 }
 ///<https://schema.org/MerchantReturnEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MerchantReturnEnumerationEnum {
     ///<https://schema.org/MerchantReturnFiniteReturnWindow>
@@ -1122,7 +1122,7 @@ pub enum MerchantReturnEnumerationEnum {
     MerchantReturnUnspecified,
 }
 ///<https://schema.org/PaymentStatusType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum PaymentStatusTypeEnum {
     ///<https://schema.org/PaymentAutomaticallyApplied>
@@ -1137,7 +1137,7 @@ pub enum PaymentStatusTypeEnum {
     PaymentPastDue,
 }
 ///<https://schema.org/EventStatusType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum EventStatusTypeEnum {
     ///<https://schema.org/EventMovedOnline>
@@ -1152,7 +1152,7 @@ pub enum EventStatusTypeEnum {
     EventRescheduled,
 }
 ///<https://schema.org/MedicineSystem>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicineSystemEnum {
     ///<https://schema.org/WesternConventional>
@@ -1169,7 +1169,7 @@ pub enum MedicineSystemEnum {
     Osteopathic,
 }
 ///<https://schema.org/ReservationStatusType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ReservationStatusTypeEnum {
     ///<https://schema.org/ReservationCancelled>
@@ -1182,7 +1182,7 @@ pub enum ReservationStatusTypeEnum {
     ReservationConfirmed,
 }
 ///<https://schema.org/PhysicalActivityCategory>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum PhysicalActivityCategoryEnum {
     ///<https://schema.org/StrengthTraining>
@@ -1201,7 +1201,7 @@ pub enum PhysicalActivityCategoryEnum {
     OccupationalActivity,
 }
 ///<https://schema.org/MedicalObservationalStudyDesign>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalObservationalStudyDesignEnum {
     ///<https://schema.org/Observational>
@@ -1218,7 +1218,7 @@ pub enum MedicalObservationalStudyDesignEnum {
     Longitudinal,
 }
 ///<https://schema.org/PurchaseType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum PurchaseTypeEnum {
     ///<https://schema.org/PurchaseTypeLease>
@@ -1231,7 +1231,7 @@ pub enum PurchaseTypeEnum {
     PurchaseTypeNewPurchase,
 }
 ///<https://schema.org/EventAttendanceModeEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum EventAttendanceModeEnumerationEnum {
     ///<https://schema.org/MixedEventAttendanceMode>
@@ -1242,7 +1242,7 @@ pub enum EventAttendanceModeEnumerationEnum {
     OfflineEventAttendanceMode,
 }
 ///<https://schema.org/MapCategoryType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MapCategoryTypeEnum {
     ///<https://schema.org/ParkingMap>
@@ -1255,7 +1255,7 @@ pub enum MapCategoryTypeEnum {
     SeatingMap,
 }
 ///<https://schema.org/DrugCostCategory>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DrugCostCategoryEnum {
     ///<https://schema.org/Wholesale>
@@ -1266,7 +1266,7 @@ pub enum DrugCostCategoryEnum {
     ReimbursementCap,
 }
 ///<https://schema.org/GenderType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum GenderTypeEnum {
     ///<https://schema.org/Female>
@@ -1275,14 +1275,14 @@ pub enum GenderTypeEnum {
     Male,
 }
 ///<https://schema.org/MeasurementMethodEnum>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MeasurementMethodEnumEnum {
     ///<https://schema.org/ExampleMeasurementMethodEnum>
     ExampleMeasurementMethodEnum,
 }
 ///<https://schema.org/DigitalDocumentPermissionType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DigitalDocumentPermissionTypeEnum {
     ///<https://schema.org/WritePermission>
@@ -1293,7 +1293,7 @@ pub enum DigitalDocumentPermissionTypeEnum {
     CommentPermission,
 }
 ///<https://schema.org/DeliveryMethod>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DeliveryMethodEnum {
     ///<https://schema.org/ParcelService>
@@ -1304,7 +1304,7 @@ pub enum DeliveryMethodEnum {
     LockerDelivery,
 }
 ///<https://schema.org/BookFormatType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum BookFormatTypeEnum {
     ///<https://schema.org/Hardcover>
@@ -1319,7 +1319,7 @@ pub enum BookFormatTypeEnum {
     EBook,
 }
 ///<https://schema.org/RefundTypeEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum RefundTypeEnumerationEnum {
     ///<https://schema.org/StoreCreditRefund>
@@ -1330,7 +1330,7 @@ pub enum RefundTypeEnumerationEnum {
     ExchangeRefund,
 }
 ///<https://schema.org/ItemListOrderType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ItemListOrderTypeEnum {
     ///<https://schema.org/ItemListOrderAscending>
@@ -1341,7 +1341,7 @@ pub enum ItemListOrderTypeEnum {
     ItemListUnordered,
 }
 ///<https://schema.org/Boolean>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum BooleanEnum {
     ///<https://schema.org/False>
@@ -1350,7 +1350,7 @@ pub enum BooleanEnum {
     True,
 }
 ///<https://schema.org/MedicalAudienceType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalAudienceTypeEnum {
     ///<https://schema.org/MedicalResearcher>
@@ -1359,7 +1359,7 @@ pub enum MedicalAudienceTypeEnum {
     Clinician,
 }
 ///<https://schema.org/ContactPointOption>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ContactPointOptionEnum {
     ///<https://schema.org/HearingImpairedSupported>
@@ -1368,7 +1368,7 @@ pub enum ContactPointOptionEnum {
     TollFree,
 }
 ///<https://schema.org/MedicalProcedureType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MedicalProcedureTypeEnum {
     ///<https://schema.org/PercutaneousProcedure>
@@ -1377,7 +1377,7 @@ pub enum MedicalProcedureTypeEnum {
     NoninvasiveProcedure,
 }
 ///<https://schema.org/MusicAlbumReleaseType>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum MusicAlbumReleaseTypeEnum {
     ///<https://schema.org/BroadcastRelease>
@@ -1390,7 +1390,7 @@ pub enum MusicAlbumReleaseTypeEnum {
     SingleRelease,
 }
 ///<https://schema.org/ReturnMethodEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum ReturnMethodEnumerationEnum {
     ///<https://schema.org/ReturnAtKiosk>
@@ -1403,7 +1403,7 @@ pub enum ReturnMethodEnumerationEnum {
     ReturnByMail,
 }
 ///<https://schema.org/SizeSystemEnumeration>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum SizeSystemEnumerationEnum {
     ///<https://schema.org/SizeSystemImperial>
@@ -1412,7 +1412,7 @@ pub enum SizeSystemEnumerationEnum {
     SizeSystemMetric,
 }
 ///<https://schema.org/GameServerStatus>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum GameServerStatusEnum {
     ///<https://schema.org/OfflineTemporarily>
@@ -1425,7 +1425,7 @@ pub enum GameServerStatusEnum {
     Online,
 }
 ///<https://schema.org/DrugPrescriptionStatus>
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum DrugPrescriptionStatusEnum {
     ///<https://schema.org/OTC>

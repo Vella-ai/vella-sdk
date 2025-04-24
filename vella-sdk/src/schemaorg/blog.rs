@@ -51,7 +51,7 @@ pub type BlogGenreFieldEnum = String;
 pub type BlogAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Blog>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Blog {
     #[serde(rename = "@context")]
     pub context: String,

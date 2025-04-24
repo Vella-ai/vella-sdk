@@ -51,7 +51,7 @@ pub type ReportGenreFieldEnum = String;
 pub type ReportAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Report>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Report {
     #[serde(rename = "@context")]
     pub context: String,

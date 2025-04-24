@@ -14,7 +14,7 @@ pub type ArriveActionEndTimeFieldEnum = String;
 pub type ArriveActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ArriveAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ArriveAction {
     #[serde(rename = "@context")]
     pub context: String,

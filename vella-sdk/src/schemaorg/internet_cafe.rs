@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type InternetCafeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/InternetCafe>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct InternetCafe {
     #[serde(rename = "@context")]
     pub context: String,

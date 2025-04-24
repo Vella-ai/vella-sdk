@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ReturnMethodEnumerationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReturnMethodEnumeration>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReturnMethodEnumeration {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type QuantitativeValueDistributionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/QuantitativeValueDistribution>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct QuantitativeValueDistribution {
     #[serde(rename = "@context")]
     pub context: String,

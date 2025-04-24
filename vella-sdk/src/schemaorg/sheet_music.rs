@@ -51,7 +51,7 @@ pub type SheetMusicGenreFieldEnum = String;
 pub type SheetMusicAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SheetMusic>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SheetMusic {
     #[serde(rename = "@context")]
     pub context: String,

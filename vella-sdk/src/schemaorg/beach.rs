@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type BeachAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Beach>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Beach {
     #[serde(rename = "@context")]
     pub context: String,

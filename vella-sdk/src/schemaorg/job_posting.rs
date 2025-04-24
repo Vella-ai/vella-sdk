@@ -22,7 +22,7 @@ pub type JobPostingValidThroughFieldEnum = String;
 pub type JobPostingAdditionalTypeFieldEnum = String;
 ///<https://schema.org/JobPosting>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct JobPosting {
     #[serde(rename = "@context")]
     pub context: String,

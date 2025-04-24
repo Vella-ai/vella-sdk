@@ -14,7 +14,7 @@ pub type CommunicateActionEndTimeFieldEnum = String;
 pub type CommunicateActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CommunicateAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CommunicateAction {
     #[serde(rename = "@context")]
     pub context: String,

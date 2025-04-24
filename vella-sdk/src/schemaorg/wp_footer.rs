@@ -51,7 +51,7 @@ pub type WPFooterGenreFieldEnum = String;
 pub type WPFooterAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WPFooter>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WPFooter {
     #[serde(rename = "@context")]
     pub context: String,

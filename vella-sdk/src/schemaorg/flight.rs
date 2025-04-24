@@ -14,7 +14,7 @@ pub type FlightArrivalTimeFieldEnum = String;
 pub type FlightAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Flight>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Flight {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type SoftwareSourceCodeGenreFieldEnum = String;
 pub type SoftwareSourceCodeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SoftwareSourceCode>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SoftwareSourceCode {
     #[serde(rename = "@context")]
     pub context: String,

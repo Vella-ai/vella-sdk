@@ -1,5 +1,5 @@
 use crate::schemaorg::*;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum0 {
     ///<https://schema.org/ImageObject>
@@ -839,7 +839,7 @@ pub type CollegeOrUniversityPhotoFieldEnum = FieldEnum0;
 pub type TaxiStandPhotosFieldEnum = FieldEnum0;
 ///<https://schema.org/photo>
 pub type TaxiStandPhotoFieldEnum = FieldEnum0;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum1 {
     ///<https://schema.org/GeospatialGeometry>
@@ -5027,7 +5027,7 @@ pub type TaxiStandGeoDisjointFieldEnum = FieldEnum1;
 pub type TaxiStandGeoCoversFieldEnum = FieldEnum1;
 ///<https://schema.org/geoEquals>
 pub type TaxiStandGeoEqualsFieldEnum = FieldEnum1;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum2 {
     ///<https://schema.org/DefinedTerm>
@@ -6308,7 +6308,7 @@ pub type HealthTopicContentEducationalLevelFieldEnum = FieldEnum2;
 pub type TaxiStandKeywordsFieldEnum = FieldEnum2;
 ///<https://schema.org/keywords>
 pub type AirlineKeywordsFieldEnum = FieldEnum2;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum3 {
     ///<https://schema.org/ImageObject>
@@ -8704,7 +8704,7 @@ pub type TaxiStandImageFieldEnum = FieldEnum3;
 pub type AirlineLogoFieldEnum = FieldEnum3;
 ///<https://schema.org/image>
 pub type AirlineImageFieldEnum = FieldEnum3;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum4 {
     ///<https://schema.org/GeoCoordinates>
@@ -9128,7 +9128,7 @@ pub type EntertainmentBusinessGeoFieldEnum = FieldEnum4;
 pub type CollegeOrUniversityGeoFieldEnum = FieldEnum4;
 ///<https://schema.org/geo>
 pub type TaxiStandGeoFieldEnum = FieldEnum4;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum5 {
     ///<https://schema.org/Number>
@@ -10402,7 +10402,7 @@ pub type HealthTopicContentVersionFieldEnum = FieldEnum5;
 pub type TaxiStandLatitudeFieldEnum = FieldEnum5;
 ///<https://schema.org/longitude>
 pub type TaxiStandLongitudeFieldEnum = FieldEnum5;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum6 {
     ///<https://schema.org/Map>
@@ -10826,7 +10826,7 @@ pub type EntertainmentBusinessHasMapFieldEnum = FieldEnum6;
 pub type CollegeOrUniversityHasMapFieldEnum = FieldEnum6;
 ///<https://schema.org/hasMap>
 pub type TaxiStandHasMapFieldEnum = FieldEnum6;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum7 {
     ///<https://schema.org/PostalAddress>
@@ -11314,7 +11314,7 @@ pub type CollegeOrUniversityAddressFieldEnum = FieldEnum7;
 pub type TaxiStandAddressFieldEnum = FieldEnum7;
 ///<https://schema.org/address>
 pub type AirlineAddressFieldEnum = FieldEnum7;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum8 {
     ///<https://schema.org/CreativeWork>
@@ -17202,7 +17202,7 @@ pub type AirlineEthicsPolicyFieldEnum = FieldEnum8;
 pub type AirlineActionableFeedbackPolicyFieldEnum = FieldEnum8;
 ///<https://schema.org/mainEntityOfPage>
 pub type AirlineMainEntityOfPageFieldEnum = FieldEnum8;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum9 {
     ///<https://schema.org/PropertyValue>
@@ -19033,7 +19033,7 @@ pub type MedicalAudienceIdentifierFieldEnum = FieldEnum9;
 pub type TaxiStandIdentifierFieldEnum = FieldEnum9;
 ///<https://schema.org/identifier>
 pub type AirlineIdentifierFieldEnum = FieldEnum9;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum10 {
     ///<https://schema.org/Text>
@@ -20851,7 +20851,7 @@ pub type MedicalAudienceDescriptionFieldEnum = FieldEnum10;
 pub type TaxiStandDescriptionFieldEnum = FieldEnum10;
 ///<https://schema.org/description>
 pub type AirlineDescriptionFieldEnum = FieldEnum10;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum11 {
     ///<https://schema.org/CreativeWork>
@@ -22669,7 +22669,7 @@ pub type MedicalAudienceSubjectOfFieldEnum = FieldEnum11;
 pub type TaxiStandSubjectOfFieldEnum = FieldEnum11;
 ///<https://schema.org/subjectOf>
 pub type AirlineSubjectOfFieldEnum = FieldEnum11;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum12 {
     ///<https://schema.org/Class>
@@ -22869,7 +22869,7 @@ pub type ContactPointOptionSupersededByFieldEnum = FieldEnum12;
 pub type PurchaseTypeSupersededByFieldEnum = FieldEnum12;
 ///<https://schema.org/supersededBy>
 pub type DrugPregnancyCategorySupersededByFieldEnum = FieldEnum12;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum13 {
     ///<https://schema.org/Language>
@@ -23693,7 +23693,7 @@ pub type CollegeOrUniversityKnowsLanguageFieldEnum = FieldEnum13;
 pub type HealthTopicContentInLanguageFieldEnum = FieldEnum13;
 ///<https://schema.org/knowsLanguage>
 pub type AirlineKnowsLanguageFieldEnum = FieldEnum13;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum14 {
     ///<https://schema.org/Organization>
@@ -31203,7 +31203,7 @@ pub type AirlineMembersFieldEnum = FieldEnum14;
 pub type AirlineMemberFieldEnum = FieldEnum14;
 ///<https://schema.org/founder>
 pub type AirlineFounderFieldEnum = FieldEnum14;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum15 {
     ///<https://schema.org/Demand>
@@ -31711,7 +31711,7 @@ pub type ReportOffersFieldEnum = FieldEnum15;
 pub type SyllabusOffersFieldEnum = FieldEnum15;
 ///<https://schema.org/offers>
 pub type HealthTopicContentOffersFieldEnum = FieldEnum15;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum16 {
     ///<https://schema.org/Place>
@@ -32349,7 +32349,7 @@ pub type EntertainmentBusinessLocationFieldEnum = FieldEnum16;
 pub type CollegeOrUniversityLocationFieldEnum = FieldEnum16;
 ///<https://schema.org/location>
 pub type AirlineLocationFieldEnum = FieldEnum16;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum17 {
     ///<https://schema.org/Duration>
@@ -32507,7 +32507,7 @@ pub type TextObjectDurationFieldEnum = FieldEnum17;
 pub type AmpStoryDurationFieldEnum = FieldEnum17;
 ///<https://schema.org/leaseLength>
 pub type OfferForPurchaseLeaseLengthFieldEnum = FieldEnum17;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum18 {
     ///<https://schema.org/PerformingGroup>
@@ -32627,7 +32627,7 @@ pub type RadioSeasonActorFieldEnum = FieldEnum18;
 pub type CreativeWorkSeasonActorFieldEnum = FieldEnum18;
 ///<https://schema.org/actor>
 pub type VisualArtsEventActorFieldEnum = FieldEnum18;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum19 {
     ///<https://schema.org/PaymentMethod>
@@ -32639,7 +32639,7 @@ pub enum FieldEnum19 {
 pub type InvoicePaymentMethodFieldEnum = FieldEnum19;
 ///<https://schema.org/paymentMethod>
 pub type OrderPaymentMethodFieldEnum = FieldEnum19;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum20 {
     ///<https://schema.org/PaymentStatusType>
@@ -32649,7 +32649,7 @@ pub enum FieldEnum20 {
 }
 ///<https://schema.org/paymentStatus>
 pub type InvoicePaymentStatusFieldEnum = FieldEnum20;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum21 {
     ///<https://schema.org/CategoryCode>
@@ -32750,7 +32750,7 @@ pub type DrugCategoryFieldEnum = FieldEnum21;
 pub type OfferForPurchaseCategoryFieldEnum = FieldEnum21;
 ///<https://schema.org/category>
 pub type ActionAccessSpecificationCategoryFieldEnum = FieldEnum21;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum22 {
     ///<https://schema.org/MonetaryAmount>
@@ -32766,7 +32766,7 @@ pub type InvoiceMinimumPaymentDueFieldEnum = FieldEnum22;
 pub type PatientNetWorthFieldEnum = FieldEnum22;
 ///<https://schema.org/netWorth>
 pub type PersonNetWorthFieldEnum = FieldEnum22;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum23 {
     ///<https://schema.org/Country>
@@ -32788,7 +32788,7 @@ pub type GeoShapeAddressCountryFieldEnum = FieldEnum23;
 pub type GeoCircleAddressCountryFieldEnum = FieldEnum23;
 ///<https://schema.org/addressCountry>
 pub type GeoCoordinatesAddressCountryFieldEnum = FieldEnum23;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum24 {
     ///<https://schema.org/EntryPoint>
@@ -33022,7 +33022,7 @@ pub type TieActionTargetFieldEnum = FieldEnum24;
 pub type CommunicateActionTargetFieldEnum = FieldEnum24;
 ///<https://schema.org/target>
 pub type InteractActionTargetFieldEnum = FieldEnum24;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum25 {
     ///<https://schema.org/DefinedTerm>
@@ -35492,7 +35492,7 @@ pub type HealthTopicContentEducationalUseFieldEnum = FieldEnum25;
 pub type HealthTopicContentAssessesFieldEnum = FieldEnum25;
 ///<https://schema.org/skills>
 pub type AirlineSkillsFieldEnum = FieldEnum25;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum26 {
     ///<https://schema.org/Text>
@@ -35839,7 +35839,7 @@ pub type EntertainmentBusinessKnowsAboutFieldEnum = FieldEnum26;
 pub type CollegeOrUniversityKnowsAboutFieldEnum = FieldEnum26;
 ///<https://schema.org/knowsAbout>
 pub type AirlineKnowsAboutFieldEnum = FieldEnum26;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum27 {
     ///<https://schema.org/AboutPage>
@@ -36180,7 +36180,7 @@ pub type EntertainmentBusinessOwnershipFundingInfoFieldEnum = FieldEnum27;
 pub type CollegeOrUniversityOwnershipFundingInfoFieldEnum = FieldEnum27;
 ///<https://schema.org/ownershipFundingInfo>
 pub type AirlineOwnershipFundingInfoFieldEnum = FieldEnum27;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum28 {
     ///<https://schema.org/AdministrativeArea>
@@ -36566,7 +36566,7 @@ pub type EntertainmentBusinessServiceAreaFieldEnum = FieldEnum28;
 pub type CollegeOrUniversityServiceAreaFieldEnum = FieldEnum28;
 ///<https://schema.org/serviceArea>
 pub type AirlineServiceAreaFieldEnum = FieldEnum28;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum29 {
     ///<https://schema.org/OwnershipInfo>
@@ -36908,7 +36908,7 @@ pub type EntertainmentBusinessOwnsFieldEnum = FieldEnum29;
 pub type CollegeOrUniversityOwnsFieldEnum = FieldEnum29;
 ///<https://schema.org/owns>
 pub type AirlineOwnsFieldEnum = FieldEnum29;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum30 {
     ///<https://schema.org/Brand>
@@ -37318,7 +37318,7 @@ pub type EntertainmentBusinessBrandFieldEnum = FieldEnum30;
 pub type CollegeOrUniversityBrandFieldEnum = FieldEnum30;
 ///<https://schema.org/brand>
 pub type AirlineBrandFieldEnum = FieldEnum30;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum31 {
     ///<https://schema.org/MemberProgramTier>
@@ -37662,7 +37662,7 @@ pub type EntertainmentBusinessMemberOfFieldEnum = FieldEnum31;
 pub type CollegeOrUniversityMemberOfFieldEnum = FieldEnum31;
 ///<https://schema.org/memberOf>
 pub type AirlineMemberOfFieldEnum = FieldEnum31;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum32 {
     ///<https://schema.org/Article>
@@ -38000,7 +38000,7 @@ pub type EntertainmentBusinessDiversityStaffingReportFieldEnum = FieldEnum32;
 pub type CollegeOrUniversityDiversityStaffingReportFieldEnum = FieldEnum32;
 ///<https://schema.org/diversityStaffingReport>
 pub type AirlineDiversityStaffingReportFieldEnum = FieldEnum32;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum33 {
     ///<https://schema.org/AdministrativeArea>
@@ -38402,7 +38402,7 @@ pub type EntertainmentBusinessAreaServedFieldEnum = FieldEnum33;
 pub type CollegeOrUniversityAreaServedFieldEnum = FieldEnum33;
 ///<https://schema.org/areaServed>
 pub type AirlineAreaServedFieldEnum = FieldEnum33;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum34 {
     ///<https://schema.org/LoanOrCredit>
@@ -38752,7 +38752,7 @@ pub type EntertainmentBusinessAcceptedPaymentMethodFieldEnum = FieldEnum34;
 pub type CollegeOrUniversityAcceptedPaymentMethodFieldEnum = FieldEnum34;
 ///<https://schema.org/acceptedPaymentMethod>
 pub type AirlineAcceptedPaymentMethodFieldEnum = FieldEnum34;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum35 {
     ///<https://schema.org/DayOfWeek>
@@ -38764,7 +38764,7 @@ pub enum FieldEnum35 {
 pub type ShippingDeliveryTimeBusinessDaysFieldEnum = FieldEnum35;
 ///<https://schema.org/businessDays>
 pub type ServicePeriodBusinessDaysFieldEnum = FieldEnum35;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum36 {
     ///<https://schema.org/QuantitativeValue>
@@ -38780,7 +38780,7 @@ pub type ShippingDeliveryTimeTransitTimeFieldEnum = FieldEnum36;
 pub type ShippingConditionsTransitTimeFieldEnum = FieldEnum36;
 ///<https://schema.org/handlingTime>
 pub type ShippingServiceHandlingTimeFieldEnum = FieldEnum36;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum37 {
     ///<https://schema.org/CreativeWork>
@@ -38798,7 +38798,7 @@ pub type HowToStepsFieldEnum = FieldEnum37;
 pub type RecipeRecipeInstructionsFieldEnum = FieldEnum37;
 ///<https://schema.org/steps>
 pub type RecipeStepsFieldEnum = FieldEnum37;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum38 {
     ///<https://schema.org/CreativeWork>
@@ -39190,7 +39190,7 @@ pub type ReportCitationFieldEnum = FieldEnum38;
 pub type SyllabusCitationFieldEnum = FieldEnum38;
 ///<https://schema.org/citation>
 pub type HealthTopicContentCitationFieldEnum = FieldEnum38;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum39 {
     ///<https://schema.org/URL>
@@ -39544,7 +39544,7 @@ pub type ReportArchivedAtFieldEnum = FieldEnum39;
 pub type SyllabusArchivedAtFieldEnum = FieldEnum39;
 ///<https://schema.org/archivedAt>
 pub type HealthTopicContentArchivedAtFieldEnum = FieldEnum39;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum40 {
     ///<https://schema.org/QuantitativeValue>
@@ -39914,7 +39914,7 @@ pub type MolecularEntityMonoisotopicMolecularWeightFieldEnum = FieldEnum40;
 pub type SyllabusMaterialExtentFieldEnum = FieldEnum40;
 ///<https://schema.org/materialExtent>
 pub type HealthTopicContentMaterialExtentFieldEnum = FieldEnum40;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum41 {
     ///<https://schema.org/Clip>
@@ -40268,7 +40268,7 @@ pub type ReportVideoFieldEnum = FieldEnum41;
 pub type SyllabusVideoFieldEnum = FieldEnum41;
 ///<https://schema.org/video>
 pub type HealthTopicContentVideoFieldEnum = FieldEnum41;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum42 {
     ///<https://schema.org/CreativeWork>
@@ -40970,7 +40970,7 @@ pub type SyllabusIsBasedOnFieldEnum = FieldEnum42;
 pub type HealthTopicContentIsBasedOnUrlFieldEnum = FieldEnum42;
 ///<https://schema.org/isBasedOn>
 pub type HealthTopicContentIsBasedOnFieldEnum = FieldEnum42;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum43 {
     ///<https://schema.org/Product>
@@ -41349,7 +41349,7 @@ pub type ReportMaterialFieldEnum = FieldEnum43;
 pub type SyllabusMaterialFieldEnum = FieldEnum43;
 ///<https://schema.org/material>
 pub type HealthTopicContentMaterialFieldEnum = FieldEnum43;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum44 {
     ///<https://schema.org/Integer>
@@ -41841,7 +41841,7 @@ pub type ReportPositionFieldEnum = FieldEnum44;
 pub type SyllabusPositionFieldEnum = FieldEnum44;
 ///<https://schema.org/position>
 pub type HealthTopicContentPositionFieldEnum = FieldEnum44;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum45 {
     ///<https://schema.org/DefinedTerm>
@@ -42223,7 +42223,7 @@ pub type ReportSizeFieldEnum = FieldEnum45;
 pub type SyllabusSizeFieldEnum = FieldEnum45;
 ///<https://schema.org/size>
 pub type HealthTopicContentSizeFieldEnum = FieldEnum45;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum46 {
     ///<https://schema.org/Rating>
@@ -42577,7 +42577,7 @@ pub type ReportContentRatingFieldEnum = FieldEnum46;
 pub type SyllabusContentRatingFieldEnum = FieldEnum46;
 ///<https://schema.org/contentRating>
 pub type HealthTopicContentContentRatingFieldEnum = FieldEnum46;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum47 {
     ///<https://schema.org/AudioObject>
@@ -42933,7 +42933,7 @@ pub type ReportAudioFieldEnum = FieldEnum47;
 pub type SyllabusAudioFieldEnum = FieldEnum47;
 ///<https://schema.org/audio>
 pub type HealthTopicContentAudioFieldEnum = FieldEnum47;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum48 {
     ///<https://schema.org/CorrectionComment>
@@ -43288,7 +43288,7 @@ pub type ReportCorrectionFieldEnum = FieldEnum48;
 pub type SyllabusCorrectionFieldEnum = FieldEnum48;
 ///<https://schema.org/correction>
 pub type HealthTopicContentCorrectionFieldEnum = FieldEnum48;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum49 {
     ///<https://schema.org/ListItem>
@@ -43308,7 +43308,7 @@ pub type OfferCatalogItemListElementFieldEnum = FieldEnum49;
 pub type HowToStepItemListElementFieldEnum = FieldEnum49;
 ///<https://schema.org/itemListElement>
 pub type ItemListItemListElementFieldEnum = FieldEnum49;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum50 {
     ///<https://schema.org/ItemListOrderType>
@@ -43326,7 +43326,7 @@ pub type OfferCatalogItemListOrderFieldEnum = FieldEnum50;
 pub type HowToStepItemListOrderFieldEnum = FieldEnum50;
 ///<https://schema.org/itemListOrder>
 pub type ItemListItemListOrderFieldEnum = FieldEnum50;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum51 {
     ///<https://schema.org/Number>
@@ -43522,7 +43522,7 @@ pub type HotelNumberOfRoomsFieldEnum = FieldEnum51;
 pub type HotelRoomNumberOfBedroomsFieldEnum = FieldEnum51;
 ///<https://schema.org/numberOfRooms>
 pub type HotelRoomNumberOfRoomsFieldEnum = FieldEnum51;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum52 {
     ///<https://schema.org/Product>
@@ -43670,7 +43670,7 @@ pub type ServiceIsRelatedToFieldEnum = FieldEnum52;
 pub type DrugIsSimilarToFieldEnum = FieldEnum52;
 ///<https://schema.org/isRelatedTo>
 pub type DrugIsRelatedToFieldEnum = FieldEnum52;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum53 {
     ///<https://schema.org/GovernmentBenefitsType>
@@ -43720,7 +43720,7 @@ pub type TaxiServiceServiceTypeFieldEnum = FieldEnum53;
 pub type InvestmentOrDepositServiceTypeFieldEnum = FieldEnum53;
 ///<https://schema.org/serviceType>
 pub type ServiceServiceTypeFieldEnum = FieldEnum53;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum54 {
     ///<https://schema.org/SpeakableSpecification>
@@ -43796,7 +43796,7 @@ pub type LiveBlogPostingSpeakableFieldEnum = FieldEnum54;
 pub type OpinionNewsArticleSpeakableFieldEnum = FieldEnum54;
 ///<https://schema.org/speakable>
 pub type ReportSpeakableFieldEnum = FieldEnum54;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum55 {
     ///<https://schema.org/Menu>
@@ -43845,7 +43845,7 @@ pub type BakeryHasMenuFieldEnum = FieldEnum55;
 pub type WineryMenuFieldEnum = FieldEnum55;
 ///<https://schema.org/hasMenu>
 pub type WineryHasMenuFieldEnum = FieldEnum55;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum56 {
     ///<https://schema.org/MediaObject>
@@ -43869,7 +43869,7 @@ pub type AudiobookCaptionFieldEnum = FieldEnum56;
 pub type AudioObjectCaptionFieldEnum = FieldEnum56;
 ///<https://schema.org/caption>
 pub type ImageObjectCaptionFieldEnum = FieldEnum56;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum57 {
     ///<https://schema.org/PropertyValue>
@@ -43883,7 +43883,7 @@ pub type ImageObjectSnapshotExifDataFieldEnum = FieldEnum57;
 pub type BarcodeExifDataFieldEnum = FieldEnum57;
 ///<https://schema.org/exifData>
 pub type ImageObjectExifDataFieldEnum = FieldEnum57;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum58 {
     ///<https://schema.org/Boolean>
@@ -43923,7 +43923,7 @@ pub type TextObjectRequiresSubscriptionFieldEnum = FieldEnum58;
 pub type AmpStoryRequiresSubscriptionFieldEnum = FieldEnum58;
 ///<https://schema.org/requiresSubscription>
 pub type ActionAccessSpecificationRequiresSubscriptionFieldEnum = FieldEnum58;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum59 {
     ///<https://schema.org/Distance>
@@ -44103,7 +44103,7 @@ pub type TextObjectHeightFieldEnum = FieldEnum59;
 pub type AmpStoryWidthFieldEnum = FieldEnum59;
 ///<https://schema.org/height>
 pub type AmpStoryHeightFieldEnum = FieldEnum59;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum60 {
     ///<https://schema.org/GeoShape>
@@ -44171,7 +44171,7 @@ pub type OfferForPurchaseIneligibleRegionFieldEnum = FieldEnum60;
 pub type ActionAccessSpecificationEligibleRegionFieldEnum = FieldEnum60;
 ///<https://schema.org/ineligibleRegion>
 pub type ActionAccessSpecificationIneligibleRegionFieldEnum = FieldEnum60;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum61 {
     ///<https://schema.org/Person>
@@ -44183,7 +44183,7 @@ pub enum FieldEnum61 {
 pub type PatientColleagueFieldEnum = FieldEnum61;
 ///<https://schema.org/colleague>
 pub type PersonColleagueFieldEnum = FieldEnum61;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum62 {
     ///<https://schema.org/Mass>
@@ -44231,7 +44231,7 @@ pub type VehicleWeightFieldEnum = FieldEnum62;
 pub type PersonWeightFieldEnum = FieldEnum62;
 ///<https://schema.org/weight>
 pub type DrugWeightFieldEnum = FieldEnum62;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum63 {
     ///<https://schema.org/ContactPoint>
@@ -44247,7 +44247,7 @@ pub type PatientWorkLocationFieldEnum = FieldEnum63;
 pub type PersonHomeLocationFieldEnum = FieldEnum63;
 ///<https://schema.org/workLocation>
 pub type PersonWorkLocationFieldEnum = FieldEnum63;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum64 {
     ///<https://schema.org/EducationalOrganization>
@@ -44259,7 +44259,7 @@ pub enum FieldEnum64 {
 pub type PatientAlumniOfFieldEnum = FieldEnum64;
 ///<https://schema.org/alumniOf>
 pub type PersonAlumniOfFieldEnum = FieldEnum64;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum65 {
     ///<https://schema.org/GenderType>
@@ -44283,7 +44283,7 @@ pub type PeopleAudienceSuggestedGenderFieldEnum = FieldEnum65;
 pub type PersonGenderFieldEnum = FieldEnum65;
 ///<https://schema.org/suggestedGender>
 pub type MedicalAudienceSuggestedGenderFieldEnum = FieldEnum65;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum66 {
     ///<https://schema.org/BroadcastFrequencySpecification>
@@ -44305,7 +44305,7 @@ pub type TelevisionChannelBroadcastFrequencyFieldEnum = FieldEnum66;
 pub type BroadcastChannelBroadcastFrequencyFieldEnum = FieldEnum66;
 ///<https://schema.org/broadcastFrequency>
 pub type RadioChannelBroadcastFrequencyFieldEnum = FieldEnum66;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum67 {
     ///<https://schema.org/MedicalContraindication>
@@ -44325,7 +44325,7 @@ pub type MedicalDeviceContraindicationFieldEnum = FieldEnum67;
 pub type RadiationTherapyContraindicationFieldEnum = FieldEnum67;
 ///<https://schema.org/contraindication>
 pub type MedicalTherapyContraindicationFieldEnum = FieldEnum67;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum68 {
     ///<https://schema.org/MedicalEntity>
@@ -44357,7 +44357,7 @@ pub type RadiationTherapyPreparationFieldEnum = FieldEnum68;
 pub type PhysicalExamPreparationFieldEnum = FieldEnum68;
 ///<https://schema.org/preparation>
 pub type MedicalTherapyPreparationFieldEnum = FieldEnum68;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum69 {
     ///<https://schema.org/EventStatusType>
@@ -44407,7 +44407,7 @@ pub type PhysicalExamStatusFieldEnum = FieldEnum69;
 pub type MedicalTherapyStatusFieldEnum = FieldEnum69;
 ///<https://schema.org/status>
 pub type MedicalSignStatusFieldEnum = FieldEnum69;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum70 {
     ///<https://schema.org/DrugLegalStatus>
@@ -44561,7 +44561,7 @@ pub type SuperficialAnatomyLegalStatusFieldEnum = FieldEnum70;
 pub type MedicalCodeLegalStatusFieldEnum = FieldEnum70;
 ///<https://schema.org/legalStatus>
 pub type MedicalSignLegalStatusFieldEnum = FieldEnum70;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum71 {
     ///<https://schema.org/MonetaryAmount>
@@ -44577,7 +44577,7 @@ pub type HowToEstimatedCostFieldEnum = FieldEnum71;
 pub type FinancialIncentiveIncomeLimitFieldEnum = FieldEnum71;
 ///<https://schema.org/estimatedCost>
 pub type RecipeEstimatedCostFieldEnum = FieldEnum71;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum72 {
     ///<https://schema.org/Number>
@@ -44593,7 +44593,7 @@ pub type HowToSupplyRequiredQuantityFieldEnum = FieldEnum72;
 pub type HowToItemRequiredQuantityFieldEnum = FieldEnum72;
 ///<https://schema.org/requiredQuantity>
 pub type HowToToolRequiredQuantityFieldEnum = FieldEnum72;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum73 {
     ///<https://schema.org/AdministrativeArea>
@@ -44611,7 +44611,7 @@ pub type GovernmentServiceJurisdictionFieldEnum = FieldEnum73;
 pub type LegislationObjectLegislationJurisdictionFieldEnum = FieldEnum73;
 ///<https://schema.org/jurisdiction>
 pub type LegislationObjectJurisdictionFieldEnum = FieldEnum73;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum74 {
     ///<https://schema.org/CategoryCode>
@@ -44637,7 +44637,7 @@ pub type JobPostingOccupationalCategoryFieldEnum = FieldEnum74;
 pub type LegislationObjectLegislationTypeFieldEnum = FieldEnum74;
 ///<https://schema.org/occupationalCategory>
 pub type PhysiciansOfficeOccupationalCategoryFieldEnum = FieldEnum74;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum75 {
     ///<https://schema.org/HyperTocEntry>
@@ -44667,7 +44667,7 @@ pub type VideoGameClipStartOffsetFieldEnum = FieldEnum75;
 pub type MovieClipEndOffsetFieldEnum = FieldEnum75;
 ///<https://schema.org/startOffset>
 pub type MovieClipStartOffsetFieldEnum = FieldEnum75;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum76 {
     ///<https://schema.org/MusicGroup>
@@ -44713,7 +44713,7 @@ pub type TVEpisodeMusicByFieldEnum = FieldEnum76;
 pub type RadioSeriesMusicByFieldEnum = FieldEnum76;
 ///<https://schema.org/musicBy>
 pub type MovieMusicByFieldEnum = FieldEnum76;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum77 {
     ///<https://schema.org/MonetaryAmount>
@@ -44753,7 +44753,7 @@ pub type MerchantReturnPolicySeasonalOverrideRestockingFeeFieldEnum = FieldEnum7
 pub type BrokerageAccountAmountFieldEnum = FieldEnum77;
 ///<https://schema.org/amount>
 pub type InvestmentOrDepositAmountFieldEnum = FieldEnum77;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum78 {
     ///<https://schema.org/DefinedTerm>
@@ -44800,7 +44800,7 @@ pub type LocationFeatureSpecificationMeasurementMethodFieldEnum = FieldEnum78;
 pub type ObservationMeasurementTechniqueFieldEnum = FieldEnum78;
 ///<https://schema.org/measurementMethod>
 pub type ObservationMeasurementMethodFieldEnum = FieldEnum78;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum79 {
     ///<https://schema.org/Property>
@@ -44820,7 +44820,7 @@ pub type DataFeedVariableMeasuredFieldEnum = FieldEnum79;
 pub type CompleteDataFeedVariableMeasuredFieldEnum = FieldEnum79;
 ///<https://schema.org/variableMeasured>
 pub type ObservationVariableMeasuredFieldEnum = FieldEnum79;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum80 {
     ///<https://schema.org/Date>
@@ -44833,7 +44833,7 @@ pub enum FieldEnum80 {
 pub type MerchantReturnPolicyMerchantReturnDaysFieldEnum = FieldEnum80;
 ///<https://schema.org/merchantReturnDays>
 pub type MerchantReturnPolicySeasonalOverrideMerchantReturnDaysFieldEnum = FieldEnum80;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum81 {
     ///<https://schema.org/ItemList>
@@ -44849,7 +44849,7 @@ pub type MusicReleaseTrackFieldEnum = FieldEnum81;
 pub type MusicAlbumTrackFieldEnum = FieldEnum81;
 ///<https://schema.org/track>
 pub type MusicGroupTrackFieldEnum = FieldEnum81;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum82 {
     ///<https://schema.org/BreadcrumbList>
@@ -44887,7 +44887,7 @@ pub type ContactPageBreadcrumbFieldEnum = FieldEnum82;
 pub type FAQPageBreadcrumbFieldEnum = FieldEnum82;
 ///<https://schema.org/breadcrumb>
 pub type ProfilePageBreadcrumbFieldEnum = FieldEnum82;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum83 {
     ///<https://schema.org/Product>
@@ -44899,7 +44899,7 @@ pub enum FieldEnum83 {
 pub type PostalAddressProductSupportedFieldEnum = FieldEnum83;
 ///<https://schema.org/productSupported>
 pub type ContactPointProductSupportedFieldEnum = FieldEnum83;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum84 {
     ///<https://schema.org/HowToTool>
@@ -44913,7 +44913,7 @@ pub type HowToToolFieldEnum = FieldEnum84;
 pub type HowToDirectionToolFieldEnum = FieldEnum84;
 ///<https://schema.org/tool>
 pub type RecipeToolFieldEnum = FieldEnum84;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum85 {
     ///<https://schema.org/CreativeWork>
@@ -44929,7 +44929,7 @@ pub enum FieldEnum85 {
 pub type HowToStepFieldEnum = FieldEnum85;
 ///<https://schema.org/step>
 pub type RecipeStepFieldEnum = FieldEnum85;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum86 {
     ///<https://schema.org/HowToSupply>
@@ -44943,7 +44943,7 @@ pub type HowToSupplyFieldEnum = FieldEnum86;
 pub type HowToDirectionSupplyFieldEnum = FieldEnum86;
 ///<https://schema.org/supply>
 pub type RecipeSupplyFieldEnum = FieldEnum86;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum87 {
     ///<https://schema.org/FoodEstablishment>
@@ -44953,7 +44953,7 @@ pub enum FieldEnum87 {
 }
 ///<https://schema.org/foodEstablishment>
 pub type CookActionFoodEstablishmentFieldEnum = FieldEnum87;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum88 {
     ///<https://schema.org/Text>
@@ -44977,7 +44977,7 @@ pub type ChooseActionActionOptionFieldEnum = FieldEnum88;
 pub type VoteActionOptionFieldEnum = FieldEnum88;
 ///<https://schema.org/actionOption>
 pub type VoteActionActionOptionFieldEnum = FieldEnum88;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum89 {
     ///<https://schema.org/Boolean>
@@ -44989,7 +44989,7 @@ pub enum FieldEnum89 {
 pub type CreditCardCashBackFieldEnum = FieldEnum89;
 ///<https://schema.org/cashBack>
 pub type PaymentCardCashBackFieldEnum = FieldEnum89;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum90 {
     ///<https://schema.org/MediaObject>
@@ -45001,7 +45001,7 @@ pub enum FieldEnum90 {
 }
 ///<https://schema.org/originalMediaLink>
 pub type MediaReviewOriginalMediaLinkFieldEnum = FieldEnum90;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum91 {
     ///<https://schema.org/ItemList>
@@ -45097,7 +45097,7 @@ pub type ReviewNewsArticlePositiveNotesFieldEnum = FieldEnum91;
 pub type DrugNegativeNotesFieldEnum = FieldEnum91;
 ///<https://schema.org/positiveNotes>
 pub type DrugPositiveNotesFieldEnum = FieldEnum91;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum92 {
     ///<https://schema.org/AnatomicalStructure>
@@ -45113,7 +45113,7 @@ pub type AnatomicalSystemComprisedOfFieldEnum = FieldEnum92;
 pub type LymphaticVesselRegionDrainedFieldEnum = FieldEnum92;
 ///<https://schema.org/relatedAnatomy>
 pub type SuperficialAnatomyRelatedAnatomyFieldEnum = FieldEnum92;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum93 {
     ///<https://schema.org/AnatomicalStructure>
@@ -45123,7 +45123,7 @@ pub enum FieldEnum93 {
 }
 ///<https://schema.org/sensoryUnit>
 pub type NerveSensoryUnitFieldEnum = FieldEnum93;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum94 {
     ///<https://schema.org/MedicalEnumeration>
@@ -45141,7 +45141,7 @@ pub type MedicalTestNormalRangeFieldEnum = FieldEnum94;
 pub type ImagingTestNormalRangeFieldEnum = FieldEnum94;
 ///<https://schema.org/normalRange>
 pub type MedicalTestPanelNormalRangeFieldEnum = FieldEnum94;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum95 {
     ///<https://schema.org/AggregateOffer>
@@ -45169,7 +45169,7 @@ pub type OfferForLeaseItemOfferedFieldEnum = FieldEnum95;
 pub type OfferItemOfferedFieldEnum = FieldEnum95;
 ///<https://schema.org/itemOffered>
 pub type OfferForPurchaseItemOfferedFieldEnum = FieldEnum95;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum96 {
     ///<https://schema.org/MonetaryAmount>
@@ -45183,7 +45183,7 @@ pub type OfferShippingDetailsShippingRateFieldEnum = FieldEnum96;
 pub type ShippingConditionsShippingRateFieldEnum = FieldEnum96;
 ///<https://schema.org/shippingRate>
 pub type ShippingRateSettingsShippingRateFieldEnum = FieldEnum96;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum97 {
     ///<https://schema.org/PriceTypeEnumeration>
@@ -45195,7 +45195,7 @@ pub enum FieldEnum97 {
 pub type CompoundPriceSpecificationPriceTypeFieldEnum = FieldEnum97;
 ///<https://schema.org/priceType>
 pub type UnitPriceSpecificationPriceTypeFieldEnum = FieldEnum97;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum98 {
     ///<https://schema.org/DefinedTerm>
@@ -45205,7 +45205,7 @@ pub enum FieldEnum98 {
 }
 ///<https://schema.org/incentivizedItem>
 pub type FinancialIncentiveIncentivizedItemFieldEnum = FieldEnum98;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum99 {
     ///<https://schema.org/LoanOrCredit>
@@ -45217,7 +45217,7 @@ pub enum FieldEnum99 {
 }
 ///<https://schema.org/incentiveAmount>
 pub type FinancialIncentiveIncentiveAmountFieldEnum = FieldEnum99;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum100 {
     ///<https://schema.org/Number>
@@ -45251,7 +45251,7 @@ pub type FoodEstablishmentReservationTotalPriceFieldEnum = FieldEnum100;
 pub type BoatReservationTotalPriceFieldEnum = FieldEnum100;
 ///<https://schema.org/totalPrice>
 pub type TrainReservationTotalPriceFieldEnum = FieldEnum100;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum101 {
     ///<https://schema.org/DataFeedItem>
@@ -45265,7 +45265,7 @@ pub enum FieldEnum101 {
 pub type DataFeedDataFeedElementFieldEnum = FieldEnum101;
 ///<https://schema.org/dataFeedElement>
 pub type CompleteDataFeedDataFeedElementFieldEnum = FieldEnum101;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum102 {
     ///<https://schema.org/Audience>
@@ -45323,7 +45323,7 @@ pub type SendActionRecipientFieldEnum = FieldEnum102;
 pub type TipActionRecipientFieldEnum = FieldEnum102;
 ///<https://schema.org/recipient>
 pub type CommunicateActionRecipientFieldEnum = FieldEnum102;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum103 {
     ///<https://schema.org/EducationalOccupationalCredential>
@@ -45339,7 +45339,7 @@ pub type OccupationQualificationsFieldEnum = FieldEnum103;
 pub type JobPostingEducationRequirementsFieldEnum = FieldEnum103;
 ///<https://schema.org/qualifications>
 pub type JobPostingQualificationsFieldEnum = FieldEnum103;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum104 {
     ///<https://schema.org/MonetaryAmount>
@@ -45353,7 +45353,7 @@ pub enum FieldEnum104 {
 pub type OccupationEstimatedSalaryFieldEnum = FieldEnum104;
 ///<https://schema.org/estimatedSalary>
 pub type JobPostingEstimatedSalaryFieldEnum = FieldEnum104;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum105 {
     ///<https://schema.org/OccupationalExperienceRequirements>
@@ -45365,7 +45365,7 @@ pub enum FieldEnum105 {
 pub type OccupationExperienceRequirementsFieldEnum = FieldEnum105;
 ///<https://schema.org/experienceRequirements>
 pub type JobPostingExperienceRequirementsFieldEnum = FieldEnum105;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum106 {
     ///<https://schema.org/Integer>
@@ -45381,7 +45381,7 @@ pub type LodgingReservationNumAdultsFieldEnum = FieldEnum106;
 pub type LodgingReservationNumChildrenFieldEnum = FieldEnum106;
 ///<https://schema.org/partySize>
 pub type FoodEstablishmentReservationPartySizeFieldEnum = FieldEnum106;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum107 {
     ///<https://schema.org/ItemList>
@@ -45401,7 +45401,7 @@ pub type BusTripItineraryFieldEnum = FieldEnum107;
 pub type FlightItineraryFieldEnum = FieldEnum107;
 ///<https://schema.org/itinerary>
 pub type TouristTripItineraryFieldEnum = FieldEnum107;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum108 {
     ///<https://schema.org/BedDetails>
@@ -45429,7 +45429,7 @@ pub type ApartmentBedFieldEnum = FieldEnum108;
 pub type RoomBedFieldEnum = FieldEnum108;
 ///<https://schema.org/bed>
 pub type HotelRoomBedFieldEnum = FieldEnum108;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum109 {
     ///<https://schema.org/Energy>
@@ -45439,7 +45439,7 @@ pub enum FieldEnum109 {
 }
 ///<https://schema.org/workload>
 pub type ExercisePlanWorkloadFieldEnum = FieldEnum109;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum110 {
     ///<https://schema.org/AnatomicalStructure>
@@ -45465,7 +45465,7 @@ pub type VitalSignAssociatedAnatomyFieldEnum = FieldEnum110;
 pub type PhysicalActivityAssociatedAnatomyFieldEnum = FieldEnum110;
 ///<https://schema.org/associatedAnatomy>
 pub type MedicalSignAssociatedAnatomyFieldEnum = FieldEnum110;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum111 {
     ///<https://schema.org/QualitativeValue>
@@ -45518,7 +45518,7 @@ pub type VehicleBodyTypeFieldEnum = FieldEnum111;
 pub type VehicleMeetsEmissionStandardFieldEnum = FieldEnum111;
 ///<https://schema.org/fuelType>
 pub type VehicleFuelTypeFieldEnum = FieldEnum111;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum112 {
     ///<https://schema.org/DefinedTerm>
@@ -45556,7 +45556,7 @@ pub type LocationFeatureSpecificationValueReferenceFieldEnum = FieldEnum112;
 pub type DriveWheelConfigurationValueValueReferenceFieldEnum = FieldEnum112;
 ///<https://schema.org/valueReference>
 pub type ObservationValueReferenceFieldEnum = FieldEnum112;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum113 {
     ///<https://schema.org/Boolean>
@@ -45577,7 +45577,7 @@ pub type MonetaryAmountValueFieldEnum = FieldEnum113;
 pub type LocationFeatureSpecificationValueFieldEnum = FieldEnum113;
 ///<https://schema.org/value>
 pub type ObservationValueFieldEnum = FieldEnum113;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum114 {
     ///<https://schema.org/Audience>
@@ -45591,7 +45591,7 @@ pub type TouristDestinationTouristTypeFieldEnum = FieldEnum114;
 pub type TouristAttractionTouristTypeFieldEnum = FieldEnum114;
 ///<https://schema.org/touristType>
 pub type TouristTripTouristTypeFieldEnum = FieldEnum114;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum115 {
     ///<https://schema.org/Number>
@@ -45607,7 +45607,7 @@ pub type MaximumDoseScheduleDoseValueFieldEnum = FieldEnum115;
 pub type ReportedDoseScheduleDoseValueFieldEnum = FieldEnum115;
 ///<https://schema.org/doseValue>
 pub type DoseScheduleDoseValueFieldEnum = FieldEnum115;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum116 {
     ///<https://schema.org/QualitativeValue>
@@ -45623,7 +45623,7 @@ pub type LodgingReservationLodgingUnitTypeFieldEnum = FieldEnum116;
 pub type SeatSeatingTypeFieldEnum = FieldEnum116;
 ///<https://schema.org/passengerPriorityStatus>
 pub type FlightReservationPassengerPriorityStatusFieldEnum = FieldEnum116;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum117 {
     ///<https://schema.org/MedicalProcedure>
@@ -45645,7 +45645,7 @@ pub type PhysicianAvailableServiceFieldEnum = FieldEnum117;
 pub type MedicalClinicAvailableServiceFieldEnum = FieldEnum117;
 ///<https://schema.org/availableService>
 pub type PhysiciansOfficeAvailableServiceFieldEnum = FieldEnum117;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum118 {
     ///<https://schema.org/MonetaryAmount>
@@ -45659,7 +45659,7 @@ pub enum FieldEnum118 {
 pub type EmployeeRoleBaseSalaryFieldEnum = FieldEnum118;
 ///<https://schema.org/baseSalary>
 pub type JobPostingBaseSalaryFieldEnum = FieldEnum118;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum119 {
     ///<https://schema.org/CreditCard>
@@ -45673,7 +45673,7 @@ pub enum FieldEnum119 {
 }
 ///<https://schema.org/hasTierRequirement>
 pub type MemberProgramTierHasTierRequirementFieldEnum = FieldEnum119;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum120 {
     ///<https://schema.org/CreativeWorkSeason>
@@ -45687,7 +45687,7 @@ pub type TVSeriesSeasonFieldEnum = FieldEnum120;
 pub type VideoGameSeriesSeasonFieldEnum = FieldEnum120;
 ///<https://schema.org/season>
 pub type RadioSeriesSeasonFieldEnum = FieldEnum120;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum121 {
     ///<https://schema.org/AlignmentObject>
@@ -45699,7 +45699,7 @@ pub enum FieldEnum121 {
 }
 ///<https://schema.org/coursePrerequisites>
 pub type CourseCoursePrerequisitesFieldEnum = FieldEnum121;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum122 {
     ///<https://schema.org/EducationalOccupationalCredential>
@@ -45720,7 +45720,7 @@ pub type WorkBasedProgramOccupationalCredentialAwardedFieldEnum = FieldEnum122;
 pub type EducationalOccupationalProgramEducationalCredentialAwardedFieldEnum = FieldEnum122;
 ///<https://schema.org/occupationalCredentialAwarded>
 pub type EducationalOccupationalProgramOccupationalCredentialAwardedFieldEnum = FieldEnum122;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum123 {
     ///<https://schema.org/Integer>
@@ -45738,7 +45738,7 @@ pub type WorkBasedProgramTypicalCreditsPerTermFieldEnum = FieldEnum123;
 pub type EducationalOccupationalProgramNumberOfCreditsFieldEnum = FieldEnum123;
 ///<https://schema.org/typicalCreditsPerTerm>
 pub type EducationalOccupationalProgramTypicalCreditsPerTermFieldEnum = FieldEnum123;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum124 {
     ///<https://schema.org/DefinedTerm>
@@ -45759,7 +45759,7 @@ pub type GeneTaxonomicRangeFieldEnum = FieldEnum124;
 pub type ProteinTaxonomicRangeFieldEnum = FieldEnum124;
 ///<https://schema.org/taxonomicRange>
 pub type MolecularEntityTaxonomicRangeFieldEnum = FieldEnum124;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum125 {
     ///<https://schema.org/DefinedTerm>
@@ -45799,7 +45799,7 @@ pub type MolecularEntityIsInvolvedInBiologicalProcessFieldEnum = FieldEnum125;
 pub type MolecularEntityIsLocatedInSubcellularLocationFieldEnum = FieldEnum125;
 ///<https://schema.org/hasMolecularFunction>
 pub type MolecularEntityHasMolecularFunctionFieldEnum = FieldEnum125;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum126 {
     ///<https://schema.org/MedicalCondition>
@@ -45819,7 +45819,7 @@ pub type GeneAssociatedDiseaseFieldEnum = FieldEnum126;
 pub type ProteinAssociatedDiseaseFieldEnum = FieldEnum126;
 ///<https://schema.org/associatedDisease>
 pub type MolecularEntityAssociatedDiseaseFieldEnum = FieldEnum126;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum127 {
     ///<https://schema.org/Answer>
@@ -45831,7 +45831,7 @@ pub enum FieldEnum127 {
 pub type QuestionSuggestedAnswerFieldEnum = FieldEnum127;
 ///<https://schema.org/acceptedAnswer>
 pub type QuestionAcceptedAnswerFieldEnum = FieldEnum127;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum128 {
     ///<https://schema.org/Comment>
@@ -45847,7 +45847,7 @@ pub type CorrectionCommentParentItemFieldEnum = FieldEnum128;
 pub type AnswerParentItemFieldEnum = FieldEnum128;
 ///<https://schema.org/parentItem>
 pub type CommentParentItemFieldEnum = FieldEnum128;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum129 {
     ///<https://schema.org/Place>
@@ -45863,7 +45863,7 @@ pub type VideoGameGameLocationFieldEnum = FieldEnum129;
 pub type GameGameLocationFieldEnum = FieldEnum129;
 ///<https://schema.org/gameLocation>
 pub type VideoGameSeriesGameLocationFieldEnum = FieldEnum129;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum130 {
     ///<https://schema.org/CarUsageType>
@@ -45881,7 +45881,7 @@ pub type MotorizedBicycleVehicleSpecialUsageFieldEnum = FieldEnum130;
 pub type BusOrCoachVehicleSpecialUsageFieldEnum = FieldEnum130;
 ///<https://schema.org/vehicleSpecialUsage>
 pub type VehicleVehicleSpecialUsageFieldEnum = FieldEnum130;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum131 {
     ///<https://schema.org/DriveWheelConfigurationValue>
@@ -45899,7 +45899,7 @@ pub type MotorizedBicycleDriveWheelConfigurationFieldEnum = FieldEnum131;
 pub type BusOrCoachDriveWheelConfigurationFieldEnum = FieldEnum131;
 ///<https://schema.org/driveWheelConfiguration>
 pub type VehicleDriveWheelConfigurationFieldEnum = FieldEnum131;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum132 {
     ///<https://schema.org/ProductModel>
@@ -45933,7 +45933,7 @@ pub type SomeProductsModelFieldEnum = FieldEnum132;
 pub type VehicleModelFieldEnum = FieldEnum132;
 ///<https://schema.org/model>
 pub type DrugModelFieldEnum = FieldEnum132;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum133 {
     ///<https://schema.org/ProductGroup>
@@ -45967,7 +45967,7 @@ pub type SomeProductsIsVariantOfFieldEnum = FieldEnum133;
 pub type VehicleIsVariantOfFieldEnum = FieldEnum133;
 ///<https://schema.org/isVariantOf>
 pub type DrugIsVariantOfFieldEnum = FieldEnum133;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum134 {
     ///<https://schema.org/MediaObject>
@@ -45981,7 +45981,7 @@ pub type HowToDirectionDuringMediaFieldEnum = FieldEnum134;
 pub type HowToDirectionAfterMediaFieldEnum = FieldEnum134;
 ///<https://schema.org/beforeMedia>
 pub type HowToDirectionBeforeMediaFieldEnum = FieldEnum134;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum135 {
     ///<https://schema.org/AlignmentObject>
@@ -45997,7 +45997,7 @@ pub enum FieldEnum135 {
 pub type WorkBasedProgramProgramPrerequisitesFieldEnum = FieldEnum135;
 ///<https://schema.org/programPrerequisites>
 pub type EducationalOccupationalProgramProgramPrerequisitesFieldEnum = FieldEnum135;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum136 {
     ///<https://schema.org/Person>
@@ -46011,7 +46011,7 @@ pub type SportsEventCompetitorFieldEnum = FieldEnum136;
 pub type SportsEventHomeTeamFieldEnum = FieldEnum136;
 ///<https://schema.org/awayTeam>
 pub type SportsEventAwayTeamFieldEnum = FieldEnum136;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum137 {
     ///<https://schema.org/BioChemEntity>
@@ -46033,7 +46033,7 @@ pub enum FieldEnum137 {
 pub type MonetaryGrantFundedItemFieldEnum = FieldEnum137;
 ///<https://schema.org/fundedItem>
 pub type GrantFundedItemFieldEnum = FieldEnum137;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum138 {
     ///<https://schema.org/SizeSystemEnumeration>
@@ -46043,7 +46043,7 @@ pub enum FieldEnum138 {
 }
 ///<https://schema.org/sizeSystem>
 pub type SizeSpecificationSizeSystemFieldEnum = FieldEnum138;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum139 {
     ///<https://schema.org/SizeGroupEnumeration>
@@ -46053,7 +46053,7 @@ pub enum FieldEnum139 {
 }
 ///<https://schema.org/sizeGroup>
 pub type SizeSpecificationSizeGroupFieldEnum = FieldEnum139;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum140 {
     ///<https://schema.org/ContactPoint>
@@ -46071,7 +46071,7 @@ pub type EmailMessageBccRecipientFieldEnum = FieldEnum140;
 pub type MessageCcRecipientFieldEnum = FieldEnum140;
 ///<https://schema.org/bccRecipient>
 pub type MessageBccRecipientFieldEnum = FieldEnum140;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum141 {
     ///<https://schema.org/Audience>
@@ -46087,7 +46087,7 @@ pub type EmailMessageSenderFieldEnum = FieldEnum141;
 pub type ReceiveActionSenderFieldEnum = FieldEnum141;
 ///<https://schema.org/sender>
 pub type MessageSenderFieldEnum = FieldEnum141;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum142 {
     ///<https://schema.org/Distance>
@@ -46099,7 +46099,7 @@ pub enum FieldEnum142 {
 }
 ///<https://schema.org/geoRadius>
 pub type GeoCircleGeoRadiusFieldEnum = FieldEnum142;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum143 {
     ///<https://schema.org/SoftwareApplication>
@@ -46109,7 +46109,7 @@ pub enum FieldEnum143 {
 }
 ///<https://schema.org/interactionService>
 pub type InteractionCounterInteractionServiceFieldEnum = FieldEnum143;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum144 {
     ///<https://schema.org/BankOrCreditUnion>
@@ -46119,7 +46119,7 @@ pub enum FieldEnum144 {
 }
 ///<https://schema.org/beneficiaryBank>
 pub type MoneyTransferBeneficiaryBankFieldEnum = FieldEnum144;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum145 {
     ///<https://schema.org/Number>
@@ -46131,7 +46131,7 @@ pub enum FieldEnum145 {
 }
 ///<https://schema.org/costPerUnit>
 pub type DrugCostCostPerUnitFieldEnum = FieldEnum145;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum146 {
     ///<https://schema.org/MenuItem>
@@ -46141,7 +46141,7 @@ pub enum FieldEnum146 {
 }
 ///<https://schema.org/menuAddOn>
 pub type MenuItemMenuAddOnFieldEnum = FieldEnum146;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum147 {
     ///<https://schema.org/Place>
@@ -46153,7 +46153,7 @@ pub enum FieldEnum147 {
 }
 ///<https://schema.org/itemLocation>
 pub type ArchiveComponentItemLocationFieldEnum = FieldEnum147;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum148 {
     ///<https://schema.org/DigitalPlatformEnumeration>
@@ -46164,7 +46164,7 @@ pub enum FieldEnum148 {
 }
 ///<https://schema.org/actionPlatform>
 pub type EntryPointActionPlatformFieldEnum = FieldEnum148;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum149 {
     ///<https://schema.org/CDCPMDRecord>
@@ -46174,7 +46174,7 @@ pub enum FieldEnum149 {
 }
 ///<https://schema.org/healthcareReportingData>
 pub type HospitalHealthcareReportingDataFieldEnum = FieldEnum149;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum150 {
     ///<https://schema.org/Property>
@@ -46185,7 +46185,7 @@ pub enum FieldEnum150 {
 }
 ///<https://schema.org/statType>
 pub type StatisticalVariableStatTypeFieldEnum = FieldEnum150;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum151 {
     ///<https://schema.org/Property>
@@ -46197,7 +46197,7 @@ pub enum FieldEnum151 {
 pub type StatisticalVariableConstraintPropertyFieldEnum = FieldEnum151;
 ///<https://schema.org/constraintProperty>
 pub type ConstraintNodeConstraintPropertyFieldEnum = FieldEnum151;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum152 {
     ///<https://schema.org/AnatomicalStructure>
@@ -46211,7 +46211,7 @@ pub enum FieldEnum152 {
 }
 ///<https://schema.org/expressedIn>
 pub type GeneExpressedInFieldEnum = FieldEnum152;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum153 {
     ///<https://schema.org/MedicalAudience>
@@ -46221,7 +46221,7 @@ pub enum FieldEnum153 {
 }
 ///<https://schema.org/medicalAudience>
 pub type MedicalWebPageMedicalAudienceFieldEnum = FieldEnum153;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum154 {
     ///<https://schema.org/Comment>
@@ -46231,7 +46231,7 @@ pub enum FieldEnum154 {
 }
 ///<https://schema.org/answerExplanation>
 pub type AnswerAnswerExplanationFieldEnum = FieldEnum154;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum155 {
     ///<https://schema.org/DayOfWeek>
@@ -46241,7 +46241,7 @@ pub enum FieldEnum155 {
 }
 ///<https://schema.org/byDay>
 pub type ScheduleByDayFieldEnum = FieldEnum155;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum156 {
     ///<https://schema.org/Duration>
@@ -46253,7 +46253,7 @@ pub enum FieldEnum156 {
 pub type ScheduleRepeatFrequencyFieldEnum = FieldEnum156;
 ///<https://schema.org/estimatedFlightDuration>
 pub type FlightEstimatedFlightDurationFieldEnum = FieldEnum156;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum157 {
     ///<https://schema.org/OrderItem>
@@ -46267,7 +46267,7 @@ pub enum FieldEnum157 {
 pub type OrderItemOrderedItemFieldEnum = FieldEnum157;
 ///<https://schema.org/orderedItem>
 pub type OrderOrderedItemFieldEnum = FieldEnum157;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum158 {
     ///<https://schema.org/Duration>
@@ -46279,7 +46279,7 @@ pub enum FieldEnum158 {
 }
 ///<https://schema.org/billingDuration>
 pub type UnitPriceSpecificationBillingDurationFieldEnum = FieldEnum158;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum159 {
     ///<https://schema.org/DataFeed>
@@ -46291,7 +46291,7 @@ pub enum FieldEnum159 {
 pub type SpecialAnnouncementWebFeedFieldEnum = FieldEnum159;
 ///<https://schema.org/webFeed>
 pub type PodcastSeriesWebFeedFieldEnum = FieldEnum159;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum160 {
     ///<https://schema.org/URL>
@@ -46313,7 +46313,7 @@ pub type SpecialAnnouncementPublicTransportClosuresInfoFieldEnum = FieldEnum160;
 pub type SpecialAnnouncementQuarantineGuidelinesFieldEnum = FieldEnum160;
 ///<https://schema.org/travelBans>
 pub type SpecialAnnouncementTravelBansFieldEnum = FieldEnum160;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum161 {
     ///<https://schema.org/Dataset>
@@ -46327,7 +46327,7 @@ pub enum FieldEnum161 {
 }
 ///<https://schema.org/diseaseSpreadStatistics>
 pub type SpecialAnnouncementDiseaseSpreadStatisticsFieldEnum = FieldEnum161;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum162 {
     ///<https://schema.org/CivicStructure>
@@ -46337,7 +46337,7 @@ pub enum FieldEnum162 {
 }
 ///<https://schema.org/announcementLocation>
 pub type SpecialAnnouncementAnnouncementLocationFieldEnum = FieldEnum162;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum163 {
     ///<https://schema.org/DeliveryChargeSpecification>
@@ -46347,7 +46347,7 @@ pub enum FieldEnum163 {
 }
 ///<https://schema.org/freeShippingThreshold>
 pub type ShippingRateSettingsFreeShippingThresholdFieldEnum = FieldEnum163;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum164 {
     ///<https://schema.org/BedType>
@@ -46357,7 +46357,7 @@ pub enum FieldEnum164 {
 }
 ///<https://schema.org/typeOfBed>
 pub type BedDetailsTypeOfBedFieldEnum = FieldEnum164;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum165 {
     ///<https://schema.org/Taxon>
@@ -46370,7 +46370,7 @@ pub enum FieldEnum165 {
 pub type TaxonParentTaxonFieldEnum = FieldEnum165;
 ///<https://schema.org/childTaxon>
 pub type TaxonChildTaxonFieldEnum = FieldEnum165;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum166 {
     ///<https://schema.org/ComputerLanguage>
@@ -46380,7 +46380,7 @@ pub enum FieldEnum166 {
 }
 ///<https://schema.org/programmingLanguage>
 pub type SoftwareSourceCodeProgrammingLanguageFieldEnum = FieldEnum166;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum167 {
     ///<https://schema.org/SolveMathAction>
@@ -46390,7 +46390,7 @@ pub enum FieldEnum167 {
 }
 ///<https://schema.org/mathExpression>
 pub type MathSolverMathExpressionFieldEnum = FieldEnum167;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum168 {
     ///<https://schema.org/BusStation>
@@ -46402,7 +46402,7 @@ pub enum FieldEnum168 {
 pub type BusTripDepartureBusStopFieldEnum = FieldEnum168;
 ///<https://schema.org/arrivalBusStop>
 pub type BusTripArrivalBusStopFieldEnum = FieldEnum168;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum169 {
     ///<https://schema.org/Distance>
@@ -46412,7 +46412,7 @@ pub enum FieldEnum169 {
 }
 ///<https://schema.org/flightDistance>
 pub type FlightFlightDistanceFieldEnum = FieldEnum169;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum170 {
     ///<https://schema.org/Text>
@@ -46422,7 +46422,7 @@ pub enum FieldEnum170 {
 }
 ///<https://schema.org/aircraft>
 pub type FlightAircraftFieldEnum = FieldEnum170;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum171 {
     ///<https://schema.org/CategoryCodeSet>
@@ -46434,7 +46434,7 @@ pub enum FieldEnum171 {
 pub type CategoryCodeInCodeSetFieldEnum = FieldEnum171;
 ///<https://schema.org/inCodeSet>
 pub type MedicalCodeInCodeSetFieldEnum = FieldEnum171;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum172 {
     ///<https://schema.org/DefinedTermSet>
@@ -46448,7 +46448,7 @@ pub type CategoryCodeInDefinedTermSetFieldEnum = FieldEnum172;
 pub type MedicalCodeInDefinedTermSetFieldEnum = FieldEnum172;
 ///<https://schema.org/inDefinedTermSet>
 pub type DefinedTermInDefinedTermSetFieldEnum = FieldEnum172;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum173 {
     ///<https://schema.org/GameAvailabilityEnumeration>
@@ -46458,7 +46458,7 @@ pub enum FieldEnum173 {
 }
 ///<https://schema.org/gameAvailabilityType>
 pub type PlayGameActionGameAvailabilityTypeFieldEnum = FieldEnum173;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum174 {
     ///<https://schema.org/DrugPrescriptionStatus>
@@ -46468,7 +46468,7 @@ pub enum FieldEnum174 {
 }
 ///<https://schema.org/prescriptionStatus>
 pub type DrugPrescriptionStatusFieldEnum = FieldEnum174;
-#[derive(Debug, serde::Deserialize, uniffi::Enum)]
+#[derive(serde::Deserialize, uniffi::Enum)]
 #[serde(untagged)]
 pub enum FieldEnum175 {
     ///<https://schema.org/Place>

@@ -18,7 +18,7 @@ pub type DeliveryEventStartDateFieldEnum = String;
 pub type DeliveryEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DeliveryEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DeliveryEvent {
     #[serde(rename = "@context")]
     pub context: String,

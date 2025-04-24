@@ -51,7 +51,7 @@ pub type CommentGenreFieldEnum = String;
 pub type CommentAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Comment>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Comment {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type BefriendActionEndTimeFieldEnum = String;
 pub type BefriendActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BefriendAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BefriendAction {
     #[serde(rename = "@context")]
     pub context: String,

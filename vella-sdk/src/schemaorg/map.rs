@@ -51,7 +51,7 @@ pub type MapGenreFieldEnum = String;
 pub type MapAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Map>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Map {
     #[serde(rename = "@context")]
     pub context: String,

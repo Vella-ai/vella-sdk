@@ -14,7 +14,7 @@ pub type BorrowActionEndTimeFieldEnum = String;
 pub type BorrowActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BorrowAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BorrowAction {
     #[serde(rename = "@context")]
     pub context: String,

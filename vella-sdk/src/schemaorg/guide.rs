@@ -51,7 +51,7 @@ pub type GuideGenreFieldEnum = String;
 pub type GuideAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Guide>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Guide {
     #[serde(rename = "@context")]
     pub context: String,

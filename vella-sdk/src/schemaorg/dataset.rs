@@ -51,7 +51,7 @@ pub type DatasetGenreFieldEnum = String;
 pub type DatasetAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Dataset>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Dataset {
     #[serde(rename = "@context")]
     pub context: String,

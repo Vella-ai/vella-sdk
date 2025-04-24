@@ -51,7 +51,7 @@ pub type AdvertiserContentArticleGenreFieldEnum = String;
 pub type AdvertiserContentArticleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AdvertiserContentArticle>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AdvertiserContentArticle {
     #[serde(rename = "@context")]
     pub context: String,

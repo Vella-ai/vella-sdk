@@ -14,7 +14,7 @@ pub type PhotographActionEndTimeFieldEnum = String;
 pub type PhotographActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PhotographAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PhotographAction {
     #[serde(rename = "@context")]
     pub context: String,

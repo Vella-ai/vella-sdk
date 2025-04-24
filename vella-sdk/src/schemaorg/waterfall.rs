@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type WaterfallAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Waterfall>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Waterfall {
     #[serde(rename = "@context")]
     pub context: String,

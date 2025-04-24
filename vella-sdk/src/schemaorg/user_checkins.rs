@@ -18,7 +18,7 @@ pub type UserCheckinsStartDateFieldEnum = String;
 pub type UserCheckinsAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserCheckins>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserCheckins {
     #[serde(rename = "@context")]
     pub context: String,

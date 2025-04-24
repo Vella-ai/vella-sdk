@@ -51,7 +51,7 @@ pub type PaintingGenreFieldEnum = String;
 pub type PaintingAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Painting>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Painting {
     #[serde(rename = "@context")]
     pub context: String,

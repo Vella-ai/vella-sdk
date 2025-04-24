@@ -14,7 +14,7 @@ pub type PriceSpecificationValidThroughFieldEnum = String;
 pub type PriceSpecificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PriceSpecification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PriceSpecification {
     #[serde(rename = "@context")]
     pub context: String,

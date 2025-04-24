@@ -14,7 +14,7 @@ pub type CommentActionEndTimeFieldEnum = String;
 pub type CommentActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CommentAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CommentAction {
     #[serde(rename = "@context")]
     pub context: String,

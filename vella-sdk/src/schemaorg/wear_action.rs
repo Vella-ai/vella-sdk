@@ -14,7 +14,7 @@ pub type WearActionEndTimeFieldEnum = String;
 pub type WearActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WearAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WearAction {
     #[serde(rename = "@context")]
     pub context: String,

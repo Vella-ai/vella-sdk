@@ -63,7 +63,7 @@ pub type ThreeDModelGenreFieldEnum = String;
 pub type ThreeDModelAdditionalTypeFieldEnum = String;
 ///<https://schema.org/3DModel>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ThreeDModel {
     #[serde(rename = "@context")]
     pub context: String,

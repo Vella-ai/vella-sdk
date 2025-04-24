@@ -10,7 +10,7 @@ pub type HealthInsurancePlanUsesHealthPlanIdStandardFieldEnum = String;
 pub type HealthInsurancePlanAdditionalTypeFieldEnum = String;
 ///<https://schema.org/HealthInsurancePlan>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct HealthInsurancePlan {
     #[serde(rename = "@context")]
     pub context: String,

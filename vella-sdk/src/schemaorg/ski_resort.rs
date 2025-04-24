@@ -18,7 +18,7 @@ pub type SkiResortCheckoutTimeFieldEnum = String;
 pub type SkiResortCheckinTimeFieldEnum = String;
 ///<https://schema.org/SkiResort>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SkiResort {
     #[serde(rename = "@context")]
     pub context: String,

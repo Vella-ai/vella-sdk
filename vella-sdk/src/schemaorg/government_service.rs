@@ -10,7 +10,7 @@ pub type GovernmentServiceTermsOfServiceFieldEnum = String;
 pub type GovernmentServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/GovernmentService>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct GovernmentService {
     #[serde(rename = "@context")]
     pub context: String,

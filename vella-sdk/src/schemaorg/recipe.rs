@@ -51,7 +51,7 @@ pub type RecipeGenreFieldEnum = String;
 pub type RecipeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Recipe>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Recipe {
     #[serde(rename = "@context")]
     pub context: String,

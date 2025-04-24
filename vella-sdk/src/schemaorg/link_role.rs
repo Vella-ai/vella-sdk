@@ -22,7 +22,7 @@ pub type LinkRoleRoleNameFieldEnum = String;
 pub type LinkRoleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LinkRole>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LinkRole {
     #[serde(rename = "@context")]
     pub context: String,

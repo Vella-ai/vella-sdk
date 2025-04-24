@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ReservationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Reservation>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Reservation {
     #[serde(rename = "@context")]
     pub context: String,

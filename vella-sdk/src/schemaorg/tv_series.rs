@@ -63,7 +63,7 @@ pub type TVSeriesEndDateFieldEnum = String;
 pub type TVSeriesStartDateFieldEnum = String;
 ///<https://schema.org/TVSeries>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TVSeries {
     #[serde(rename = "@context")]
     pub context: String,

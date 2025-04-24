@@ -10,7 +10,7 @@ pub type CampingPitchPetsAllowedFieldEnum = String;
 pub type CampingPitchAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CampingPitch>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CampingPitch {
     #[serde(rename = "@context")]
     pub context: String,

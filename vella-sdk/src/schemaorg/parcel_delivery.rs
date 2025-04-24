@@ -14,7 +14,7 @@ pub type ParcelDeliveryExpectedArrivalFromFieldEnum = String;
 pub type ParcelDeliveryAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ParcelDelivery>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ParcelDelivery {
     #[serde(rename = "@context")]
     pub context: String,

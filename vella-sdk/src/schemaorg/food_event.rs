@@ -18,7 +18,7 @@ pub type FoodEventStartDateFieldEnum = String;
 pub type FoodEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FoodEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FoodEvent {
     #[serde(rename = "@context")]
     pub context: String,

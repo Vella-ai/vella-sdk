@@ -14,7 +14,7 @@ pub type ConfirmActionEndTimeFieldEnum = String;
 pub type ConfirmActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ConfirmAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ConfirmAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type InstallActionEndTimeFieldEnum = String;
 pub type InstallActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/InstallAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct InstallAction {
     #[serde(rename = "@context")]
     pub context: String,

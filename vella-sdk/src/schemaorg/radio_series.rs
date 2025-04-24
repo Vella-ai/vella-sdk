@@ -59,7 +59,7 @@ pub type RadioSeriesGenreFieldEnum = String;
 pub type RadioSeriesAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RadioSeries>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RadioSeries {
     #[serde(rename = "@context")]
     pub context: String,

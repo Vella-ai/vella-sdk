@@ -14,7 +14,7 @@ pub type DeliveryChargeSpecificationValidThroughFieldEnum = String;
 pub type DeliveryChargeSpecificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DeliveryChargeSpecification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DeliveryChargeSpecification {
     #[serde(rename = "@context")]
     pub context: String,

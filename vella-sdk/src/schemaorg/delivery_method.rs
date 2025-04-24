@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DeliveryMethodAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DeliveryMethod>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DeliveryMethod {
     #[serde(rename = "@context")]
     pub context: String,

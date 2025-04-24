@@ -14,7 +14,7 @@ pub type ReviewActionEndTimeFieldEnum = String;
 pub type ReviewActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReviewAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReviewAction {
     #[serde(rename = "@context")]
     pub context: String,

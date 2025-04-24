@@ -14,7 +14,7 @@ pub type SearchActionEndTimeFieldEnum = String;
 pub type SearchActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SearchAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SearchAction {
     #[serde(rename = "@context")]
     pub context: String,

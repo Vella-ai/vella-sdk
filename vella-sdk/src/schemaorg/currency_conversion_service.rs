@@ -14,7 +14,7 @@ pub type CurrencyConversionServiceTermsOfServiceFieldEnum = String;
 pub type CurrencyConversionServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CurrencyConversionService>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CurrencyConversionService {
     #[serde(rename = "@context")]
     pub context: String,

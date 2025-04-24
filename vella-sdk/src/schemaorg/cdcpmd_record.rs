@@ -14,7 +14,7 @@ pub type CDCPMDRecordCvdCollectionDateFieldEnum = String;
 pub type CDCPMDRecordAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CDCPMDRecord>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CDCPMDRecord {
     #[serde(rename = "@context")]
     pub context: String,

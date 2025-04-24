@@ -51,7 +51,7 @@ pub type CategoryCodeSetGenreFieldEnum = String;
 pub type CategoryCodeSetAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CategoryCodeSet>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CategoryCodeSet {
     #[serde(rename = "@context")]
     pub context: String,

@@ -10,7 +10,7 @@ pub type ObservationAdditionalTypeFieldEnum = String;
 pub type ObservationUnitCodeFieldEnum = String;
 ///<https://schema.org/Observation>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Observation {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type GeneAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Gene>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Gene {
     #[serde(rename = "@context")]
     pub context: String,

@@ -18,7 +18,7 @@ pub type ChildrensEventStartDateFieldEnum = String;
 pub type ChildrensEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ChildrensEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ChildrensEvent {
     #[serde(rename = "@context")]
     pub context: String,

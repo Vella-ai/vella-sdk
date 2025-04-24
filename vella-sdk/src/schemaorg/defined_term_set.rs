@@ -51,7 +51,7 @@ pub type DefinedTermSetGenreFieldEnum = String;
 pub type DefinedTermSetAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DefinedTermSet>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DefinedTermSet {
     #[serde(rename = "@context")]
     pub context: String,

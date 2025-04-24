@@ -14,7 +14,7 @@ pub type AssignActionEndTimeFieldEnum = String;
 pub type AssignActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AssignAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AssignAction {
     #[serde(rename = "@context")]
     pub context: String,

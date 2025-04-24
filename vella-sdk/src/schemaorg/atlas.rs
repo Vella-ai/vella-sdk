@@ -51,7 +51,7 @@ pub type AtlasGenreFieldEnum = String;
 pub type AtlasAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Atlas>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Atlas {
     #[serde(rename = "@context")]
     pub context: String,

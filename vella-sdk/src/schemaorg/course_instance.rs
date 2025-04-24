@@ -22,7 +22,7 @@ pub type CourseInstanceStartDateFieldEnum = String;
 pub type CourseInstanceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CourseInstance>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CourseInstance {
     #[serde(rename = "@context")]
     pub context: String,

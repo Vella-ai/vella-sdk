@@ -51,7 +51,7 @@ pub type EpisodeGenreFieldEnum = String;
 pub type EpisodeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Episode>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Episode {
     #[serde(rename = "@context")]
     pub context: String,

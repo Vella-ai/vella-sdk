@@ -14,7 +14,7 @@ pub type PaymentChargeSpecificationValidThroughFieldEnum = String;
 pub type PaymentChargeSpecificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PaymentChargeSpecification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PaymentChargeSpecification {
     #[serde(rename = "@context")]
     pub context: String,

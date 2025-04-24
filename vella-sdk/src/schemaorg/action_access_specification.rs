@@ -16,7 +16,7 @@ pub type ActionAccessSpecificationAvailabilityEndsFieldEnum = String;
 pub type ActionAccessSpecificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ActionAccessSpecification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ActionAccessSpecification {
     #[serde(rename = "@context")]
     pub context: String,

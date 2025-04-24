@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type CemeteryAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Cemetery>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Cemetery {
     #[serde(rename = "@context")]
     pub context: String,

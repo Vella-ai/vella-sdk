@@ -14,7 +14,7 @@ pub type InformActionEndTimeFieldEnum = String;
 pub type InformActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/InformAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct InformAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type CrematoriumAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Crematorium>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Crematorium {
     #[serde(rename = "@context")]
     pub context: String,

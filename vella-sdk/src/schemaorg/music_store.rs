@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type MusicStoreAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MusicStore>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MusicStore {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type InviteActionEndTimeFieldEnum = String;
 pub type InviteActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/InviteAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct InviteAction {
     #[serde(rename = "@context")]
     pub context: String,

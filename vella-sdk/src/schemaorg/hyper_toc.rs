@@ -51,7 +51,7 @@ pub type HyperTocGenreFieldEnum = String;
 pub type HyperTocAdditionalTypeFieldEnum = String;
 ///<https://schema.org/HyperToc>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct HyperToc {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type NoteDigitalDocumentGenreFieldEnum = String;
 pub type NoteDigitalDocumentAdditionalTypeFieldEnum = String;
 ///<https://schema.org/NoteDigitalDocument>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct NoteDigitalDocument {
     #[serde(rename = "@context")]
     pub context: String,

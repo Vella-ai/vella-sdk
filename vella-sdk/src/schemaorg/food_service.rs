@@ -10,7 +10,7 @@ pub type FoodServiceTermsOfServiceFieldEnum = String;
 pub type FoodServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FoodService>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FoodService {
     #[serde(rename = "@context")]
     pub context: String,

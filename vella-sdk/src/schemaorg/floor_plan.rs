@@ -10,7 +10,7 @@ pub type FloorPlanPetsAllowedFieldEnum = String;
 pub type FloorPlanAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FloorPlan>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FloorPlan {
     #[serde(rename = "@context")]
     pub context: String,

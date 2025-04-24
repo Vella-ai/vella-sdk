@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type GeoCoordinatesAdditionalTypeFieldEnum = String;
 ///<https://schema.org/GeoCoordinates>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct GeoCoordinates {
     #[serde(rename = "@context")]
     pub context: String,

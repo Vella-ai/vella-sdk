@@ -14,7 +14,7 @@ pub type RsvpActionEndTimeFieldEnum = String;
 pub type RsvpActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RsvpAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RsvpAction {
     #[serde(rename = "@context")]
     pub context: String,

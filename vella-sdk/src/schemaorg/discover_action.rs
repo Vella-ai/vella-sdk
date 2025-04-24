@@ -14,7 +14,7 @@ pub type DiscoverActionEndTimeFieldEnum = String;
 pub type DiscoverActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DiscoverAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DiscoverAction {
     #[serde(rename = "@context")]
     pub context: String,

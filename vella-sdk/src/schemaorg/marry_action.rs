@@ -14,7 +14,7 @@ pub type MarryActionEndTimeFieldEnum = String;
 pub type MarryActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MarryAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MarryAction {
     #[serde(rename = "@context")]
     pub context: String,

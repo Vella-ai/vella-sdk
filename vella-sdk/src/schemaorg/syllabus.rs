@@ -51,7 +51,7 @@ pub type SyllabusGenreFieldEnum = String;
 pub type SyllabusAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Syllabus>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Syllabus {
     #[serde(rename = "@context")]
     pub context: String,

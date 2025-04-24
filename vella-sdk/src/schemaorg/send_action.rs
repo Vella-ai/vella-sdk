@@ -14,7 +14,7 @@ pub type SendActionEndTimeFieldEnum = String;
 pub type SendActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SendAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SendAction {
     #[serde(rename = "@context")]
     pub context: String,

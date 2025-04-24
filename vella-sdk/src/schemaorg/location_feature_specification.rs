@@ -22,7 +22,7 @@ pub type LocationFeatureSpecificationUnitCodeFieldEnum = String;
 pub type LocationFeatureSpecificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LocationFeatureSpecification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LocationFeatureSpecification {
     #[serde(rename = "@context")]
     pub context: String,

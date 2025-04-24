@@ -14,7 +14,7 @@ pub type AssessActionEndTimeFieldEnum = String;
 pub type AssessActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AssessAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AssessAction {
     #[serde(rename = "@context")]
     pub context: String,

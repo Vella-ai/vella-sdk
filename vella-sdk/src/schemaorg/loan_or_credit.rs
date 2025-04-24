@@ -18,7 +18,7 @@ pub type LoanOrCreditTermsOfServiceFieldEnum = String;
 pub type LoanOrCreditAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LoanOrCredit>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LoanOrCredit {
     #[serde(rename = "@context")]
     pub context: String,

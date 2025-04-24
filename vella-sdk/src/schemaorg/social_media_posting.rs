@@ -51,7 +51,7 @@ pub type SocialMediaPostingGenreFieldEnum = String;
 pub type SocialMediaPostingAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SocialMediaPosting>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SocialMediaPosting {
     #[serde(rename = "@context")]
     pub context: String,

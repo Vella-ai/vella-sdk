@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DefinedRegionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DefinedRegion>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DefinedRegion {
     #[serde(rename = "@context")]
     pub context: String,

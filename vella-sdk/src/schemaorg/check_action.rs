@@ -14,7 +14,7 @@ pub type CheckActionEndTimeFieldEnum = String;
 pub type CheckActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CheckAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CheckAction {
     #[serde(rename = "@context")]
     pub context: String,

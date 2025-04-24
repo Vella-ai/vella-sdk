@@ -67,7 +67,7 @@ pub type LegislationObjectAdditionalTypeFieldEnum = String;
 pub type LegislationObjectLegislationIdentifierFieldEnum = String;
 ///<https://schema.org/LegislationObject>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LegislationObject {
     #[serde(rename = "@context")]
     pub context: String,

@@ -10,7 +10,7 @@ pub type WebAPITermsOfServiceFieldEnum = String;
 pub type WebAPIAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WebAPI>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WebAPI {
     #[serde(rename = "@context")]
     pub context: String,

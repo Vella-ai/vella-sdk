@@ -51,7 +51,7 @@ pub type ManuscriptGenreFieldEnum = String;
 pub type ManuscriptAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Manuscript>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Manuscript {
     #[serde(rename = "@context")]
     pub context: String,

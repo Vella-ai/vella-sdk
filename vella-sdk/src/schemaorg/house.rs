@@ -10,7 +10,7 @@ pub type HousePetsAllowedFieldEnum = String;
 pub type HouseAdditionalTypeFieldEnum = String;
 ///<https://schema.org/House>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct House {
     #[serde(rename = "@context")]
     pub context: String,

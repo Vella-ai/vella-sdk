@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type BoardingPolicyTypeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BoardingPolicyType>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BoardingPolicyType {
     #[serde(rename = "@context")]
     pub context: String,

@@ -10,7 +10,7 @@ pub type BroadcastServiceTermsOfServiceFieldEnum = String;
 pub type BroadcastServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BroadcastService>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BroadcastService {
     #[serde(rename = "@context")]
     pub context: String,

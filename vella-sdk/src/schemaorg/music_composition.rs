@@ -51,7 +51,7 @@ pub type MusicCompositionGenreFieldEnum = String;
 pub type MusicCompositionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MusicComposition>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MusicComposition {
     #[serde(rename = "@context")]
     pub context: String,

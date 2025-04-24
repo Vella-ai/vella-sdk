@@ -14,7 +14,7 @@ pub type JoinActionEndTimeFieldEnum = String;
 pub type JoinActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/JoinAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct JoinAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type TextDigitalDocumentGenreFieldEnum = String;
 pub type TextDigitalDocumentAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TextDigitalDocument>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TextDigitalDocument {
     #[serde(rename = "@context")]
     pub context: String,

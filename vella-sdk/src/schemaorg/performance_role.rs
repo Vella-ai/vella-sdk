@@ -22,7 +22,7 @@ pub type PerformanceRoleRoleNameFieldEnum = String;
 pub type PerformanceRoleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PerformanceRole>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PerformanceRole {
     #[serde(rename = "@context")]
     pub context: String,

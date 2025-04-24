@@ -51,7 +51,7 @@ pub type EmployerReviewGenreFieldEnum = String;
 pub type EmployerReviewAdditionalTypeFieldEnum = String;
 ///<https://schema.org/EmployerReview>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct EmployerReview {
     #[serde(rename = "@context")]
     pub context: String,

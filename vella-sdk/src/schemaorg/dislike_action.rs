@@ -14,7 +14,7 @@ pub type DislikeActionEndTimeFieldEnum = String;
 pub type DislikeActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DislikeAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DislikeAction {
     #[serde(rename = "@context")]
     pub context: String,

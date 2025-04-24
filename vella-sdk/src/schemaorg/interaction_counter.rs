@@ -14,7 +14,7 @@ pub type InteractionCounterEndTimeFieldEnum = String;
 pub type InteractionCounterAdditionalTypeFieldEnum = String;
 ///<https://schema.org/InteractionCounter>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct InteractionCounter {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ActionStatusTypeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ActionStatusType>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ActionStatusType {
     #[serde(rename = "@context")]
     pub context: String,

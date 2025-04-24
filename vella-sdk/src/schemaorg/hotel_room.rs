@@ -10,7 +10,7 @@ pub type HotelRoomPetsAllowedFieldEnum = String;
 pub type HotelRoomAdditionalTypeFieldEnum = String;
 ///<https://schema.org/HotelRoom>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct HotelRoom {
     #[serde(rename = "@context")]
     pub context: String,

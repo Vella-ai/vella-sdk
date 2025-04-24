@@ -51,7 +51,7 @@ pub type CollectionGenreFieldEnum = String;
 pub type CollectionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Collection>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Collection {
     #[serde(rename = "@context")]
     pub context: String,

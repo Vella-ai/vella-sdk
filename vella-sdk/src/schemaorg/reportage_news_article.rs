@@ -51,7 +51,7 @@ pub type ReportageNewsArticleGenreFieldEnum = String;
 pub type ReportageNewsArticleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReportageNewsArticle>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReportageNewsArticle {
     #[serde(rename = "@context")]
     pub context: String,

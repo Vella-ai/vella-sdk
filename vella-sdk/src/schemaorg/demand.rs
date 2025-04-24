@@ -32,7 +32,7 @@ pub type DemandAvailabilityEndsFieldEnum = String;
 pub type DemandAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Demand>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Demand {
     #[serde(rename = "@context")]
     pub context: String,

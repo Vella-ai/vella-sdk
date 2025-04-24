@@ -18,7 +18,7 @@ pub type UserPageVisitsStartDateFieldEnum = String;
 pub type UserPageVisitsAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserPageVisits>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserPageVisits {
     #[serde(rename = "@context")]
     pub context: String,

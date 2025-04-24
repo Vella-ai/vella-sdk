@@ -51,7 +51,7 @@ pub type MediaGalleryGenreFieldEnum = String;
 pub type MediaGalleryAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MediaGallery>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MediaGallery {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type VideoGalleryGenreFieldEnum = String;
 pub type VideoGalleryAdditionalTypeFieldEnum = String;
 ///<https://schema.org/VideoGallery>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct VideoGallery {
     #[serde(rename = "@context")]
     pub context: String,

@@ -18,7 +18,7 @@ pub type PublicationEventStartDateFieldEnum = String;
 pub type PublicationEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PublicationEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PublicationEvent {
     #[serde(rename = "@context")]
     pub context: String,

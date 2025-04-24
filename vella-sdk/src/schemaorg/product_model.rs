@@ -14,7 +14,7 @@ pub type ProductModelAsinFieldEnum = String;
 pub type ProductModelAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ProductModel>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ProductModel {
     #[serde(rename = "@context")]
     pub context: String,

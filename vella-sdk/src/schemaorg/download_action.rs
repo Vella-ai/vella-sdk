@@ -14,7 +14,7 @@ pub type DownloadActionEndTimeFieldEnum = String;
 pub type DownloadActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DownloadAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DownloadAction {
     #[serde(rename = "@context")]
     pub context: String,

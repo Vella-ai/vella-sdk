@@ -14,7 +14,7 @@ pub type DonateActionEndTimeFieldEnum = String;
 pub type DonateActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DonateAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DonateAction {
     #[serde(rename = "@context")]
     pub context: String,

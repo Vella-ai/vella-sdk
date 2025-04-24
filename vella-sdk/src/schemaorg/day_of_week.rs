@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DayOfWeekAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DayOfWeek>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DayOfWeek {
     #[serde(rename = "@context")]
     pub context: String,

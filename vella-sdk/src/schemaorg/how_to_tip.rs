@@ -51,7 +51,7 @@ pub type HowToTipGenreFieldEnum = String;
 pub type HowToTipAdditionalTypeFieldEnum = String;
 ///<https://schema.org/HowToTip>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct HowToTip {
     #[serde(rename = "@context")]
     pub context: String,

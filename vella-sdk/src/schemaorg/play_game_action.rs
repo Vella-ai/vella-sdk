@@ -14,7 +14,7 @@ pub type PlayGameActionEndTimeFieldEnum = String;
 pub type PlayGameActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PlayGameAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PlayGameAction {
     #[serde(rename = "@context")]
     pub context: String,

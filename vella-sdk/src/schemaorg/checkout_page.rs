@@ -51,7 +51,7 @@ pub type CheckoutPageGenreFieldEnum = String;
 pub type CheckoutPageAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CheckoutPage>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CheckoutPage {
     #[serde(rename = "@context")]
     pub context: String,

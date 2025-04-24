@@ -51,7 +51,7 @@ pub type ClaimReviewGenreFieldEnum = String;
 pub type ClaimReviewAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ClaimReview>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ClaimReview {
     #[serde(rename = "@context")]
     pub context: String,

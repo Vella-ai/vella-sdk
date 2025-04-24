@@ -51,7 +51,7 @@ pub type EducationalOccupationalCredentialGenreFieldEnum = String;
 pub type EducationalOccupationalCredentialAdditionalTypeFieldEnum = String;
 ///<https://schema.org/EducationalOccupationalCredential>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct EducationalOccupationalCredential {
     #[serde(rename = "@context")]
     pub context: String,

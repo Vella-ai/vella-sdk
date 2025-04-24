@@ -14,7 +14,7 @@ pub type ChooseActionEndTimeFieldEnum = String;
 pub type ChooseActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ChooseAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ChooseAction {
     #[serde(rename = "@context")]
     pub context: String,

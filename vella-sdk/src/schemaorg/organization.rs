@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type OrganizationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Organization>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Organization {
     #[serde(rename = "@context")]
     pub context: String,

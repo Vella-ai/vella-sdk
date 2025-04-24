@@ -59,7 +59,7 @@ pub type RadioSeasonGenreFieldEnum = String;
 pub type RadioSeasonAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RadioSeason>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RadioSeason {
     #[serde(rename = "@context")]
     pub context: String,

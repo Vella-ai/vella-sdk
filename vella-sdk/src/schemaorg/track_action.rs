@@ -14,7 +14,7 @@ pub type TrackActionEndTimeFieldEnum = String;
 pub type TrackActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TrackAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TrackAction {
     #[serde(rename = "@context")]
     pub context: String,

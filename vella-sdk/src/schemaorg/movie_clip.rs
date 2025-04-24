@@ -51,7 +51,7 @@ pub type MovieClipGenreFieldEnum = String;
 pub type MovieClipAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MovieClip>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MovieClip {
     #[serde(rename = "@context")]
     pub context: String,

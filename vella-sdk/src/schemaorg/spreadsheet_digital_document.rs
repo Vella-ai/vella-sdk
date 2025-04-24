@@ -51,7 +51,7 @@ pub type SpreadsheetDigitalDocumentGenreFieldEnum = String;
 pub type SpreadsheetDigitalDocumentAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SpreadsheetDigitalDocument>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SpreadsheetDigitalDocument {
     #[serde(rename = "@context")]
     pub context: String,

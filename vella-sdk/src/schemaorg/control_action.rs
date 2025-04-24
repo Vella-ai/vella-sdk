@@ -14,7 +14,7 @@ pub type ControlActionEndTimeFieldEnum = String;
 pub type ControlActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ControlAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ControlAction {
     #[serde(rename = "@context")]
     pub context: String,

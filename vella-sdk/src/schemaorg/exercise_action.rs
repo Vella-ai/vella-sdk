@@ -14,7 +14,7 @@ pub type ExerciseActionEndTimeFieldEnum = String;
 pub type ExerciseActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ExerciseAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ExerciseAction {
     #[serde(rename = "@context")]
     pub context: String,

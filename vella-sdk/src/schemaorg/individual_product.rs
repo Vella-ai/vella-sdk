@@ -14,7 +14,7 @@ pub type IndividualProductAsinFieldEnum = String;
 pub type IndividualProductAdditionalTypeFieldEnum = String;
 ///<https://schema.org/IndividualProduct>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct IndividualProduct {
     #[serde(rename = "@context")]
     pub context: String,

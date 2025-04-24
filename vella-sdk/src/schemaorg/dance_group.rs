@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DanceGroupAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DanceGroup>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DanceGroup {
     #[serde(rename = "@context")]
     pub context: String,

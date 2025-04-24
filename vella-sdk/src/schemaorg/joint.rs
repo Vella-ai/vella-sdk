@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type JointAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Joint>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Joint {
     #[serde(rename = "@context")]
     pub context: String,

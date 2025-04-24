@@ -10,7 +10,7 @@ pub type InvoicePaymentDueDateFieldEnum = String;
 pub type InvoiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Invoice>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Invoice {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type DatedMoneySpecificationStartDateFieldEnum = String;
 pub type DatedMoneySpecificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DatedMoneySpecification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DatedMoneySpecification {
     #[serde(rename = "@context")]
     pub context: String,

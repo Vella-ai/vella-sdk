@@ -32,7 +32,7 @@ pub type OfferForPurchaseAvailabilityEndsFieldEnum = String;
 pub type OfferForPurchaseAdditionalTypeFieldEnum = String;
 ///<https://schema.org/OfferForPurchase>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct OfferForPurchase {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type SatiricalArticleGenreFieldEnum = String;
 pub type SatiricalArticleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SatiricalArticle>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SatiricalArticle {
     #[serde(rename = "@context")]
     pub context: String,

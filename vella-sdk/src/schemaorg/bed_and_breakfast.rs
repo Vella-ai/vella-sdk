@@ -18,7 +18,7 @@ pub type BedAndBreakfastCheckinTimeFieldEnum = String;
 pub type BedAndBreakfastAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BedAndBreakfast>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BedAndBreakfast {
     #[serde(rename = "@context")]
     pub context: String,

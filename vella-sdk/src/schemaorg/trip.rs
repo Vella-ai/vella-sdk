@@ -14,7 +14,7 @@ pub type TripArrivalTimeFieldEnum = String;
 pub type TripAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Trip>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Trip {
     #[serde(rename = "@context")]
     pub context: String,

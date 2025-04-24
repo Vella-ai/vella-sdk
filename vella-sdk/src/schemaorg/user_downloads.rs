@@ -18,7 +18,7 @@ pub type UserDownloadsStartDateFieldEnum = String;
 pub type UserDownloadsAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserDownloads>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserDownloads {
     #[serde(rename = "@context")]
     pub context: String,

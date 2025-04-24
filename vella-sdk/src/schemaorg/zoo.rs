@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ZooAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Zoo>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Zoo {
     #[serde(rename = "@context")]
     pub context: String,

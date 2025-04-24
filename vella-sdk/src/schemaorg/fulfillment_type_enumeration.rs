@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type FulfillmentTypeEnumerationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FulfillmentTypeEnumeration>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FulfillmentTypeEnumeration {
     #[serde(rename = "@context")]
     pub context: String,

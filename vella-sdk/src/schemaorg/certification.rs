@@ -59,7 +59,7 @@ pub type CertificationGenreFieldEnum = String;
 pub type CertificationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Certification>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Certification {
     #[serde(rename = "@context")]
     pub context: String,

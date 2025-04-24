@@ -83,7 +83,7 @@ pub type VideoGameGenreFieldEnum = String;
 pub type VideoGameAdditionalTypeFieldEnum = String;
 ///<https://schema.org/VideoGame>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct VideoGame {
     #[serde(rename = "@context")]
     pub context: String,

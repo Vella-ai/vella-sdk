@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type EnergyEfficiencyEnumerationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/EnergyEfficiencyEnumeration>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct EnergyEfficiencyEnumeration {
     #[serde(rename = "@context")]
     pub context: String,

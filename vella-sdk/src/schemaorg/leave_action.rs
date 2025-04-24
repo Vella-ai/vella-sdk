@@ -14,7 +14,7 @@ pub type LeaveActionEndTimeFieldEnum = String;
 pub type LeaveActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LeaveAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LeaveAction {
     #[serde(rename = "@context")]
     pub context: String,

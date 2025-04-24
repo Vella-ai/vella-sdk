@@ -11,7 +11,7 @@ pub type BarOrPubAcceptsReservationsFieldEnum = String;
 pub type BarOrPubAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BarOrPub>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BarOrPub {
     #[serde(rename = "@context")]
     pub context: String,

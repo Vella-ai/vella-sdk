@@ -18,7 +18,7 @@ pub type ReserveActionEndTimeFieldEnum = String;
 pub type ReserveActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReserveAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReserveAction {
     #[serde(rename = "@context")]
     pub context: String,

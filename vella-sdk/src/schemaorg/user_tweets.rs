@@ -18,7 +18,7 @@ pub type UserTweetsStartDateFieldEnum = String;
 pub type UserTweetsAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserTweets>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserTweets {
     #[serde(rename = "@context")]
     pub context: String,

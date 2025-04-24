@@ -14,7 +14,7 @@ pub type DrawActionEndTimeFieldEnum = String;
 pub type DrawActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DrawAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DrawAction {
     #[serde(rename = "@context")]
     pub context: String,

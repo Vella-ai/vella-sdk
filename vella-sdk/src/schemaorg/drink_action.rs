@@ -14,7 +14,7 @@ pub type DrinkActionEndTimeFieldEnum = String;
 pub type DrinkActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DrinkAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DrinkAction {
     #[serde(rename = "@context")]
     pub context: String,

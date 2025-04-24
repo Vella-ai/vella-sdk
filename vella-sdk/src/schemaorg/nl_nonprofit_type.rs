@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type NLNonprofitTypeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/NLNonprofitType>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct NLNonprofitType {
     #[serde(rename = "@context")]
     pub context: String,

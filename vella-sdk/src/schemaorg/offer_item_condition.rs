@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type OfferItemConditionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/OfferItemCondition>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct OfferItemCondition {
     #[serde(rename = "@context")]
     pub context: String,

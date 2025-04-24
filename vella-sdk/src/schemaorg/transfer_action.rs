@@ -14,7 +14,7 @@ pub type TransferActionEndTimeFieldEnum = String;
 pub type TransferActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TransferAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TransferAction {
     #[serde(rename = "@context")]
     pub context: String,

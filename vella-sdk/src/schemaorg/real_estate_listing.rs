@@ -55,7 +55,7 @@ pub type RealEstateListingGenreFieldEnum = String;
 pub type RealEstateListingAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RealEstateListing>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RealEstateListing {
     #[serde(rename = "@context")]
     pub context: String,

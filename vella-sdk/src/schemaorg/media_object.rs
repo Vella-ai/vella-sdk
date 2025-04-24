@@ -63,7 +63,7 @@ pub type MediaObjectGenreFieldEnum = String;
 pub type MediaObjectAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MediaObject>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MediaObject {
     #[serde(rename = "@context")]
     pub context: String,

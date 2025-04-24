@@ -63,7 +63,7 @@ pub type MusicVideoObjectGenreFieldEnum = String;
 pub type MusicVideoObjectAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MusicVideoObject>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MusicVideoObject {
     #[serde(rename = "@context")]
     pub context: String,

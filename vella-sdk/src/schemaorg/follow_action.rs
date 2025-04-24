@@ -14,7 +14,7 @@ pub type FollowActionEndTimeFieldEnum = String;
 pub type FollowActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FollowAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FollowAction {
     #[serde(rename = "@context")]
     pub context: String,

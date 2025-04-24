@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type QuantityAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Quantity>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Quantity {
     #[serde(rename = "@context")]
     pub context: String,

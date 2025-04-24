@@ -14,7 +14,7 @@ pub type CookActionEndTimeFieldEnum = String;
 pub type CookActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CookAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CookAction {
     #[serde(rename = "@context")]
     pub context: String,

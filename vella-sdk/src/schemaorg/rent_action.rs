@@ -14,7 +14,7 @@ pub type RentActionEndTimeFieldEnum = String;
 pub type RentActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RentAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RentAction {
     #[serde(rename = "@context")]
     pub context: String,

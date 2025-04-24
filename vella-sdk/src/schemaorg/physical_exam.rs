@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type PhysicalExamAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PhysicalExam>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PhysicalExam {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type AchieveActionEndTimeFieldEnum = String;
 pub type AchieveActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AchieveAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AchieveAction {
     #[serde(rename = "@context")]
     pub context: String,

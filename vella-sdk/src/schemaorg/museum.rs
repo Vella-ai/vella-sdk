@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type MuseumAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Museum>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Museum {
     #[serde(rename = "@context")]
     pub context: String,

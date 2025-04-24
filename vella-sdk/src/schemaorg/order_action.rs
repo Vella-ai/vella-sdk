@@ -14,7 +14,7 @@ pub type OrderActionEndTimeFieldEnum = String;
 pub type OrderActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/OrderAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct OrderAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -10,7 +10,7 @@ pub type CableOrSatelliteServiceTermsOfServiceFieldEnum = String;
 pub type CableOrSatelliteServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CableOrSatelliteService>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CableOrSatelliteService {
     #[serde(rename = "@context")]
     pub context: String,

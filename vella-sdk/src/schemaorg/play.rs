@@ -51,7 +51,7 @@ pub type PlayGenreFieldEnum = String;
 pub type PlayAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Play>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Play {
     #[serde(rename = "@context")]
     pub context: String,

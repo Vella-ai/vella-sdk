@@ -18,7 +18,7 @@ pub type ScreeningEventStartDateFieldEnum = String;
 pub type ScreeningEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ScreeningEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ScreeningEvent {
     #[serde(rename = "@context")]
     pub context: String,

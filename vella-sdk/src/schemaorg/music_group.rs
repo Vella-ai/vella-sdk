@@ -10,7 +10,7 @@ pub type MusicGroupGenreFieldEnum = String;
 pub type MusicGroupAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MusicGroup>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MusicGroup {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type BusOrCoachAsinFieldEnum = String;
 pub type BusOrCoachAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BusOrCoach>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BusOrCoach {
     #[serde(rename = "@context")]
     pub context: String,

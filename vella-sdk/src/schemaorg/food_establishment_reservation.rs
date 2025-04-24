@@ -14,7 +14,7 @@ pub type FoodEstablishmentReservationEndTimeFieldEnum = String;
 pub type FoodEstablishmentReservationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FoodEstablishmentReservation>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FoodEstablishmentReservation {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type MediaReviewItemGenreFieldEnum = String;
 pub type MediaReviewItemAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MediaReviewItem>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MediaReviewItem {
     #[serde(rename = "@context")]
     pub context: String,

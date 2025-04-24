@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ImagingTestAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ImagingTest>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ImagingTest {
     #[serde(rename = "@context")]
     pub context: String,

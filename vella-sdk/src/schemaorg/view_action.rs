@@ -14,7 +14,7 @@ pub type ViewActionEndTimeFieldEnum = String;
 pub type ViewActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ViewAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ViewAction {
     #[serde(rename = "@context")]
     pub context: String,

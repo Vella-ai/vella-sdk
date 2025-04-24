@@ -14,7 +14,7 @@ pub type ReceiveActionEndTimeFieldEnum = String;
 pub type ReceiveActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReceiveAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReceiveAction {
     #[serde(rename = "@context")]
     pub context: String,

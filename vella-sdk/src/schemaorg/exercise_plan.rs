@@ -51,7 +51,7 @@ pub type ExercisePlanSchemaVersionFieldEnum = String;
 pub type ExercisePlanGenreFieldEnum = String;
 ///<https://schema.org/ExercisePlan>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ExercisePlan {
     #[serde(rename = "@context")]
     pub context: String,

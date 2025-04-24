@@ -55,7 +55,7 @@ pub type TVEpisodeGenreFieldEnum = String;
 pub type TVEpisodeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TVEpisode>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TVEpisode {
     #[serde(rename = "@context")]
     pub context: String,

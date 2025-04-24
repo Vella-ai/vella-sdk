@@ -51,7 +51,7 @@ pub type MusicAlbumGenreFieldEnum = String;
 pub type MusicAlbumAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MusicAlbum>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MusicAlbum {
     #[serde(rename = "@context")]
     pub context: String,

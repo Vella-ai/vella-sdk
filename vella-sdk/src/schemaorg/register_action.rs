@@ -14,7 +14,7 @@ pub type RegisterActionEndTimeFieldEnum = String;
 pub type RegisterActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RegisterAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RegisterAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type LandformAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Landform>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Landform {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type DepartActionEndTimeFieldEnum = String;
 pub type DepartActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DepartAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DepartAction {
     #[serde(rename = "@context")]
     pub context: String,

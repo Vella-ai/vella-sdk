@@ -10,7 +10,7 @@ pub type SuitePetsAllowedFieldEnum = String;
 pub type SuiteAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Suite>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Suite {
     #[serde(rename = "@context")]
     pub context: String,

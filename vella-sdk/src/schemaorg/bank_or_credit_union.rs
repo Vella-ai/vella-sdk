@@ -10,7 +10,7 @@ pub type BankOrCreditUnionFeesAndCommissionsSpecificationFieldEnum = String;
 pub type BankOrCreditUnionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BankOrCreditUnion>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BankOrCreditUnion {
     #[serde(rename = "@context")]
     pub context: String,

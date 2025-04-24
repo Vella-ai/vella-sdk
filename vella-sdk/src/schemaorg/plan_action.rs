@@ -18,7 +18,7 @@ pub type PlanActionEndTimeFieldEnum = String;
 pub type PlanActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PlanAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PlanAction {
     #[serde(rename = "@context")]
     pub context: String,

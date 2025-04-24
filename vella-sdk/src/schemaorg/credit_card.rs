@@ -18,7 +18,7 @@ pub type CreditCardTermsOfServiceFieldEnum = String;
 pub type CreditCardAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CreditCard>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CreditCard {
     #[serde(rename = "@context")]
     pub context: String,

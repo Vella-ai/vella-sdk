@@ -59,7 +59,7 @@ pub type PeriodicalGenreFieldEnum = String;
 pub type PeriodicalAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Periodical>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Periodical {
     #[serde(rename = "@context")]
     pub context: String,

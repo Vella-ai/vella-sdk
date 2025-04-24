@@ -67,7 +67,7 @@ pub type VisualArtworkGenreFieldEnum = String;
 pub type VisualArtworkAdditionalTypeFieldEnum = String;
 ///<https://schema.org/VisualArtwork>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct VisualArtwork {
     #[serde(rename = "@context")]
     pub context: String,

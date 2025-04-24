@@ -10,7 +10,7 @@ pub type AMRadioChannelGenreFieldEnum = String;
 pub type AMRadioChannelAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AMRadioChannel>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AMRadioChannel {
     #[serde(rename = "@context")]
     pub context: String,

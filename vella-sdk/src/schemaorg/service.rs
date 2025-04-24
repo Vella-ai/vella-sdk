@@ -10,7 +10,7 @@ pub type ServiceTermsOfServiceFieldEnum = String;
 pub type ServiceAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Service>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Service {
     #[serde(rename = "@context")]
     pub context: String,

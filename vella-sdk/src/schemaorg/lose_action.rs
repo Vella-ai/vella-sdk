@@ -14,7 +14,7 @@ pub type LoseActionEndTimeFieldEnum = String;
 pub type LoseActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LoseAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LoseAction {
     #[serde(rename = "@context")]
     pub context: String,

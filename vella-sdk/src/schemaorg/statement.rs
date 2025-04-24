@@ -51,7 +51,7 @@ pub type StatementGenreFieldEnum = String;
 pub type StatementAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Statement>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Statement {
     #[serde(rename = "@context")]
     pub context: String,

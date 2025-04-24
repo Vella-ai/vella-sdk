@@ -10,7 +10,7 @@ pub type GovernmentPermitValidFromFieldEnum = String;
 pub type GovernmentPermitAdditionalTypeFieldEnum = String;
 ///<https://schema.org/GovernmentPermit>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct GovernmentPermit {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type PriceComponentTypeEnumerationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PriceComponentTypeEnumeration>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PriceComponentTypeEnumeration {
     #[serde(rename = "@context")]
     pub context: String,

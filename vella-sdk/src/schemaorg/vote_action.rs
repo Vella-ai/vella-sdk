@@ -14,7 +14,7 @@ pub type VoteActionEndTimeFieldEnum = String;
 pub type VoteActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/VoteAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct VoteAction {
     #[serde(rename = "@context")]
     pub context: String,

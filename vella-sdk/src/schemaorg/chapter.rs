@@ -51,7 +51,7 @@ pub type ChapterGenreFieldEnum = String;
 pub type ChapterAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Chapter>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Chapter {
     #[serde(rename = "@context")]
     pub context: String,

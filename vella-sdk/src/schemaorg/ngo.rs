@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type NGOAdditionalTypeFieldEnum = String;
 ///<https://schema.org/NGO>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct NGO {
     #[serde(rename = "@context")]
     pub context: String,

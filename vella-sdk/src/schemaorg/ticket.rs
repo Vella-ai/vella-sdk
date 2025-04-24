@@ -14,7 +14,7 @@ pub type TicketDateIssuedFieldEnum = String;
 pub type TicketAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Ticket>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Ticket {
     #[serde(rename = "@context")]
     pub context: String,

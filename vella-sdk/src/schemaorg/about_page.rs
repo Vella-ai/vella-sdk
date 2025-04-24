@@ -51,7 +51,7 @@ pub type AboutPageGenreFieldEnum = String;
 pub type AboutPageAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AboutPage>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AboutPage {
     #[serde(rename = "@context")]
     pub context: String,

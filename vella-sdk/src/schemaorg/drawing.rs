@@ -51,7 +51,7 @@ pub type DrawingGenreFieldEnum = String;
 pub type DrawingAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Drawing>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Drawing {
     #[serde(rename = "@context")]
     pub context: String,

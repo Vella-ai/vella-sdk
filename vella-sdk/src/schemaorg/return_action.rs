@@ -14,7 +14,7 @@ pub type ReturnActionEndTimeFieldEnum = String;
 pub type ReturnActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReturnAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReturnAction {
     #[serde(rename = "@context")]
     pub context: String,

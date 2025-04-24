@@ -51,7 +51,7 @@ pub type CriticReviewGenreFieldEnum = String;
 pub type CriticReviewAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CriticReview>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CriticReview {
     #[serde(rename = "@context")]
     pub context: String,

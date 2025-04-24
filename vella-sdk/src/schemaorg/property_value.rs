@@ -14,7 +14,7 @@ pub type PropertyValueUnitCodeFieldEnum = String;
 pub type PropertyValueAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PropertyValue>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PropertyValue {
     #[serde(rename = "@context")]
     pub context: String,

@@ -18,7 +18,7 @@ pub type LodgingBusinessCheckinTimeFieldEnum = String;
 pub type LodgingBusinessAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LodgingBusiness>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LodgingBusiness {
     #[serde(rename = "@context")]
     pub context: String,

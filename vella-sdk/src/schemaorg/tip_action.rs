@@ -14,7 +14,7 @@ pub type TipActionEndTimeFieldEnum = String;
 pub type TipActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TipAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TipAction {
     #[serde(rename = "@context")]
     pub context: String,

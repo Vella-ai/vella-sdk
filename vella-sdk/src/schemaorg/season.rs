@@ -51,7 +51,7 @@ pub type SeasonGenreFieldEnum = String;
 pub type SeasonAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Season>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Season {
     #[serde(rename = "@context")]
     pub context: String,

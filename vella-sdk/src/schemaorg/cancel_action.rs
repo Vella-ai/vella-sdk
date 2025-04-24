@@ -18,7 +18,7 @@ pub type CancelActionEndTimeFieldEnum = String;
 pub type CancelActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CancelAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CancelAction {
     #[serde(rename = "@context")]
     pub context: String,

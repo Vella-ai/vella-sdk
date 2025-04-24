@@ -18,7 +18,7 @@ pub type DepositAccountAdditionalTypeFieldEnum = String;
 pub type DepositAccountBankAccountTypeFieldEnum = String;
 ///<https://schema.org/DepositAccount>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DepositAccount {
     #[serde(rename = "@context")]
     pub context: String,

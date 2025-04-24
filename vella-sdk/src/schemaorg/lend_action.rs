@@ -14,7 +14,7 @@ pub type LendActionEndTimeFieldEnum = String;
 pub type LendActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LendAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LendAction {
     #[serde(rename = "@context")]
     pub context: String,

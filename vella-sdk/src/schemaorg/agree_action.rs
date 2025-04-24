@@ -14,7 +14,7 @@ pub type AgreeActionEndTimeFieldEnum = String;
 pub type AgreeActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AgreeAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AgreeAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -51,7 +51,7 @@ pub type WebSiteGenreFieldEnum = String;
 pub type WebSiteAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WebSite>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WebSite {
     #[serde(rename = "@context")]
     pub context: String,

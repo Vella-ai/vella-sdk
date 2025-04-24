@@ -51,7 +51,7 @@ pub type ClipGenreFieldEnum = String;
 pub type ClipAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Clip>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Clip {
     #[serde(rename = "@context")]
     pub context: String,

@@ -18,7 +18,7 @@ pub type MortgageLoanTermsOfServiceFieldEnum = String;
 pub type MortgageLoanAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MortgageLoan>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MortgageLoan {
     #[serde(rename = "@context")]
     pub context: String,

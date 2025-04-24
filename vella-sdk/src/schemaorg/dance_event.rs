@@ -18,7 +18,7 @@ pub type DanceEventStartDateFieldEnum = String;
 pub type DanceEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DanceEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DanceEvent {
     #[serde(rename = "@context")]
     pub context: String,

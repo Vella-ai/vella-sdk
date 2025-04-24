@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DefinedTermAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DefinedTerm>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DefinedTerm {
     #[serde(rename = "@context")]
     pub context: String,

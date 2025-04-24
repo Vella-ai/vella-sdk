@@ -14,7 +14,7 @@ pub type PrependActionEndTimeFieldEnum = String;
 pub type PrependActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PrependAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PrependAction {
     #[serde(rename = "@context")]
     pub context: String,

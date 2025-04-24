@@ -32,7 +32,7 @@ pub type AggregateOfferAvailabilityEndsFieldEnum = String;
 pub type AggregateOfferAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AggregateOffer>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AggregateOffer {
     #[serde(rename = "@context")]
     pub context: String,

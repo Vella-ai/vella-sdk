@@ -14,7 +14,7 @@ pub type WriteActionEndTimeFieldEnum = String;
 pub type WriteActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WriteAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WriteAction {
     #[serde(rename = "@context")]
     pub context: String,

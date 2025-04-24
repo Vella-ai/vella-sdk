@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type AnatomicalStructureAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AnatomicalStructure>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AnatomicalStructure {
     #[serde(rename = "@context")]
     pub context: String,

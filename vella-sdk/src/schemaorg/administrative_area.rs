@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type AdministrativeAreaAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AdministrativeArea>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AdministrativeArea {
     #[serde(rename = "@context")]
     pub context: String,

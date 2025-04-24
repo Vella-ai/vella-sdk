@@ -10,7 +10,7 @@ pub type ApartmentComplexPetsAllowedFieldEnum = String;
 pub type ApartmentComplexAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ApartmentComplex>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ApartmentComplex {
     #[serde(rename = "@context")]
     pub context: String,

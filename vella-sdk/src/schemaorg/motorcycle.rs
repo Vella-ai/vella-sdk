@@ -14,7 +14,7 @@ pub type MotorcycleAsinFieldEnum = String;
 pub type MotorcycleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Motorcycle>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Motorcycle {
     #[serde(rename = "@context")]
     pub context: String,

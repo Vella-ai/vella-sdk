@@ -14,7 +14,7 @@ pub type ReactActionEndTimeFieldEnum = String;
 pub type ReactActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReactAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReactAction {
     #[serde(rename = "@context")]
     pub context: String,

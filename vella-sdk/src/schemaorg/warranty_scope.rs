@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type WarrantyScopeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WarrantyScope>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WarrantyScope {
     #[serde(rename = "@context")]
     pub context: String,

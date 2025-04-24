@@ -67,7 +67,7 @@ pub type CoverArtGenreFieldEnum = String;
 pub type CoverArtAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CoverArt>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CoverArt {
     #[serde(rename = "@context")]
     pub context: String,

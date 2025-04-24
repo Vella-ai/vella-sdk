@@ -18,7 +18,7 @@ pub type DrugAsinFieldEnum = String;
 pub type DrugAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Drug>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Drug {
     #[serde(rename = "@context")]
     pub context: String,

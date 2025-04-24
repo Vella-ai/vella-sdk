@@ -14,7 +14,7 @@ pub type InvestmentOrDepositTermsOfServiceFieldEnum = String;
 pub type InvestmentOrDepositAdditionalTypeFieldEnum = String;
 ///<https://schema.org/InvestmentOrDeposit>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct InvestmentOrDeposit {
     #[serde(rename = "@context")]
     pub context: String,

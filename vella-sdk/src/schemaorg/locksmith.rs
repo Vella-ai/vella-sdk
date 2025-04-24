@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type LocksmithAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Locksmith>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Locksmith {
     #[serde(rename = "@context")]
     pub context: String,

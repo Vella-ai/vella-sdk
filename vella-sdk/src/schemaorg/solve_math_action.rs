@@ -14,7 +14,7 @@ pub type SolveMathActionEndTimeFieldEnum = String;
 pub type SolveMathActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SolveMathAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SolveMathAction {
     #[serde(rename = "@context")]
     pub context: String,

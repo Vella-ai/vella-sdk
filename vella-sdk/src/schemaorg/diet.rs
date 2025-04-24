@@ -51,7 +51,7 @@ pub type DietGenreFieldEnum = String;
 pub type DietAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Diet>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Diet {
     #[serde(rename = "@context")]
     pub context: String,

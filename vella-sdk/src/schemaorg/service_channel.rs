@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ServiceChannelAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ServiceChannel>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ServiceChannel {
     #[serde(rename = "@context")]
     pub context: String,

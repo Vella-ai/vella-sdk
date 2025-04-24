@@ -18,7 +18,7 @@ pub type VisualArtsEventStartDateFieldEnum = String;
 pub type VisualArtsEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/VisualArtsEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct VisualArtsEvent {
     #[serde(rename = "@context")]
     pub context: String,

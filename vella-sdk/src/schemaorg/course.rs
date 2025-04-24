@@ -51,7 +51,7 @@ pub type CourseGenreFieldEnum = String;
 pub type CourseAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Course>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Course {
     #[serde(rename = "@context")]
     pub context: String,

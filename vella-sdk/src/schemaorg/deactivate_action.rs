@@ -14,7 +14,7 @@ pub type DeactivateActionEndTimeFieldEnum = String;
 pub type DeactivateActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DeactivateAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DeactivateAction {
     #[serde(rename = "@context")]
     pub context: String,

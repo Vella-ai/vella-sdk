@@ -14,7 +14,7 @@ pub type FilmActionEndTimeFieldEnum = String;
 pub type FilmActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/FilmAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct FilmAction {
     #[serde(rename = "@context")]
     pub context: String,

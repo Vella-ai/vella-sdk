@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type OnlineBusinessAdditionalTypeFieldEnum = String;
 ///<https://schema.org/OnlineBusiness>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct OnlineBusiness {
     #[serde(rename = "@context")]
     pub context: String,

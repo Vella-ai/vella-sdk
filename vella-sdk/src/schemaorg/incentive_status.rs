@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type IncentiveStatusAdditionalTypeFieldEnum = String;
 ///<https://schema.org/IncentiveStatus>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct IncentiveStatus {
     #[serde(rename = "@context")]
     pub context: String,

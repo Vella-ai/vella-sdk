@@ -18,7 +18,7 @@ pub type UserLikesStartDateFieldEnum = String;
 pub type UserLikesAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserLikes>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserLikes {
     #[serde(rename = "@context")]
     pub context: String,

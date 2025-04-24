@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DigitalPlatformEnumerationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DigitalPlatformEnumeration>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DigitalPlatformEnumeration {
     #[serde(rename = "@context")]
     pub context: String,

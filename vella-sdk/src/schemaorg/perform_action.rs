@@ -14,7 +14,7 @@ pub type PerformActionEndTimeFieldEnum = String;
 pub type PerformActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PerformAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PerformAction {
     #[serde(rename = "@context")]
     pub context: String,

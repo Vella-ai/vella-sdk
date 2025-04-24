@@ -7,7 +7,7 @@ use rayon::prelude::*;
 use regex::Regex;
 use scraper::{Html, Selector};
 
-#[derive(uniffi::Error, Debug)]
+#[derive(Debug, uniffi::Error)]
 pub enum ParserError {
     Base64DecodeFailed,
     NonUtfInput,
@@ -49,7 +49,7 @@ fn url_base64_decode(s: &str) -> Return<String> {
     }
 }
 
-#[derive(Debug, uniffi::Record)]
+#[derive(uniffi::Record)]
 struct Email {
     from: EmailAddressWithText,
     from_addresses: Vec<EmailAddress>,
@@ -78,26 +78,26 @@ struct Email {
     organizations: Vec<Organization>,
 }
 
-#[derive(Debug, uniffi::Record)]
+#[derive(uniffi::Record)]
 struct EmailText {
     text: String,
     visible: Option<String>,
 }
 
-#[derive(Debug, uniffi::Record)]
+#[derive(uniffi::Record)]
 struct EmailAddress {
     name: Option<String>,
     address: String,
 }
 
-#[derive(Debug, uniffi::Record)]
+#[derive(uniffi::Record)]
 struct EmailAddressWithText {
     name: Option<String>,
     text: String,
     address: String,
 }
 
-#[derive(Debug, uniffi::Record)]
+#[derive(uniffi::Record)]
 struct Header {
     name: String,
     value: String,

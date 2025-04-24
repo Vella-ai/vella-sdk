@@ -14,7 +14,7 @@ pub type LikeActionEndTimeFieldEnum = String;
 pub type LikeActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/LikeAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct LikeAction {
     #[serde(rename = "@context")]
     pub context: String,

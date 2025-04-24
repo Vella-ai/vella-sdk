@@ -63,7 +63,7 @@ pub type ImageObjectGenreFieldEnum = String;
 pub type ImageObjectAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ImageObject>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ImageObject {
     #[serde(rename = "@context")]
     pub context: String,

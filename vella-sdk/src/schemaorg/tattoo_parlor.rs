@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type TattooParlorAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TattooParlor>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TattooParlor {
     #[serde(rename = "@context")]
     pub context: String,

@@ -63,7 +63,7 @@ pub type AmpStoryUploadDateFieldEnum = String;
 pub type AmpStoryEndTimeFieldEnum = String;
 ///<https://schema.org/AmpStory>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AmpStory {
     #[serde(rename = "@context")]
     pub context: String,

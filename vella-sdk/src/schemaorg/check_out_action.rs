@@ -14,7 +14,7 @@ pub type CheckOutActionEndTimeFieldEnum = String;
 pub type CheckOutActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CheckOutAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CheckOutAction {
     #[serde(rename = "@context")]
     pub context: String,

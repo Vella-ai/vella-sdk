@@ -51,7 +51,7 @@ pub type MedicalScholarlyArticleGenreFieldEnum = String;
 pub type MedicalScholarlyArticleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MedicalScholarlyArticle>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MedicalScholarlyArticle {
     #[serde(rename = "@context")]
     pub context: String,

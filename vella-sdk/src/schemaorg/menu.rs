@@ -51,7 +51,7 @@ pub type MenuGenreFieldEnum = String;
 pub type MenuAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Menu>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Menu {
     #[serde(rename = "@context")]
     pub context: String,

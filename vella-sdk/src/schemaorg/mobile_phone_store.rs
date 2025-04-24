@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type MobilePhoneStoreAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MobilePhoneStore>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MobilePhoneStore {
     #[serde(rename = "@context")]
     pub context: String,

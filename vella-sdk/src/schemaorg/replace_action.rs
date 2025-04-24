@@ -14,7 +14,7 @@ pub type ReplaceActionEndTimeFieldEnum = String;
 pub type ReplaceActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ReplaceAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ReplaceAction {
     #[serde(rename = "@context")]
     pub context: String,

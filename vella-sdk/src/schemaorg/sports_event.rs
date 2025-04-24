@@ -22,7 +22,7 @@ pub type SportsEventStartDateFieldEnum = String;
 pub type SportsEventAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SportsEvent>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SportsEvent {
     #[serde(rename = "@context")]
     pub context: String,

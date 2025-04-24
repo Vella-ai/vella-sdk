@@ -10,7 +10,7 @@ pub type AutomatedTellerFeesAndCommissionsSpecificationFieldEnum = String;
 pub type AutomatedTellerAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AutomatedTeller>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AutomatedTeller {
     #[serde(rename = "@context")]
     pub context: String,

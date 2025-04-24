@@ -63,7 +63,7 @@ pub type BarcodeGenreFieldEnum = String;
 pub type BarcodeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Barcode>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Barcode {
     #[serde(rename = "@context")]
     pub context: String,

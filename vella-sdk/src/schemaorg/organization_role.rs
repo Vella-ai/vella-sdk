@@ -22,7 +22,7 @@ pub type OrganizationRoleRoleNameFieldEnum = String;
 pub type OrganizationRoleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/OrganizationRole>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct OrganizationRole {
     #[serde(rename = "@context")]
     pub context: String,

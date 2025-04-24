@@ -14,7 +14,7 @@ pub type AuthorizeActionEndTimeFieldEnum = String;
 pub type AuthorizeActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AuthorizeAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AuthorizeAction {
     #[serde(rename = "@context")]
     pub context: String,

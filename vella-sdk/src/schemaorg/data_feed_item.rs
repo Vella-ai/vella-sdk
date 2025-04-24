@@ -18,7 +18,7 @@ pub type DataFeedItemDateCreatedFieldEnum = String;
 pub type DataFeedItemAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DataFeedItem>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DataFeedItem {
     #[serde(rename = "@context")]
     pub context: String,

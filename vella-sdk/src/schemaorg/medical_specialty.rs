@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type MedicalSpecialtyAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MedicalSpecialty>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MedicalSpecialty {
     #[serde(rename = "@context")]
     pub context: String,

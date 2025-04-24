@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type MeasurementTypeEnumerationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MeasurementTypeEnumeration>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MeasurementTypeEnumeration {
     #[serde(rename = "@context")]
     pub context: String,

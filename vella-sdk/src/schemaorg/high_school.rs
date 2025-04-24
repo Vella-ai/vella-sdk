@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type HighSchoolAdditionalTypeFieldEnum = String;
 ///<https://schema.org/HighSchool>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct HighSchool {
     #[serde(rename = "@context")]
     pub context: String,

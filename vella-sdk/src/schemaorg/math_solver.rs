@@ -51,7 +51,7 @@ pub type MathSolverGenreFieldEnum = String;
 pub type MathSolverAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MathSolver>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MathSolver {
     #[serde(rename = "@context")]
     pub context: String,

@@ -83,7 +83,7 @@ pub type MobileApplicationGenreFieldEnum = String;
 pub type MobileApplicationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MobileApplication>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MobileApplication {
     #[serde(rename = "@context")]
     pub context: String,

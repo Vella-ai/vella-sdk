@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type GameServerStatusAdditionalTypeFieldEnum = String;
 ///<https://schema.org/GameServerStatus>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct GameServerStatus {
     #[serde(rename = "@context")]
     pub context: String,

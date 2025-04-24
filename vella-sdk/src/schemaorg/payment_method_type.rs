@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type PaymentMethodTypeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PaymentMethodType>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PaymentMethodType {
     #[serde(rename = "@context")]
     pub context: String,

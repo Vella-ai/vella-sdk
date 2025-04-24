@@ -51,7 +51,7 @@ pub type TableGenreFieldEnum = String;
 pub type TableAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Table>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Table {
     #[serde(rename = "@context")]
     pub context: String,

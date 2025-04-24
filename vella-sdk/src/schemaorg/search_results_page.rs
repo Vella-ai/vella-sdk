@@ -51,7 +51,7 @@ pub type SearchResultsPageGenreFieldEnum = String;
 pub type SearchResultsPageAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SearchResultsPage>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SearchResultsPage {
     #[serde(rename = "@context")]
     pub context: String,

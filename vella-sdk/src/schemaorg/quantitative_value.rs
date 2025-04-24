@@ -10,7 +10,7 @@ pub type QuantitativeValueUnitCodeFieldEnum = String;
 pub type QuantitativeValueAdditionalTypeFieldEnum = String;
 ///<https://schema.org/QuantitativeValue>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct QuantitativeValue {
     #[serde(rename = "@context")]
     pub context: String,

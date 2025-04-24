@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type VeinAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Vein>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Vein {
     #[serde(rename = "@context")]
     pub context: String,

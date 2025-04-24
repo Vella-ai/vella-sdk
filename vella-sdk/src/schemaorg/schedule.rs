@@ -26,7 +26,7 @@ pub type ScheduleExceptDateFieldEnum = String;
 pub type ScheduleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Schedule>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Schedule {
     #[serde(rename = "@context")]
     pub context: String,

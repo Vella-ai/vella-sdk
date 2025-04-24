@@ -14,7 +14,7 @@ pub type WatchActionEndTimeFieldEnum = String;
 pub type WatchActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WatchAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WatchAction {
     #[serde(rename = "@context")]
     pub context: String,

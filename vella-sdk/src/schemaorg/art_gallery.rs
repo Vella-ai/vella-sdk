@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ArtGalleryAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ArtGallery>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ArtGallery {
     #[serde(rename = "@context")]
     pub context: String,

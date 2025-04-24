@@ -59,7 +59,7 @@ pub type CreativeWorkSeasonGenreFieldEnum = String;
 pub type CreativeWorkSeasonAdditionalTypeFieldEnum = String;
 ///<https://schema.org/CreativeWorkSeason>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct CreativeWorkSeason {
     #[serde(rename = "@context")]
     pub context: String,

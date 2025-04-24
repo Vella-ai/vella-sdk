@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type OccupationalTherapyAdditionalTypeFieldEnum = String;
 ///<https://schema.org/OccupationalTherapy>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct OccupationalTherapy {
     #[serde(rename = "@context")]
     pub context: String,

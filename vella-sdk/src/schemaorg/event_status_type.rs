@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type EventStatusTypeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/EventStatusType>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct EventStatusType {
     #[serde(rename = "@context")]
     pub context: String,

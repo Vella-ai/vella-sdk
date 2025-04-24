@@ -55,7 +55,7 @@ pub type MessageGenreFieldEnum = String;
 pub type MessageAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Message>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Message {
     #[serde(rename = "@context")]
     pub context: String,

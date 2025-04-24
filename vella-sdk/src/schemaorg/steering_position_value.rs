@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type SteeringPositionValueAdditionalTypeFieldEnum = String;
 ///<https://schema.org/SteeringPositionValue>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct SteeringPositionValue {
     #[serde(rename = "@context")]
     pub context: String,

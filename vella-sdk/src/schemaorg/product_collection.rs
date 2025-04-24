@@ -59,7 +59,7 @@ pub type ProductCollectionGtinFieldEnum = String;
 pub type ProductCollectionAsinFieldEnum = String;
 ///<https://schema.org/ProductCollection>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ProductCollection {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type RestrictedDietAdditionalTypeFieldEnum = String;
 ///<https://schema.org/RestrictedDiet>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct RestrictedDiet {
     #[serde(rename = "@context")]
     pub context: String,

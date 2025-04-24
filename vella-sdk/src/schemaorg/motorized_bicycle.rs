@@ -14,7 +14,7 @@ pub type MotorizedBicycleAsinFieldEnum = String;
 pub type MotorizedBicycleAdditionalTypeFieldEnum = String;
 ///<https://schema.org/MotorizedBicycle>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct MotorizedBicycle {
     #[serde(rename = "@context")]
     pub context: String,

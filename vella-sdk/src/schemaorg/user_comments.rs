@@ -22,7 +22,7 @@ pub type UserCommentsStartDateFieldEnum = String;
 pub type UserCommentsAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserComments>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserComments {
     #[serde(rename = "@context")]
     pub context: String,

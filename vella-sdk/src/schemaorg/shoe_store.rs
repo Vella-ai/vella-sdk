@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ShoeStoreAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ShoeStore>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ShoeStore {
     #[serde(rename = "@context")]
     pub context: String,

@@ -14,7 +14,7 @@ pub type AskActionEndTimeFieldEnum = String;
 pub type AskActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/AskAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct AskAction {
     #[serde(rename = "@context")]
     pub context: String,

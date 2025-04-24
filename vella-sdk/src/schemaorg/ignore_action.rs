@@ -14,7 +14,7 @@ pub type IgnoreActionEndTimeFieldEnum = String;
 pub type IgnoreActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/IgnoreAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct IgnoreAction {
     #[serde(rename = "@context")]
     pub context: String,

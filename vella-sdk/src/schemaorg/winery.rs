@@ -11,7 +11,7 @@ pub type WineryAcceptsReservationsFieldEnum = String;
 pub type WineryAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Winery>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Winery {
     #[serde(rename = "@context")]
     pub context: String,

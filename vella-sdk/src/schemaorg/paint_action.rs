@@ -14,7 +14,7 @@ pub type PaintActionEndTimeFieldEnum = String;
 pub type PaintActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PaintAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PaintAction {
     #[serde(rename = "@context")]
     pub context: String,

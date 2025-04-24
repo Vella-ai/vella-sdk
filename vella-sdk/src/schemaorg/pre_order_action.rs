@@ -14,7 +14,7 @@ pub type PreOrderActionEndTimeFieldEnum = String;
 pub type PreOrderActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PreOrderAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PreOrderAction {
     #[serde(rename = "@context")]
     pub context: String,

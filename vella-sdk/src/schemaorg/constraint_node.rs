@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ConstraintNodeAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ConstraintNode>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ConstraintNode {
     #[serde(rename = "@context")]
     pub context: String,

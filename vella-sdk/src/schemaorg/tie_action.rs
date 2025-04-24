@@ -14,7 +14,7 @@ pub type TieActionEndTimeFieldEnum = String;
 pub type TieActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TieAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TieAction {
     #[serde(rename = "@context")]
     pub context: String,

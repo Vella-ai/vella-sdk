@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type CanalAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Canal>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Canal {
     #[serde(rename = "@context")]
     pub context: String,

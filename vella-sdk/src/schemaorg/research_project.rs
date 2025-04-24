@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ResearchProjectAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ResearchProject>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ResearchProject {
     #[serde(rename = "@context")]
     pub context: String,

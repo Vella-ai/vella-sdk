@@ -18,7 +18,7 @@ pub type UserBlocksStartDateFieldEnum = String;
 pub type UserBlocksAdditionalTypeFieldEnum = String;
 ///<https://schema.org/UserBlocks>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct UserBlocks {
     #[serde(rename = "@context")]
     pub context: String,

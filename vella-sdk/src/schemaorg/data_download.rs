@@ -63,7 +63,7 @@ pub type DataDownloadGenreFieldEnum = String;
 pub type DataDownloadAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DataDownload>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DataDownload {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type DDxElementAdditionalTypeFieldEnum = String;
 ///<https://schema.org/DDxElement>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct DDxElement {
     #[serde(rename = "@context")]
     pub context: String,

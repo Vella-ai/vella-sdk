@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type WearableSizeSystemEnumerationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/WearableSizeSystemEnumeration>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct WearableSizeSystemEnumeration {
     #[serde(rename = "@context")]
     pub context: String,

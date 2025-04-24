@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type PreventionIndicationAdditionalTypeFieldEnum = String;
 ///<https://schema.org/PreventionIndication>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct PreventionIndication {
     #[serde(rename = "@context")]
     pub context: String,

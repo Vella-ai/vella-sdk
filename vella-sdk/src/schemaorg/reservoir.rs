@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type ReservoirAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Reservoir>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Reservoir {
     #[serde(rename = "@context")]
     pub context: String,

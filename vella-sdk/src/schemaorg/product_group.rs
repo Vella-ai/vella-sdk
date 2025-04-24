@@ -14,7 +14,7 @@ pub type ProductGroupAsinFieldEnum = String;
 pub type ProductGroupAdditionalTypeFieldEnum = String;
 ///<https://schema.org/ProductGroup>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct ProductGroup {
     #[serde(rename = "@context")]
     pub context: String,

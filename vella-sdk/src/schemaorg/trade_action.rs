@@ -14,7 +14,7 @@ pub type TradeActionEndTimeFieldEnum = String;
 pub type TradeActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/TradeAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct TradeAction {
     #[serde(rename = "@context")]
     pub context: String,

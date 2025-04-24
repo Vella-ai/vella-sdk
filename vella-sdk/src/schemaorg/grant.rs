@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type GrantAdditionalTypeFieldEnum = String;
 ///<https://schema.org/Grant>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct Grant {
     #[serde(rename = "@context")]
     pub context: String,

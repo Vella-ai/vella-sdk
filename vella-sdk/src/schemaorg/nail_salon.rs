@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type NailSalonAdditionalTypeFieldEnum = String;
 ///<https://schema.org/NailSalon>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct NailSalon {
     #[serde(rename = "@context")]
     pub context: String,

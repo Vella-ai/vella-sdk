@@ -14,7 +14,7 @@ pub type BookmarkActionEndTimeFieldEnum = String;
 pub type BookmarkActionAdditionalTypeFieldEnum = String;
 ///<https://schema.org/BookmarkAction>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct BookmarkAction {
     #[serde(rename = "@context")]
     pub context: String,

@@ -6,7 +6,7 @@ use serde_with::{serde_as, OneOrMany};
 pub type HowToItemAdditionalTypeFieldEnum = String;
 ///<https://schema.org/HowToItem>
 #[serde_as]
-#[derive(Debug, serde::Deserialize, uniffi::Record)]
+#[derive(serde::Deserialize, uniffi::Record)]
 pub struct HowToItem {
     #[serde(rename = "@context")]
     pub context: String,
