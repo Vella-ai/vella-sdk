@@ -6,11 +6,13 @@ set -e
 VERSION=$(jq -r '.version' package.json)
 RELEASE_TITLE="$VERSION"
 TMP_DIR=".release_tmp"
+# Define the name for the final archive
+ARCHIVE_NAME="vella-sdk-libs-$VERSION.tar.gz"
 
 echo "📁 Creating temp dir: $TMP_DIR"
 mkdir -p "$TMP_DIR"
 
-# Define the source and output filenames
+# Define the source and output filenames within the archive
 SOURCES=(
   "android-arm64-v8a.a:android/src/main/jniLibs/arm64-v8a/libvella_sdk.a"
   "android-armeabi-v7a.a:android/src/main/jniLibs/armeabi-v7a/libvella_sdk.a"
@@ -23,30 +25,38 @@ SOURCES=(
 echo "🔄 Copying files to temp directory..."
 for ENTRY in "${SOURCES[@]}"; do
   # Split the entry into output filename and source file path
-  OUT_NAME=$(echo $ENTRY | cut -d ':' -f 1)
-  SRC_PATH=$(echo $ENTRY | cut -d ':' -f 2)
+  OUT_NAME=$(echo "$ENTRY" | cut -d ':' -f 1)
+  SRC_PATH=$(echo "$ENTRY" | cut -d ':' -f 2-)
 
   # Ensure the source file exists before copying
   if [[ -f "$SRC_PATH" ]]; then
+    echo "  -> Copying $SRC_PATH to $TMP_DIR/$OUT_NAME"
     cp "$SRC_PATH" "$TMP_DIR/$OUT_NAME"
   else
     echo "❌ Source file $SRC_PATH does not exist!"
+    rm -rf "$TMP_DIR" # Clean up temp dir on error
     exit 1
   fi
 done
 
-echo "🚀 Creating GitHub release..."
+echo "📦 Creating archive $ARCHIVE_NAME..."
+# Create the tar.gz archive.
+# -c: Create archive
+# -z: Compress with gzip
+# -f: Specify archive filename
+# -C "$TMP_DIR": Change to the TMP_DIR before adding files (avoids including .release_tmp/ path in the archive)
+# .: Add all files from the current directory (which is TMP_DIR due to -C)
+tar -czf "$ARCHIVE_NAME" -C "$TMP_DIR" .
+
+echo "🚀 Creating GitHub release and uploading archive..."
+# Upload only the single archive file
 gh release create "$VERSION" \
-  "$TMP_DIR/android-arm64-v8a.a" \
-  "$TMP_DIR/android-armeabi-v7a.a" \
-  "$TMP_DIR/android-x86.a" \
-  "$TMP_DIR/android-x86_64.a" \
-  "$TMP_DIR/ios-arm64.a" \
-  "$TMP_DIR/ios-arm64-simulator.a" \
+  "$ARCHIVE_NAME" \
   --title "$RELEASE_TITLE" \
   --notes "Precompiled static libraries for vella-sdk $VERSION"
 
 echo "🧹 Cleaning up..."
 rm -rf "$TMP_DIR"
+rm "$ARCHIVE_NAME"
 
-echo "✅ Release created!"
+echo "✅ Release created with archive $ARCHIVE_NAME!"
