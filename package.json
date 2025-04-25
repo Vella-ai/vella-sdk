@@ -44,6 +44,7 @@
     "ubrn:android": "ubrn build android --config ubrn.config.yaml --and-generate",
     "ubrn:checkout": "ubrn checkout      --config ubrn.config.yaml",
     "ubrn:clean": "rm -Rf cpp/ android/src/main/java ios/ src/Native* src/generated/ src/index.ts*",
+    "ubrn:build": "yarn ubrn:ios --release && yarn ubrn:android --release",
     "example": "yarn workspace vella-sdk-example",
     "test": "jest",
     "typecheck": "tsc",
