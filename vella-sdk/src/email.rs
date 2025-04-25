@@ -1,6 +1,5 @@
 use std::fmt::Display;
 
-use crate::schemaorg::{FlightReservation, Organization};
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use rayon::prelude::*;
@@ -75,8 +74,6 @@ struct Email {
     html_bodies: Vec<EmailText>,
 
     markups: Vec<String>,
-    organizations: Vec<Organization>,
-    flight_reservations: Vec<FlightReservation>,
 }
 
 #[derive(uniffi::Record)]
@@ -260,16 +257,6 @@ fn parse_email(raw: String) -> Return<Email> {
         .flat_map(|x| parse_json_lds(&x))
         .collect();
 
-    let organizations: Vec<Organization> = markups
-        .par_iter()
-        .filter_map(|x| serde_json::from_str(x).ok())
-        .collect();
-
-    let flight_reservations: Vec<FlightReservation> = markups
-        .par_iter()
-        .filter_map(|x| serde_json::from_str(x).ok())
-        .collect();
-
     let content_id = message.content_id().map(ToOwned::to_owned);
     let message_id = message.message_id().map(ToOwned::to_owned);
     let thread_name = message.thread_name().map(ToOwned::to_owned);
@@ -295,8 +282,6 @@ fn parse_email(raw: String) -> Return<Email> {
         text_bodies,
         html_bodies,
         markups,
-        organizations,
-        flight_reservations,
     })
 }
 
