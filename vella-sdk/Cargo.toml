@@ -24,6 +24,7 @@ uniffi = { version = "0.29.1", features = ["build"] }
 crate-type = ["cdylib", "staticlib", "lib"]
 
 [profile.release]
-opt-level = "z"         # Optimize for size ("s" = some size, "z" = max size reduction)
-codegen-units = 16      # More parallelism = faster compile times
-strip = true            # Still strip symbols for smaller binaries
+opt-level = "z"
+codegen-units = 1
+strip = true
+lto = true
