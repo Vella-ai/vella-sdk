@@ -295,4 +295,10 @@ impl CustomTokenizerInner {
             token: padding.pad_token.to_owned(),
         })
     }
+
+    /// Decode a given list of token ids, back to a string
+    fn decode(&self, tokens: Vec<u32>, special_tokens: SpecialTokens) -> Option<String> {
+        let include_special_tokens: bool = special_tokens.into();
+        self.tokenizer.decode(&tokens, !include_special_tokens).ok()
+    }
 }
