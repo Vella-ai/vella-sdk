@@ -1966,6 +1966,13 @@ const FfiConverterTypeTruncationStrategy = (() => {
  */
 export interface CustomTokenizerInnerInterface {
   /**
+   * Decode a given list of token ids, back to a string
+   */
+  decode(
+    tokens: Array</*u32*/ number>,
+    specialTokens: SpecialTokens
+  ): string | undefined;
+  /**
    * Tokenizes an input string and return a list of token IDs.
    */
   getIds(
@@ -2043,6 +2050,28 @@ export class CustomTokenizerInner
     this[pointerLiteralSymbol] = pointer;
     this[destructorGuardSymbol] =
       uniffiTypeCustomTokenizerInnerObjectFactory.bless(pointer);
+  }
+
+  /**
+   * Decode a given list of token ids, back to a string
+   */
+  public decode(
+    tokens: Array</*u32*/ number>,
+    specialTokens: SpecialTokens
+  ): string | undefined {
+    return FfiConverterOptionalString.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_decode(
+            uniffiTypeCustomTokenizerInnerObjectFactory.clonePointer(this),
+            FfiConverterArrayUInt32.lower(tokens),
+            FfiConverterTypeSpecialTokens.lower(specialTokens),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
   }
 
   /**
@@ -2404,6 +2433,14 @@ function uniffiEnsureInitialized() {
   ) {
     throw new UniffiInternalError.ApiChecksumMismatch(
       'uniffi_vella_sdk_checksum_func_parse_visible_text'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_decode() !==
+    41492
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_method_customtokenizerinner_decode'
     );
   }
   if (

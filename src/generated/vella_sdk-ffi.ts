@@ -37,6 +37,12 @@ interface NativeModuleInterface {
     truncation: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
   ): bigint;
+  ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_decode(
+    ptr: bigint,
+    tokens: Uint8Array,
+    specialTokens: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
   ubrn_uniffi_vella_sdk_fn_method_customtokenizerinner_get_ids(
     ptr: bigint,
     input: Uint8Array,
@@ -100,6 +106,7 @@ interface NativeModuleInterface {
   ubrn_uniffi_vella_sdk_checksum_func_parse_email(): number;
   ubrn_uniffi_vella_sdk_checksum_func_parse_visible_html(): number;
   ubrn_uniffi_vella_sdk_checksum_func_parse_visible_text(): number;
+  ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_decode(): number;
   ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_ids(): number;
   ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_pad_token(): number;
   ubrn_uniffi_vella_sdk_checksum_method_customtokenizerinner_get_tokens(): number;
