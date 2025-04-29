@@ -257,8 +257,9 @@ fn parse_email(raw: String) -> Return<Email> {
         .attachments()
         .par_bridge()
         .filter(|m| {
-            m.content_type()
-                .is_some_and(|typ| typ.ctype() == "text/calendar")
+            m.content_type().is_some_and(|typ| {
+                typ.ctype() == "text" && typ.subtype().is_some_and(|s| s == "calendar")
+            })
         })
         .filter_map(|m| m.text_contents())
         .filter_map(parse_events)
