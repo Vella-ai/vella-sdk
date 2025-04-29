@@ -197,6 +197,74 @@ const FfiConverterTypeBatchSection = (() => {
   return new FFIConverter();
 })();
 
+export type CalendarEvent = {
+  summary: string | undefined;
+  status: CalendarEventStatus | undefined;
+  googleConferenceLink: string | undefined;
+  location: string | undefined;
+};
+
+/**
+ * Generated factory for {@link CalendarEvent} record objects.
+ */
+export const CalendarEvent = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<CalendarEvent, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link CalendarEvent}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link CalendarEvent}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<CalendarEvent>,
+  });
+})();
+
+const FfiConverterTypeCalendarEvent = (() => {
+  type TypeName = CalendarEvent;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        summary: FfiConverterOptionalString.read(from),
+        status: FfiConverterOptionalTypeCalendarEventStatus.read(from),
+        googleConferenceLink: FfiConverterOptionalString.read(from),
+        location: FfiConverterOptionalString.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterOptionalString.write(value.summary, into);
+      FfiConverterOptionalTypeCalendarEventStatus.write(value.status, into);
+      FfiConverterOptionalString.write(value.googleConferenceLink, into);
+      FfiConverterOptionalString.write(value.location, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterOptionalString.allocationSize(value.summary) +
+        FfiConverterOptionalTypeCalendarEventStatus.allocationSize(
+          value.status
+        ) +
+        FfiConverterOptionalString.allocationSize(value.googleConferenceLink) +
+        FfiConverterOptionalString.allocationSize(value.location)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
 export type Email = {
   from: EmailAddressWithText;
   fromAddresses: Array<EmailAddress>;
@@ -217,6 +285,7 @@ export type Email = {
   textBodies: Array<EmailText>;
   htmlBodies: Array<EmailText>;
   markups: Array<string>;
+  calendarEvents: Array<CalendarEvent>;
 };
 
 /**
@@ -268,6 +337,7 @@ const FfiConverterTypeEmail = (() => {
         textBodies: FfiConverterArrayTypeEmailText.read(from),
         htmlBodies: FfiConverterArrayTypeEmailText.read(from),
         markups: FfiConverterArrayString.read(from),
+        calendarEvents: FfiConverterArrayTypeCalendarEvent.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
@@ -287,6 +357,7 @@ const FfiConverterTypeEmail = (() => {
       FfiConverterArrayTypeEmailText.write(value.textBodies, into);
       FfiConverterArrayTypeEmailText.write(value.htmlBodies, into);
       FfiConverterArrayString.write(value.markups, into);
+      FfiConverterArrayTypeCalendarEvent.write(value.calendarEvents, into);
     }
     allocationSize(value: TypeName): number {
       return (
@@ -305,7 +376,8 @@ const FfiConverterTypeEmail = (() => {
         FfiConverterArrayTypeHeader.allocationSize(value.headers) +
         FfiConverterArrayTypeEmailText.allocationSize(value.textBodies) +
         FfiConverterArrayTypeEmailText.allocationSize(value.htmlBodies) +
-        FfiConverterArrayString.allocationSize(value.markups)
+        FfiConverterArrayString.allocationSize(value.markups) +
+        FfiConverterArrayTypeCalendarEvent.allocationSize(value.calendarEvents)
       );
     }
   }
@@ -1232,6 +1304,54 @@ const FfiConverterTypeBatchResponse = (() => {
         default:
           throw new UniffiInternalError.UnexpectedEnumCase();
       }
+    }
+  }
+  return new FFIConverter();
+})();
+
+export enum CalendarEventStatus {
+  /**
+   * Indicates event is tentative.
+   */
+  Tentative,
+  /**
+   * Indicates event is definite.
+   */
+  Confirmed,
+  /**
+   * Indicates event was cancelled.
+   */
+  Cancelled,
+}
+
+const FfiConverterTypeCalendarEventStatus = (() => {
+  const ordinalConverter = FfiConverterInt32;
+  type TypeName = CalendarEventStatus;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      switch (ordinalConverter.read(from)) {
+        case 1:
+          return CalendarEventStatus.Tentative;
+        case 2:
+          return CalendarEventStatus.Confirmed;
+        case 3:
+          return CalendarEventStatus.Cancelled;
+        default:
+          throw new UniffiInternalError.UnexpectedEnumCase();
+      }
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      switch (value) {
+        case CalendarEventStatus.Tentative:
+          return ordinalConverter.write(1, into);
+        case CalendarEventStatus.Confirmed:
+          return ordinalConverter.write(2, into);
+        case CalendarEventStatus.Cancelled:
+          return ordinalConverter.write(3, into);
+      }
+    }
+    allocationSize(value: TypeName): number {
+      return ordinalConverter.allocationSize(0);
     }
   }
   return new FFIConverter();
@@ -2341,6 +2461,11 @@ const FfiConverterArrayTypeBatchSection = new FfiConverterArray(
   FfiConverterTypeBatchSection
 );
 
+// FfiConverter for Array<CalendarEvent>
+const FfiConverterArrayTypeCalendarEvent = new FfiConverterArray(
+  FfiConverterTypeCalendarEvent
+);
+
 // FfiConverter for Array<EmailAddress>
 const FfiConverterArrayTypeEmailAddress = new FfiConverterArray(
   FfiConverterTypeEmailAddress
@@ -2369,6 +2494,11 @@ const FfiConverterArrayString = new FfiConverterArray(FfiConverterString);
 
 // FfiConverter for Array</*u32*/number>
 const FfiConverterArrayUInt32 = new FfiConverterArray(FfiConverterUInt32);
+
+// FfiConverter for CalendarEventStatus | undefined
+const FfiConverterOptionalTypeCalendarEventStatus = new FfiConverterOptional(
+  FfiConverterTypeCalendarEventStatus
+);
 
 // FfiConverter for Array<Array</*u32*/number>>
 const FfiConverterArrayArrayUInt32 = new FfiConverterArray(
@@ -2514,6 +2644,8 @@ export default Object.freeze({
   converters: {
     FfiConverterTypeBatchResponse,
     FfiConverterTypeBatchSection,
+    FfiConverterTypeCalendarEvent,
+    FfiConverterTypeCalendarEventStatus,
     FfiConverterTypeCustomTokenizerInner,
     FfiConverterTypeEmail,
     FfiConverterTypeEmailAddress,
