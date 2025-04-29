@@ -1,5 +1,6 @@
 use std::fmt::Display;
 
+use icalendar::{Calendar, Component, EventLike};
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use rayon::prelude::*;
@@ -74,6 +75,8 @@ struct Email {
     html_bodies: Vec<EmailText>,
 
     markups: Vec<String>,
+
+    calendar_events: Vec<CalendarEvent>,
 }
 
 #[derive(uniffi::Record)]
@@ -250,6 +253,18 @@ fn parse_email(raw: String) -> Return<Email> {
         .map(parse_html)
         .collect();
 
+    let calendar_events: Vec<CalendarEvent> = message
+        .attachments()
+        .par_bridge()
+        .filter(|m| {
+            m.content_type()
+                .is_some_and(|typ| typ.ctype() == "text/calendar")
+        })
+        .filter_map(|m| m.text_contents())
+        .filter_map(parse_events)
+        .flatten()
+        .collect();
+
     let markups: Vec<String> = message
         .html_bodies()
         .par_bridge()
@@ -282,6 +297,7 @@ fn parse_email(raw: String) -> Return<Email> {
         text_bodies,
         html_bodies,
         markups,
+        calendar_events,
     })
 }
 
@@ -427,4 +443,55 @@ fn parse_batch_response(body: String) -> Vec<BatchSection> {
 #[uniffi::export]
 fn escape_text(text: String) -> String {
     html_escape::encode_text(&text).into_owned()
+}
+
+#[derive(uniffi::Record)]
+struct CalendarEvent {
+    summary: Option<String>,
+    status: Option<CalendarEventStatus>,
+    google_conference_link: Option<String>,
+    location: Option<String>,
+}
+
+#[derive(uniffi::Enum)]
+enum CalendarEventStatus {
+    /// Indicates event is tentative.
+    Tentative,
+    /// Indicates event is definite.
+    Confirmed,
+    /// Indicates event was cancelled.
+    Cancelled,
+}
+
+impl From<icalendar::EventStatus> for CalendarEventStatus {
+    fn from(value: icalendar::EventStatus) -> Self {
+        match value {
+            icalendar::EventStatus::Tentative => Self::Tentative,
+            icalendar::EventStatus::Confirmed => Self::Confirmed,
+            icalendar::EventStatus::Cancelled => Self::Cancelled,
+        }
+    }
+}
+
+fn parse_events(body: &str) -> Option<Vec<CalendarEvent>> {
+    let calendar: Calendar = body.parse().ok()?;
+
+    Some(
+        calendar
+            .components
+            .into_iter()
+            .filter_map(|x| {
+                let x = x.as_event()?;
+
+                Some(CalendarEvent {
+                    summary: x.get_summary().map(|s| s.to_owned()),
+                    status: x.get_status().map(|s| s.into()),
+                    google_conference_link: x
+                        .property_value("X-GOOGLE-CONFERENCE")
+                        .map(|x| x.to_owned()),
+                    location: x.get_location().map(|x| x.to_string()),
+                })
+            })
+            .collect(),
+    )
 }
