@@ -453,6 +453,7 @@ struct CalendarEvent {
     status: Option<CalendarEventStatus>,
     google_conference_link: Option<String>,
     location: Option<String>,
+    timestamp: Option<i64>,
 }
 
 #[derive(uniffi::Enum)]
@@ -493,6 +494,7 @@ fn parse_events(body: &str) -> Option<Vec<CalendarEvent>> {
                         .property_value("X-GOOGLE-CONFERENCE")
                         .map(|x| x.to_owned()),
                     location: x.get_location().map(|x| x.to_string()),
+                    timestamp: x.get_timestamp().map(|x| x.timestamp_millis()),
                 })
             })
             .collect(),
