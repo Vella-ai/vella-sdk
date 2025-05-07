@@ -198,10 +198,12 @@ const FfiConverterTypeBatchSection = (() => {
 })();
 
 export type CalendarEvent = {
+  uid: string | undefined;
   summary: string | undefined;
   status: CalendarEventStatus | undefined;
   googleConferenceLink: string | undefined;
   location: string | undefined;
+  timestamp: /*i64*/ bigint | undefined;
 };
 
 /**
@@ -239,26 +241,32 @@ const FfiConverterTypeCalendarEvent = (() => {
   class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
     read(from: RustBuffer): TypeName {
       return {
+        uid: FfiConverterOptionalString.read(from),
         summary: FfiConverterOptionalString.read(from),
         status: FfiConverterOptionalTypeCalendarEventStatus.read(from),
         googleConferenceLink: FfiConverterOptionalString.read(from),
         location: FfiConverterOptionalString.read(from),
+        timestamp: FfiConverterOptionalInt64.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
+      FfiConverterOptionalString.write(value.uid, into);
       FfiConverterOptionalString.write(value.summary, into);
       FfiConverterOptionalTypeCalendarEventStatus.write(value.status, into);
       FfiConverterOptionalString.write(value.googleConferenceLink, into);
       FfiConverterOptionalString.write(value.location, into);
+      FfiConverterOptionalInt64.write(value.timestamp, into);
     }
     allocationSize(value: TypeName): number {
       return (
+        FfiConverterOptionalString.allocationSize(value.uid) +
         FfiConverterOptionalString.allocationSize(value.summary) +
         FfiConverterOptionalTypeCalendarEventStatus.allocationSize(
           value.status
         ) +
         FfiConverterOptionalString.allocationSize(value.googleConferenceLink) +
-        FfiConverterOptionalString.allocationSize(value.location)
+        FfiConverterOptionalString.allocationSize(value.location) +
+        FfiConverterOptionalInt64.allocationSize(value.timestamp)
       );
     }
   }
