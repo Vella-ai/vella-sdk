@@ -448,6 +448,7 @@ fn escape_text(text: String) -> String {
 
 #[derive(uniffi::Record)]
 struct CalendarEvent {
+    uid: Option<String>,
     summary: Option<String>,
     status: Option<CalendarEventStatus>,
     google_conference_link: Option<String>,
@@ -485,6 +486,7 @@ fn parse_events(body: &str) -> Option<Vec<CalendarEvent>> {
                 let x = x.as_event()?;
 
                 Some(CalendarEvent {
+                    uid: x.get_uid().map(|s| s.to_owned()),
                     summary: x.get_summary().map(|s| s.to_owned()),
                     status: x.get_status().map(|s| s.into()),
                     google_conference_link: x
