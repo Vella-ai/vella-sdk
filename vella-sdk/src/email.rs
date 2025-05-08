@@ -1,5 +1,6 @@
 use std::fmt::Display;
 
+use chrono::{TimeZone, Utc};
 use icalendar::{Calendar, Component, EventLike};
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
@@ -451,9 +452,14 @@ struct CalendarEvent {
     uid: Option<String>,
     summary: Option<String>,
     status: Option<CalendarEventStatus>,
+    url: Option<String>,
     google_conference_link: Option<String>,
     location: Option<String>,
     timestamp: Option<i64>,
+    last_modified: Option<i64>,
+    created: Option<i64>,
+    start: Option<i64>,
+    end: Option<i64>,
 }
 
 #[derive(uniffi::Enum)]
@@ -488,17 +494,29 @@ fn parse_events(body: &str) -> Option<Vec<CalendarEvent>> {
     )
 }
 
-fn parse_calendar_event(x: icalendar::CalendarComponent) -> Option<CalendarEvent> {
-    let x = x.as_event()?;
+fn parse_calendar_event(comp: icalendar::CalendarComponent) -> Option<CalendarEvent> {
+    let event = comp.as_event()?;
 
     Some(CalendarEvent {
-        uid: x.get_uid().map(|s| s.to_owned()),
-        summary: x.get_summary().map(|s| s.to_owned()),
-        status: x.get_status().map(|s| s.into()),
-        google_conference_link: x
+        uid: event.get_uid().map(|s| s.to_owned()),
+        summary: event.get_summary().map(|s| s.to_owned()),
+        status: event.get_status().map(|s| s.into()),
+        url: event.get_url().map(|x| x.to_owned()),
+        google_conference_link: event
             .property_value("X-GOOGLE-CONFERENCE")
             .map(|x| x.to_owned()),
-        location: x.get_location().map(|x| x.to_string()),
-        timestamp: x.get_timestamp().map(|x| x.timestamp_millis()),
+        location: event.get_location().map(|x| x.to_string()),
+        timestamp: event.get_timestamp().map(|x| x.timestamp_millis()),
+        last_modified: event.get_last_modified().map(|x| x.timestamp_millis()),
+        created: event.get_created().map(|x| x.timestamp_millis()),
+        start: event.get_start().and_then(get_timestamp),
+        end: event.get_end().and_then(get_timestamp),
     })
+}
+
+fn get_timestamp(x: icalendar::DatePerhapsTime) -> Option<i64> {
+    let date = x.date_naive();
+    let datetime = date.and_hms_opt(0, 0, 0)?;
+    let timestamp = Utc.from_utc_datetime(&datetime).timestamp();
+    Some(timestamp)
 }
