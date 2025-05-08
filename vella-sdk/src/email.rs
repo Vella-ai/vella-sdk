@@ -483,20 +483,22 @@ fn parse_events(body: &str) -> Option<Vec<CalendarEvent>> {
         calendar
             .components
             .into_iter()
-            .filter_map(|x| {
-                let x = x.as_event()?;
-
-                Some(CalendarEvent {
-                    uid: x.get_uid().map(|s| s.to_owned()),
-                    summary: x.get_summary().map(|s| s.to_owned()),
-                    status: x.get_status().map(|s| s.into()),
-                    google_conference_link: x
-                        .property_value("X-GOOGLE-CONFERENCE")
-                        .map(|x| x.to_owned()),
-                    location: x.get_location().map(|x| x.to_string()),
-                    timestamp: x.get_timestamp().map(|x| x.timestamp_millis()),
-                })
-            })
+            .filter_map(parse_calendar_event)
             .collect(),
     )
+}
+
+fn parse_calendar_event(x: icalendar::CalendarComponent) -> Option<CalendarEvent> {
+    let x = x.as_event()?;
+
+    Some(CalendarEvent {
+        uid: x.get_uid().map(|s| s.to_owned()),
+        summary: x.get_summary().map(|s| s.to_owned()),
+        status: x.get_status().map(|s| s.into()),
+        google_conference_link: x
+            .property_value("X-GOOGLE-CONFERENCE")
+            .map(|x| x.to_owned()),
+        location: x.get_location().map(|x| x.to_string()),
+        timestamp: x.get_timestamp().map(|x| x.timestamp_millis()),
+    })
 }
