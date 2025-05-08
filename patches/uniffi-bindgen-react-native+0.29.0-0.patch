@@ -1,0 +1,39 @@
+diff --git a/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-converters.ts b/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-converters.ts
+index b757e3d..fc33a1b 100644
+--- a/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-converters.ts
++++ b/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-converters.ts
+@@ -336,10 +336,10 @@ export const FfiConverterArrayBuffer = (() => {
+       const start = value.byteOffset;
+       const length = value.byteLength;
+       if (start === 0 && ab.byteLength === length) {
+-        return ab;
++        return ab as ArrayBuffer;
+       }
+       const end = start + length;
+-      return ab.slice(start, end);
++      return ab.slice(start, end) as ArrayBuffer;
+     }
+     return value;
+   }
+@@ -347,7 +347,7 @@ export const FfiConverterArrayBuffer = (() => {
+   class FFIConverter extends AbstractFfiConverterByteArray<ArrayBuffer> {
+     read(from: RustBuffer): ArrayBuffer {
+       const length = lengthConverter.read(from);
+-      return from.readArrayBuffer(length);
++      return from.readArrayBuffer(length) as ArrayBuffer;
+     }
+     write(value: ArrayBuffer, into: RustBuffer): void {
+       const length = value.byteLength;
+diff --git a/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-types.ts b/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-types.ts
+index d4612b4..56dfe2e 100644
+--- a/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-types.ts
++++ b/node_modules/uniffi-bindgen-react-native/typescript/src/ffi-types.ts
+@@ -32,7 +32,7 @@ export class RustBuffer {
+   }
+ 
+   static fromByteArray(buf: UniffiByteArray): RustBuffer {
+-    return new RustBuffer(buf.buffer);
++    return new RustBuffer(buf.buffer as ArrayBuffer);
+   }
+ 
+   get length(): number {
