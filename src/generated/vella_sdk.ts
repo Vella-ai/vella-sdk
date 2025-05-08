@@ -201,9 +201,14 @@ export type CalendarEvent = {
   uid: string | undefined;
   summary: string | undefined;
   status: CalendarEventStatus | undefined;
+  url: string | undefined;
   googleConferenceLink: string | undefined;
   location: string | undefined;
   timestamp: /*i64*/ bigint | undefined;
+  lastModified: /*i64*/ bigint | undefined;
+  created: /*i64*/ bigint | undefined;
+  start: /*i64*/ bigint | undefined;
+  end: /*i64*/ bigint | undefined;
 };
 
 /**
@@ -244,18 +249,28 @@ const FfiConverterTypeCalendarEvent = (() => {
         uid: FfiConverterOptionalString.read(from),
         summary: FfiConverterOptionalString.read(from),
         status: FfiConverterOptionalTypeCalendarEventStatus.read(from),
+        url: FfiConverterOptionalString.read(from),
         googleConferenceLink: FfiConverterOptionalString.read(from),
         location: FfiConverterOptionalString.read(from),
         timestamp: FfiConverterOptionalInt64.read(from),
+        lastModified: FfiConverterOptionalInt64.read(from),
+        created: FfiConverterOptionalInt64.read(from),
+        start: FfiConverterOptionalInt64.read(from),
+        end: FfiConverterOptionalInt64.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
       FfiConverterOptionalString.write(value.uid, into);
       FfiConverterOptionalString.write(value.summary, into);
       FfiConverterOptionalTypeCalendarEventStatus.write(value.status, into);
+      FfiConverterOptionalString.write(value.url, into);
       FfiConverterOptionalString.write(value.googleConferenceLink, into);
       FfiConverterOptionalString.write(value.location, into);
       FfiConverterOptionalInt64.write(value.timestamp, into);
+      FfiConverterOptionalInt64.write(value.lastModified, into);
+      FfiConverterOptionalInt64.write(value.created, into);
+      FfiConverterOptionalInt64.write(value.start, into);
+      FfiConverterOptionalInt64.write(value.end, into);
     }
     allocationSize(value: TypeName): number {
       return (
@@ -264,9 +279,14 @@ const FfiConverterTypeCalendarEvent = (() => {
         FfiConverterOptionalTypeCalendarEventStatus.allocationSize(
           value.status
         ) +
+        FfiConverterOptionalString.allocationSize(value.url) +
         FfiConverterOptionalString.allocationSize(value.googleConferenceLink) +
         FfiConverterOptionalString.allocationSize(value.location) +
-        FfiConverterOptionalInt64.allocationSize(value.timestamp)
+        FfiConverterOptionalInt64.allocationSize(value.timestamp) +
+        FfiConverterOptionalInt64.allocationSize(value.lastModified) +
+        FfiConverterOptionalInt64.allocationSize(value.created) +
+        FfiConverterOptionalInt64.allocationSize(value.start) +
+        FfiConverterOptionalInt64.allocationSize(value.end)
       );
     }
   }
