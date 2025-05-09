@@ -10563,6 +10563,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postinstall-postinstall@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "postinstall-postinstall@npm:2.1.0"
+  checksum: e1d34252cf8d2c5641c7d2db7426ec96e3d7a975f01c174c68f09ef5b8327bc8d5a9aa2001a45e693db2cdbf69577094d3fe6597b564ad2d2202b65fba76134b
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -12895,6 +12902,7 @@ __metadata:
     eslint-plugin-prettier: ^5.2.3
     jest: ^29.7.0
     patch-package: ^8.0.0
+    postinstall-postinstall: ^2.1.0
     prettier: ^3.0.3
     react: 19.0.0
     react-native: 0.78.0
