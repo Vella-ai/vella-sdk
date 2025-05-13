@@ -1,7 +1,7 @@
 use std::fmt::Display;
 
 use chrono::{TimeZone, Utc};
-use icalendar::{Calendar, Component, EventLike};
+use icalendar::{Calendar, Component, DatePerhapsTime, EventLike};
 use lol_html::{element, HtmlRewriter, Settings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use rayon::prelude::*;
@@ -515,8 +515,27 @@ fn parse_calendar_event(comp: icalendar::CalendarComponent) -> Option<CalendarEv
 }
 
 fn get_timestamp(x: icalendar::DatePerhapsTime) -> Option<i64> {
-    let date = x.date_naive();
-    let datetime = date.and_hms_opt(0, 0, 0)?;
-    let timestamp = Utc.from_utc_datetime(&datetime).timestamp();
-    Some(timestamp)
+    match x {
+        DatePerhapsTime::DateTime(calendar_date_time) => match calendar_date_time {
+            icalendar::CalendarDateTime::Floating(naive_date_time) => {
+                let timestamp = naive_date_time.and_utc().timestamp_millis();
+                Some(timestamp)
+            }
+            icalendar::CalendarDateTime::Utc(date_time) => {
+                let timestamp = date_time.timestamp_millis();
+                Some(timestamp)
+            }
+            icalendar::CalendarDateTime::WithTimezone { date_time, tzid } => {
+                let tz: chrono_tz::Tz = tzid.parse().ok()?;
+                let local_dt = tz.from_local_datetime(&date_time).single()?;
+                let timestamp = local_dt.timestamp_millis();
+                Some(timestamp)
+            }
+        },
+        DatePerhapsTime::Date(naive_date) => {
+            let datetime = naive_date.and_hms_opt(0, 0, 0)?;
+            let timestamp = Utc.from_utc_datetime(&datetime).timestamp_millis();
+            Some(timestamp)
+        }
+    }
 }
