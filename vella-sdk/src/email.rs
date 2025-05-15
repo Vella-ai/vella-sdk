@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{collections::HashMap, fmt::Display};
 
 use chrono::{TimeZone, Utc};
 use icalendar::{Calendar, Component, DatePerhapsTime, EventLike};
@@ -76,8 +76,8 @@ struct Email {
     html_bodies: Vec<EmailText>,
 
     markups: Vec<String>,
-
     calendar_events: Vec<CalendarEvent>,
+    microdata_items: Vec<MicrodataItem>,
 }
 
 #[derive(uniffi::Record)]
@@ -274,6 +274,13 @@ fn parse_email(raw: String) -> Return<Email> {
         .flat_map(|x| parse_json_lds(&x))
         .collect();
 
+    let microdata_items: Vec<MicrodataItem> = message
+        .html_bodies()
+        .par_bridge()
+        .map(|x| x.to_string())
+        .flat_map(|x| parse_microdata(&x))
+        .collect();
+
     let content_id = message.content_id().map(ToOwned::to_owned);
     let message_id = message.message_id().map(ToOwned::to_owned);
     let thread_name = message.thread_name().map(ToOwned::to_owned);
@@ -300,6 +307,7 @@ fn parse_email(raw: String) -> Return<Email> {
         html_bodies,
         markups,
         calendar_events,
+        microdata_items,
     })
 }
 
@@ -546,6 +554,93 @@ fn get_timestamp(x: icalendar::DatePerhapsTime) -> Option<i64> {
             let datetime = naive_date.and_hms_opt(0, 0, 0)?;
             let timestamp = Utc.from_utc_datetime(&datetime).timestamp_millis();
             Some(timestamp)
+        }
+    }
+}
+
+#[derive(uniffi::Record, Debug)]
+struct MicrodataItem {
+    itemtype: Option<String>,
+    itemid: Option<String>,
+    properties: HashMap<String, Vec<String>>,
+}
+
+fn extract_microdata_item(element: scraper::ElementRef) -> MicrodataItem {
+    let itemtype = element.value().attr("itemtype").map(str::to_string);
+    let itemid = element.value().attr("itemid").map(str::to_string);
+    let mut properties: HashMap<String, Vec<String>> = HashMap::new();
+
+    for descendant in element.descendants() {
+        if let Some(elem) = scraper::ElementRef::wrap(descendant) {
+            if let Some(itemprop) = elem.value().attr("itemprop") {
+                if let Some(value) = extract_value(&elem) {
+                    properties
+                        .entry(itemprop.to_string())
+                        .or_default()
+                        .push(value);
+                }
+            }
+        }
+    }
+
+    MicrodataItem {
+        itemtype,
+        itemid,
+        properties,
+    }
+}
+
+fn extract_value(elem: &scraper::ElementRef) -> Option<String> {
+    let tag = elem.value().name();
+    match tag {
+        "meta" => elem.value().attr("content").map(str::to_string),
+        "audio" | "embed" | "iframe" | "img" | "source" | "track" | "video" => {
+            elem.value().attr("src").map(str::to_string)
+        }
+        "a" | "area" | "link" => elem.value().attr("href").map(str::to_string),
+        "object" => elem.value().attr("data").map(str::to_string),
+        "time" => elem
+            .value()
+            .attr("datetime")
+            .map(str::to_string)
+            .or_else(|| Some(elem.text().collect::<String>())),
+        _ => Some(elem.text().collect::<String>()),
+    }
+}
+
+fn parse_microdata(html: &str) -> Vec<MicrodataItem> {
+    let doc = Html::parse_document(html);
+    let selector = scraper::Selector::parse("[itemscope]").unwrap();
+
+    doc.select(&selector).map(extract_microdata_item).collect()
+}
+
+#[cfg(test)]
+mod test {
+    use super::parse_batch_response;
+
+    #[test]
+    fn check_itemscope() {
+        let paths = std::fs::read_dir("responses_allspark")
+            .unwrap()
+            .into_iter()
+            .filter_map(|x| x.ok())
+            .map(|x| x.path());
+
+        for path in paths {
+            let file = std::fs::read_to_string(path).unwrap();
+            let resps = parse_batch_response(file);
+
+            for resp in resps {
+                match resp.response {
+                    super::BatchResponse::Success(gmail_message) => {
+                        for thing in gmail_message.data.microdata_items {
+                            dbg!(thing);
+                        }
+                    }
+                    super::BatchResponse::Error(gmail_error) => {}
+                }
+            }
         }
     }
 }
