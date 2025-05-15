@@ -497,6 +497,16 @@ fn parse_events(body: &str) -> Option<Vec<CalendarEvent>> {
 fn parse_calendar_event(comp: icalendar::CalendarComponent) -> Option<CalendarEvent> {
     let event = comp.as_event()?;
 
+    // Uses LAST_MODIFIED instead
+    let last_modified1 = event.get_last_modified().map(|x| x.timestamp_millis());
+    let last_modified2 = event
+        .properties()
+        .get("LAST-MODIFIED")
+        .and_then(DatePerhapsTime::from_property)
+        .and_then(get_timestamp);
+
+    let last_modified = last_modified1.or(last_modified2);
+
     Some(CalendarEvent {
         uid: event.get_uid().map(|s| s.to_owned()),
         summary: event.get_summary().map(|s| s.to_owned()),
@@ -507,7 +517,7 @@ fn parse_calendar_event(comp: icalendar::CalendarComponent) -> Option<CalendarEv
             .map(|x| x.to_owned()),
         location: event.get_location().map(|x| x.to_string()),
         timestamp: event.get_timestamp().map(|x| x.timestamp_millis()),
-        last_modified: event.get_last_modified().map(|x| x.timestamp_millis()),
+        last_modified,
         created: event.get_created().map(|x| x.timestamp_millis()),
         start: event.get_start().and_then(get_timestamp),
         end: event.get_end().and_then(get_timestamp),
