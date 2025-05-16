@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{collections::HashMap, fmt::Display};
 
 use chrono::{TimeZone, Utc};
 use icalendar::{Calendar, Component, DatePerhapsTime, EventLike};
@@ -76,8 +76,8 @@ struct Email {
     html_bodies: Vec<EmailText>,
 
     markups: Vec<String>,
-
     calendar_events: Vec<CalendarEvent>,
+    microdata_items: Vec<MicrodataItem>,
 }
 
 #[derive(uniffi::Record)]
@@ -274,6 +274,13 @@ fn parse_email(raw: String) -> Return<Email> {
         .flat_map(|x| parse_json_lds(&x))
         .collect();
 
+    let microdata_items: Vec<MicrodataItem> = message
+        .html_bodies()
+        .par_bridge()
+        .map(|x| x.to_string())
+        .flat_map(|x| extract_microdata(&x))
+        .collect();
+
     let content_id = message.content_id().map(ToOwned::to_owned);
     let message_id = message.message_id().map(ToOwned::to_owned);
     let thread_name = message.thread_name().map(ToOwned::to_owned);
@@ -300,6 +307,7 @@ fn parse_email(raw: String) -> Return<Email> {
         html_bodies,
         markups,
         calendar_events,
+        microdata_items,
     })
 }
 
@@ -548,4 +556,59 @@ fn get_timestamp(x: icalendar::DatePerhapsTime) -> Option<i64> {
             Some(timestamp)
         }
     }
+}
+
+#[derive(uniffi::Record)]
+struct MicrodataItem {
+    itemtype: Option<String>,
+    properties: HashMap<String, String>,
+    children: HashMap<String, MicrodataItem>,
+}
+
+fn extract_microdata_items(element: &scraper::ElementRef) -> MicrodataItem {
+    let itemtype = element.value().attr("itemtype").map(String::from);
+    let mut properties = HashMap::new();
+    let mut children = HashMap::new();
+
+    let prop_selector = Selector::parse("[itemprop]").unwrap();
+
+    for prop in element.select(&prop_selector) {
+        if prop.value().attr("itemscope").is_some() {
+            if let Some(prop_name) = prop.value().attr("itemprop") {
+                let child = extract_microdata_items(&prop);
+                children.insert(prop_name.to_owned(), child);
+            }
+        } else if let Some(prop_name) = prop.value().attr("itemprop") {
+            let value = prop.text().collect::<Vec<_>>().join(" ").trim().to_string();
+            let value = prop
+                .attr("content")
+                .or(prop.attr("href"))
+                .map(|c| c.to_owned())
+                .unwrap_or(value);
+
+            properties.insert(prop_name.to_owned(), value);
+        }
+    }
+
+    MicrodataItem {
+        itemtype,
+        properties,
+        children,
+    }
+}
+
+fn extract_microdata(html: &str) -> Vec<MicrodataItem> {
+    let document = Html::parse_document(html);
+    let root_selector = Selector::parse("[itemscope]").unwrap();
+
+    document
+        .select(&root_selector)
+        // Skip nested scopes; only process top-level items here
+        .filter(|el| {
+            el.ancestors()
+                .filter_map(scraper::ElementRef::wrap)
+                .all(|e| e.value().attr("itemscope").is_none())
+        })
+        .map(|el| extract_microdata_items(&el))
+        .collect()
 }
