@@ -558,7 +558,7 @@ fn get_timestamp(x: icalendar::DatePerhapsTime) -> Option<i64> {
     }
 }
 
-#[derive(Debug, uniffi::Record)]
+#[derive(uniffi::Record)]
 struct MicrodataItem {
     itemtype: Option<String>,
     properties: HashMap<String, String>,
@@ -611,34 +611,4 @@ fn extract_microdata(html: &str) -> Vec<MicrodataItem> {
         })
         .map(|el| extract_microdata_items(&el))
         .collect()
-}
-
-#[cfg(test)]
-mod test {
-    use super::parse_batch_response;
-
-    #[test]
-    fn check_itemscope() {
-        let paths = std::fs::read_dir("responses/allspark")
-            .unwrap()
-            .into_iter()
-            .filter_map(|x| x.ok())
-            .map(|x| x.path());
-
-        for path in paths {
-            let file = std::fs::read_to_string(path).unwrap();
-            let resps = parse_batch_response(file);
-
-            for resp in resps {
-                match resp.response {
-                    super::BatchResponse::Success(gmail_message) => {
-                        for thing in gmail_message.data.microdata_items {
-                            dbg!(thing);
-                        }
-                    }
-                    super::BatchResponse::Error(gmail_error) => {}
-                }
-            }
-        }
-    }
 }
