@@ -278,7 +278,7 @@ fn parse_email(raw: String) -> Return<Email> {
         .html_bodies()
         .par_bridge()
         .map(|x| x.to_string())
-        .flat_map(|x| parse_microdata(&x))
+        .flat_map(|x| extract_microdata(&x))
         .collect();
 
     let content_id = message.content_id().map(ToOwned::to_owned);
@@ -558,61 +558,59 @@ fn get_timestamp(x: icalendar::DatePerhapsTime) -> Option<i64> {
     }
 }
 
-#[derive(uniffi::Record, Debug)]
+#[derive(Debug, uniffi::Record)]
 struct MicrodataItem {
     itemtype: Option<String>,
-    itemid: Option<String>,
-    properties: HashMap<String, Vec<String>>,
+    properties: HashMap<String, String>,
+    children: HashMap<String, MicrodataItem>,
 }
 
-fn extract_microdata_item(element: scraper::ElementRef) -> MicrodataItem {
-    let itemtype = element.value().attr("itemtype").map(str::to_string);
-    let itemid = element.value().attr("itemid").map(str::to_string);
-    let mut properties: HashMap<String, Vec<String>> = HashMap::new();
+fn extract_microdata_items(element: &scraper::ElementRef) -> MicrodataItem {
+    let itemtype = element.value().attr("itemtype").map(String::from);
+    let mut properties = HashMap::new();
+    let mut children = HashMap::new();
 
-    for descendant in element.descendants() {
-        if let Some(elem) = scraper::ElementRef::wrap(descendant) {
-            if let Some(itemprop) = elem.value().attr("itemprop") {
-                if let Some(value) = extract_value(&elem) {
-                    properties
-                        .entry(itemprop.to_string())
-                        .or_default()
-                        .push(value);
-                }
+    let prop_selector = Selector::parse("[itemprop]").unwrap();
+
+    for prop in element.select(&prop_selector) {
+        if prop.value().attr("itemscope").is_some() {
+            if let Some(prop_name) = prop.value().attr("itemprop") {
+                let child = extract_microdata_items(&prop);
+                children.insert(prop_name.to_owned(), child);
             }
+        } else if let Some(prop_name) = prop.value().attr("itemprop") {
+            let value = prop.text().collect::<Vec<_>>().join(" ").trim().to_string();
+            let value = prop
+                .attr("content")
+                .or(prop.attr("href"))
+                .map(|c| c.to_owned())
+                .unwrap_or(value);
+
+            properties.insert(prop_name.to_owned(), value);
         }
     }
 
     MicrodataItem {
         itemtype,
-        itemid,
         properties,
+        children,
     }
 }
 
-fn extract_value(elem: &scraper::ElementRef) -> Option<String> {
-    let tag = elem.value().name();
-    match tag {
-        "meta" => elem.value().attr("content").map(str::to_string),
-        "audio" | "embed" | "iframe" | "img" | "source" | "track" | "video" => {
-            elem.value().attr("src").map(str::to_string)
-        }
-        "a" | "area" | "link" => elem.value().attr("href").map(str::to_string),
-        "object" => elem.value().attr("data").map(str::to_string),
-        "time" => elem
-            .value()
-            .attr("datetime")
-            .map(str::to_string)
-            .or_else(|| Some(elem.text().collect::<String>())),
-        _ => Some(elem.text().collect::<String>()),
-    }
-}
+fn extract_microdata(html: &str) -> Vec<MicrodataItem> {
+    let document = Html::parse_document(html);
+    let root_selector = Selector::parse("[itemscope]").unwrap();
 
-fn parse_microdata(html: &str) -> Vec<MicrodataItem> {
-    let doc = Html::parse_document(html);
-    let selector = scraper::Selector::parse("[itemscope]").unwrap();
-
-    doc.select(&selector).map(extract_microdata_item).collect()
+    document
+        .select(&root_selector)
+        // Skip nested scopes; only process top-level items here
+        .filter(|el| {
+            el.ancestors()
+                .filter_map(scraper::ElementRef::wrap)
+                .all(|e| e.value().attr("itemscope").is_none())
+        })
+        .map(|el| extract_microdata_items(&el))
+        .collect()
 }
 
 #[cfg(test)]
@@ -621,7 +619,7 @@ mod test {
 
     #[test]
     fn check_itemscope() {
-        let paths = std::fs::read_dir("responses_allspark")
+        let paths = std::fs::read_dir("responses/allspark")
             .unwrap()
             .into_iter()
             .filter_map(|x| x.ok())
