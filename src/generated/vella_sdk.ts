@@ -41,6 +41,7 @@ import {
   FfiConverterBool,
   FfiConverterInt32,
   FfiConverterInt64,
+  FfiConverterMap,
   FfiConverterObject,
   FfiConverterOptional,
   FfiConverterUInt32,
@@ -314,6 +315,7 @@ export type Email = {
   htmlBodies: Array<EmailText>;
   markups: Array<string>;
   calendarEvents: Array<CalendarEvent>;
+  microdataItems: Array<MicrodataItem>;
 };
 
 /**
@@ -366,6 +368,7 @@ const FfiConverterTypeEmail = (() => {
         htmlBodies: FfiConverterArrayTypeEmailText.read(from),
         markups: FfiConverterArrayString.read(from),
         calendarEvents: FfiConverterArrayTypeCalendarEvent.read(from),
+        microdataItems: FfiConverterArrayTypeMicrodataItem.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
@@ -386,6 +389,7 @@ const FfiConverterTypeEmail = (() => {
       FfiConverterArrayTypeEmailText.write(value.htmlBodies, into);
       FfiConverterArrayString.write(value.markups, into);
       FfiConverterArrayTypeCalendarEvent.write(value.calendarEvents, into);
+      FfiConverterArrayTypeMicrodataItem.write(value.microdataItems, into);
     }
     allocationSize(value: TypeName): number {
       return (
@@ -405,7 +409,10 @@ const FfiConverterTypeEmail = (() => {
         FfiConverterArrayTypeEmailText.allocationSize(value.textBodies) +
         FfiConverterArrayTypeEmailText.allocationSize(value.htmlBodies) +
         FfiConverterArrayString.allocationSize(value.markups) +
-        FfiConverterArrayTypeCalendarEvent.allocationSize(value.calendarEvents)
+        FfiConverterArrayTypeCalendarEvent.allocationSize(
+          value.calendarEvents
+        ) +
+        FfiConverterArrayTypeMicrodataItem.allocationSize(value.microdataItems)
       );
     }
   }
@@ -849,6 +856,68 @@ const FfiConverterTypeHeader = (() => {
       return (
         FfiConverterString.allocationSize(value.name) +
         FfiConverterString.allocationSize(value.value)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type MicrodataItem = {
+  itemtype: string | undefined;
+  properties: Map<string, string>;
+  children: Map<string, MicrodataItem>;
+};
+
+/**
+ * Generated factory for {@link MicrodataItem} record objects.
+ */
+export const MicrodataItem = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<MicrodataItem, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link MicrodataItem}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link MicrodataItem}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<MicrodataItem>,
+  });
+})();
+
+const FfiConverterTypeMicrodataItem = (() => {
+  type TypeName = MicrodataItem;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        itemtype: FfiConverterOptionalString.read(from),
+        properties: FfiConverterMapStringString.read(from),
+        children: FfiConverterMapStringTypeMicrodataItem.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterOptionalString.write(value.itemtype, into);
+      FfiConverterMapStringString.write(value.properties, into);
+      FfiConverterMapStringTypeMicrodataItem.write(value.children, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterOptionalString.allocationSize(value.itemtype) +
+        FfiConverterMapStringString.allocationSize(value.properties) +
+        FfiConverterMapStringTypeMicrodataItem.allocationSize(value.children)
       );
     }
   }
@@ -2109,6 +2178,18 @@ const FfiConverterTypeTruncationStrategy = (() => {
   return new FFIConverter();
 })();
 
+// FfiConverter for Map<string, MicrodataItem>
+const FfiConverterMapStringTypeMicrodataItem = new FfiConverterMap(
+  FfiConverterString,
+  FfiConverterTypeMicrodataItem
+);
+
+// FfiConverter for Map<string, string>
+const FfiConverterMapStringString = new FfiConverterMap(
+  FfiConverterString,
+  FfiConverterString
+);
+
 /**
  * A tokenizer object from a custom dictionary.
  */
@@ -2514,6 +2595,11 @@ const FfiConverterArrayTypeHeader = new FfiConverterArray(
   FfiConverterTypeHeader
 );
 
+// FfiConverter for Array<MicrodataItem>
+const FfiConverterArrayTypeMicrodataItem = new FfiConverterArray(
+  FfiConverterTypeMicrodataItem
+);
+
 // FfiConverter for Array<Token>
 const FfiConverterArrayTypeToken = new FfiConverterArray(FfiConverterTypeToken);
 
@@ -2683,6 +2769,7 @@ export default Object.freeze({
     FfiConverterTypeGmailErrorItem,
     FfiConverterTypeGmailMessage,
     FfiConverterTypeHeader,
+    FfiConverterTypeMicrodataItem,
     FfiConverterTypePaddingDirection,
     FfiConverterTypePaddingParams,
     FfiConverterTypePaddingStrategy,
