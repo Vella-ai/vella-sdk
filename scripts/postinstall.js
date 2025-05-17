@@ -103,7 +103,7 @@ function downloadWithProgress(url, dest) {
 
     const download = (currentUrl) => {
       https
-        .get(currentUrl, { timeout: 30000 }, (res) => {
+        .get(currentUrl, { timeout: 300000 }, (res) => {
           if (
             res.statusCode >= 300 &&
             res.statusCode < 400 &&
