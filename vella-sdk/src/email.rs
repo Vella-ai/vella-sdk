@@ -7,6 +7,7 @@ use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use rayon::prelude::*;
 use regex::Regex;
 use scraper::{Html, Selector};
+use url::Url;
 
 #[derive(Debug, uniffi::Error)]
 pub enum ParserError {
@@ -78,6 +79,8 @@ struct Email {
     markups: Vec<String>,
     calendar_events: Vec<CalendarEvent>,
     microdata_items: Vec<MicrodataItem>,
+
+    unsubscribe: Unsubscribe,
 }
 
 #[derive(uniffi::Record)]
@@ -281,10 +284,11 @@ fn parse_email(raw: String) -> Return<Email> {
         .flat_map(|x| extract_microdata(&x))
         .collect();
 
+    let unsubscribe = extract_unsubscribe(&message);
+
     let content_id = message.content_id().map(ToOwned::to_owned);
     let message_id = message.message_id().map(ToOwned::to_owned);
     let thread_name = message.thread_name().map(ToOwned::to_owned);
-
     let mime_version = message.mime_version().as_text().map(ToOwned::to_owned);
 
     let headers: Vec<Header> = message.headers_raw().map(Into::into).collect();
@@ -308,6 +312,7 @@ fn parse_email(raw: String) -> Return<Email> {
         markups,
         calendar_events,
         microdata_items,
+        unsubscribe,
     })
 }
 
@@ -611,4 +616,100 @@ fn extract_microdata(html: &str) -> Vec<MicrodataItem> {
         })
         .map(|el| extract_microdata_items(&el))
         .collect()
+}
+
+#[derive(uniffi::Record)]
+struct Unsubscribe {
+    get: Option<String>,
+    post: Option<UnsubscribePost>,
+    email: Option<UnsubscribeEmail>,
+}
+
+#[derive(uniffi::Record)]
+struct UnsubscribePost {
+    url: String,
+    body: String,
+}
+
+#[derive(uniffi::Record)]
+struct UnsubscribeEmail {
+    email: String,
+    headers: Vec<Header>,
+}
+
+fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
+    let list_unsubscribe = message
+        .header_raw("list-unsubscribe")
+        .unwrap_or_default()
+        .trim();
+
+    if list_unsubscribe.is_empty() {
+        return Unsubscribe {
+            get: None,
+            post: None,
+            email: None,
+        };
+    }
+
+    let mut urls = list_unsubscribe
+        .split(",")
+        .map(|x| x.trim())
+        .map(|x| x.trim_start_matches('<'))
+        .map(|x| x.trim_end_matches('>'))
+        .filter_map(|x| Url::parse(x).ok());
+
+    let url = urls.find(|u| u.scheme() == "http" || u.scheme() == "https");
+    let list_unsubscribe_post = message
+        .header_raw("list-unsubscribe-post")
+        .map(|x| x.trim());
+
+    let get = match (&url, list_unsubscribe_post) {
+        (Some(url), None) => Some(url.to_string()),
+        _ => None,
+    };
+
+    let post = match (&url, list_unsubscribe_post) {
+        (Some(url), Some(post)) => Some(UnsubscribePost {
+            url: url.to_string(),
+            body: post.to_owned(),
+        }),
+        _ => None,
+    };
+
+    let email = urls.find(|u| u.scheme() == "mailto").map(|url| {
+        let headers = url
+            .query_pairs()
+            .into_iter()
+            .map(|(name, value)| Header {
+                name: name.into_owned(),
+                value: value.into_owned(),
+            })
+            .collect();
+
+        UnsubscribeEmail {
+            email: url.path().to_owned(),
+            headers,
+        }
+    });
+
+    Unsubscribe { get, post, email }
+}
+
+#[cfg(test)]
+mod test {
+    use super::parse_batch_response;
+
+    #[test]
+    fn do_test() {
+        let responses = std::fs::read_dir("responses/allspark")
+            .unwrap()
+            .into_iter()
+            .filter_map(|x| x.ok())
+            .map(|x| x.path());
+
+        for path in responses {
+            let file = std::fs::read_to_string(path).unwrap();
+            parse_batch_response(file);
+        }
+    }
 }

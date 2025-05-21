@@ -19,6 +19,7 @@ serde_with = { version = "3.12.0", default-features = false, features = ["macros
 icalendar = { version = "0.16.13", default-features = false, features = ["parser"] }
 chrono = { version = "0.4.41", default-features = false }
 chrono-tz = { version = "0.10.3", default-features = false }
+url = { version = "2.5.4", default-features = false }
 
 [build-dependencies]
 uniffi = { version = "0.29.1", features = ["build"] }
