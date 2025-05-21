@@ -316,6 +316,7 @@ export type Email = {
   markups: Array<string>;
   calendarEvents: Array<CalendarEvent>;
   microdataItems: Array<MicrodataItem>;
+  unsubscribe: Unsubscribe;
 };
 
 /**
@@ -369,6 +370,7 @@ const FfiConverterTypeEmail = (() => {
         markups: FfiConverterArrayString.read(from),
         calendarEvents: FfiConverterArrayTypeCalendarEvent.read(from),
         microdataItems: FfiConverterArrayTypeMicrodataItem.read(from),
+        unsubscribe: FfiConverterTypeUnsubscribe.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
@@ -390,6 +392,7 @@ const FfiConverterTypeEmail = (() => {
       FfiConverterArrayString.write(value.markups, into);
       FfiConverterArrayTypeCalendarEvent.write(value.calendarEvents, into);
       FfiConverterArrayTypeMicrodataItem.write(value.microdataItems, into);
+      FfiConverterTypeUnsubscribe.write(value.unsubscribe, into);
     }
     allocationSize(value: TypeName): number {
       return (
@@ -412,7 +415,10 @@ const FfiConverterTypeEmail = (() => {
         FfiConverterArrayTypeCalendarEvent.allocationSize(
           value.calendarEvents
         ) +
-        FfiConverterArrayTypeMicrodataItem.allocationSize(value.microdataItems)
+        FfiConverterArrayTypeMicrodataItem.allocationSize(
+          value.microdataItems
+        ) +
+        FfiConverterTypeUnsubscribe.allocationSize(value.unsubscribe)
       );
     }
   }
@@ -1242,6 +1248,184 @@ const FfiConverterTypeTruncationParams = (() => {
         FfiConverterUInt32.allocationSize(value.maxLength) +
         FfiConverterTypeTruncationStrategy.allocationSize(value.strategy) +
         FfiConverterUInt32.allocationSize(value.stride)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type Unsubscribe = {
+  get: string | undefined;
+  post: UnsubscribePost | undefined;
+  email: UnsubscribeEmail | undefined;
+};
+
+/**
+ * Generated factory for {@link Unsubscribe} record objects.
+ */
+export const Unsubscribe = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<Unsubscribe, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link Unsubscribe}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link Unsubscribe}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<Unsubscribe>,
+  });
+})();
+
+const FfiConverterTypeUnsubscribe = (() => {
+  type TypeName = Unsubscribe;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        get: FfiConverterOptionalString.read(from),
+        post: FfiConverterOptionalTypeUnsubscribePost.read(from),
+        email: FfiConverterOptionalTypeUnsubscribeEmail.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterOptionalString.write(value.get, into);
+      FfiConverterOptionalTypeUnsubscribePost.write(value.post, into);
+      FfiConverterOptionalTypeUnsubscribeEmail.write(value.email, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterOptionalString.allocationSize(value.get) +
+        FfiConverterOptionalTypeUnsubscribePost.allocationSize(value.post) +
+        FfiConverterOptionalTypeUnsubscribeEmail.allocationSize(value.email)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type UnsubscribeEmail = {
+  email: string;
+  headers: Array<Header>;
+};
+
+/**
+ * Generated factory for {@link UnsubscribeEmail} record objects.
+ */
+export const UnsubscribeEmail = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<UnsubscribeEmail, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link UnsubscribeEmail}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link UnsubscribeEmail}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<UnsubscribeEmail>,
+  });
+})();
+
+const FfiConverterTypeUnsubscribeEmail = (() => {
+  type TypeName = UnsubscribeEmail;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        email: FfiConverterString.read(from),
+        headers: FfiConverterArrayTypeHeader.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterString.write(value.email, into);
+      FfiConverterArrayTypeHeader.write(value.headers, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterString.allocationSize(value.email) +
+        FfiConverterArrayTypeHeader.allocationSize(value.headers)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type UnsubscribePost = {
+  url: string;
+  body: string;
+};
+
+/**
+ * Generated factory for {@link UnsubscribePost} record objects.
+ */
+export const UnsubscribePost = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<UnsubscribePost, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link UnsubscribePost}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link UnsubscribePost}, with defaults specified
+     * in Rust, in the {@link vella_sdk} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link vella_sdk} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<UnsubscribePost>,
+  });
+})();
+
+const FfiConverterTypeUnsubscribePost = (() => {
+  type TypeName = UnsubscribePost;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        url: FfiConverterString.read(from),
+        body: FfiConverterString.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterString.write(value.url, into);
+      FfiConverterString.write(value.body, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterString.allocationSize(value.url) +
+        FfiConverterString.allocationSize(value.body)
       );
     }
   }
@@ -2559,6 +2743,16 @@ const FfiConverterOptionalTypeTruncationParams = new FfiConverterOptional(
   FfiConverterTypeTruncationParams
 );
 
+// FfiConverter for UnsubscribeEmail | undefined
+const FfiConverterOptionalTypeUnsubscribeEmail = new FfiConverterOptional(
+  FfiConverterTypeUnsubscribeEmail
+);
+
+// FfiConverter for UnsubscribePost | undefined
+const FfiConverterOptionalTypeUnsubscribePost = new FfiConverterOptional(
+  FfiConverterTypeUnsubscribePost
+);
+
 // FfiConverter for string | undefined
 const FfiConverterOptionalString = new FfiConverterOptional(FfiConverterString);
 
@@ -2780,5 +2974,8 @@ export default Object.freeze({
     FfiConverterTypeTruncationDirection,
     FfiConverterTypeTruncationParams,
     FfiConverterTypeTruncationStrategy,
+    FfiConverterTypeUnsubscribe,
+    FfiConverterTypeUnsubscribeEmail,
+    FfiConverterTypeUnsubscribePost,
   },
 });
