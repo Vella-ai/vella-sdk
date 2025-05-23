@@ -621,6 +621,7 @@ fn extract_microdata(html: &str) -> Vec<MicrodataItem> {
 #[derive(uniffi::Record)]
 struct Unsubscribe {
     get: Option<String>,
+    website: Option<String>,
     post: Option<UnsubscribePost>,
     email: Option<UnsubscribeEmail>,
 }
@@ -648,6 +649,7 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
             get: None,
             post: None,
             email: None,
+            website: None,
         };
     }
 
@@ -692,7 +694,47 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
         }
     });
 
-    Unsubscribe { get, post, email }
+    let website = message
+        .html_bodies()
+        .map(|x| x.to_string())
+        .find_map(|html| {
+            let document = Html::parse_document(&html);
+            let root_selector = Selector::parse("a").unwrap();
+
+            let keywords = [
+                "unsubscribe",
+                "opt out",
+                "opt-out",
+                "email preferences",
+                "email settings",
+                "manage preferences",
+                "manage subscription",
+                "update preferences",
+                "stop receiving",
+                "cancel subscription",
+                "subscription settings",
+            ];
+
+            let href = document
+                .select(&root_selector)
+                .filter(|el| {
+                    el.text().any(|x| {
+                        let lower = x.to_lowercase();
+                        keywords.iter().any(|keyword| lower.contains(keyword))
+                    })
+                })
+                .find_map(|el| el.attr("href"))
+                .map(ToOwned::to_owned);
+
+            href
+        });
+
+    Unsubscribe {
+        get,
+        post,
+        email,
+        website,
+    }
 }
 
 #[cfg(test)]
