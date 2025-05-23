@@ -1256,6 +1256,7 @@ const FfiConverterTypeTruncationParams = (() => {
 
 export type Unsubscribe = {
   get: string | undefined;
+  website: string | undefined;
   post: UnsubscribePost | undefined;
   email: UnsubscribeEmail | undefined;
 };
@@ -1296,18 +1297,21 @@ const FfiConverterTypeUnsubscribe = (() => {
     read(from: RustBuffer): TypeName {
       return {
         get: FfiConverterOptionalString.read(from),
+        website: FfiConverterOptionalString.read(from),
         post: FfiConverterOptionalTypeUnsubscribePost.read(from),
         email: FfiConverterOptionalTypeUnsubscribeEmail.read(from),
       };
     }
     write(value: TypeName, into: RustBuffer): void {
       FfiConverterOptionalString.write(value.get, into);
+      FfiConverterOptionalString.write(value.website, into);
       FfiConverterOptionalTypeUnsubscribePost.write(value.post, into);
       FfiConverterOptionalTypeUnsubscribeEmail.write(value.email, into);
     }
     allocationSize(value: TypeName): number {
       return (
         FfiConverterOptionalString.allocationSize(value.get) +
+        FfiConverterOptionalString.allocationSize(value.website) +
         FfiConverterOptionalTypeUnsubscribePost.allocationSize(value.post) +
         FfiConverterOptionalTypeUnsubscribeEmail.allocationSize(value.email)
       );
