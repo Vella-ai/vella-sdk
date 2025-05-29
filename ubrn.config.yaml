@@ -4,6 +4,7 @@ rust:
   manifestPath: Cargo.toml
 ios:
     directory: ios
+    native_bindings_dir: swift
     targets:
     - aarch64-apple-ios
     - aarch64-apple-ios-sim

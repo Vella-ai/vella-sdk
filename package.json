@@ -22,12 +22,6 @@
     "react-native.config.js",
     "VellaSDK.xcframework",
     "scripts/postinstall.js",
-    "!android/src/main/jniLibs/arm64-v8a/libvella_sdk.a",
-    "!android/src/main/jniLibs/armeabi-v7a/libvella_sdk.a",
-    "!android/src/main/jniLibs/x86_64/libvella_sdk.a",
-    "!android/src/main/jniLibs/x86/libvella_sdk.a",
-    "!ios/VellaSDK.xcframework/ios-arm64/libvella_sdk.a",
-    "!ios/VellaSDK.xcframework/ios-arm64-simulator/libvella_sdk.a",
     "!ios/build",
     "!android/build",
     "!android/gradle",
@@ -40,7 +34,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "ubrn:ios": "ubrn build ios --config ubrn.config.yaml --and-generate && (cd example/ios && pod install)",
+    "ubrn:ios": "ubrn build ios --config ubrn.config.yaml --native-bindings --and-generate && (cd example/ios && pod install)",
     "ubrn:android": "ubrn build android --config ubrn.config.yaml --and-generate",
     "ubrn:checkout": "ubrn checkout --config ubrn.config.yaml",
     "ubrn:clean": "rm -Rf cpp/ android/src/main/java ios/ src/Native* src/generated/ src/index.ts*",
@@ -52,7 +46,7 @@
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "release": "release-it",
-    "postinstall": "patch-package && node scripts/postinstall.js"
+    "postinstall": "patch-package"
   },
   "keywords": [
     "react-native",
