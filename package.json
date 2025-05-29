@@ -1,6 +1,6 @@
 {
   "name": "vella-sdk",
-  "version": "0.1.28",
+  "version": "0.1.29",
   "description": "Rust SDK for the Vella project.",
   "source": "./src/main.ts",
   "main": "./lib/module/main.js",
