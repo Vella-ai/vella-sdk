@@ -22,6 +22,12 @@
     "react-native.config.js",
     "VellaSDK.xcframework",
     "scripts/postinstall.js",
+    "!android/src/main/jniLibs/arm64-v8a/libvella_sdk.a",
+    "!android/src/main/jniLibs/armeabi-v7a/libvella_sdk.a",
+    "!android/src/main/jniLibs/x86_64/libvella_sdk.a",
+    "!android/src/main/jniLibs/x86/libvella_sdk.a",
+    "!ios/VellaSDK.xcframework/ios-arm64/libvella_sdk.a",
+    "!ios/VellaSDK.xcframework/ios-arm64-simulator/libvella_sdk.a",
     "!ios/build",
     "!android/build",
     "!android/gradle",
@@ -46,7 +52,7 @@
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "release": "release-it",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package && node scripts/postinstall.js"
   },
   "keywords": [
     "react-native",
