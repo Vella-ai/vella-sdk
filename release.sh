@@ -19,7 +19,7 @@ SOURCES=(
   "android-x86.a:android/src/main/jniLibs/x86/libvella_sdk.a"
   "android-x86_64.a:android/src/main/jniLibs/x86_64/libvella_sdk.a"
   "ios-arm64.a:ios/VellaSDK.xcframework/ios-arm64/libvella_sdk.a"
-  "ios-arm64-simulator.a:ios/VellaSDK.xcframework/ios-arm64-simulator/libvella_sdk.a"
+  "ios-arm64_x86_64-simulator-simulator.a:ios/VellaSDK.xcframework/ios-arm64_x86_64-simulator/libvella_sdk.a"
 )
 
 echo "🔄 Copying files to temp directory..."

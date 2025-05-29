@@ -27,7 +27,7 @@
     "!android/src/main/jniLibs/x86_64/libvella_sdk.a",
     "!android/src/main/jniLibs/x86/libvella_sdk.a",
     "!ios/VellaSDK.xcframework/ios-arm64/libvella_sdk.a",
-    "!ios/VellaSDK.xcframework/ios-arm64-simulator/libvella_sdk.a",
+    "!ios/VellaSDK.xcframework/ios-arm64_x86_64-simulator/libvella_sdk.a",
     "!ios/build",
     "!android/build",
     "!android/gradle",
