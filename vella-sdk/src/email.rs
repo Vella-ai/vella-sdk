@@ -699,7 +699,7 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
         .map(|x| x.to_string())
         .find_map(|html| {
             let document = Html::parse_document(&html);
-            let root_selector = Selector::parse("a").unwrap();
+            let anchor_selector = Selector::parse("a").unwrap();
 
             let keywords = [
                 "unsubscribe",
@@ -716,18 +716,40 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
             ];
 
             let href = document
-                .select(&root_selector)
+                .select(&anchor_selector)
                 .filter(|el| {
-                    el.text().any(|x| {
+                    let contains_keywords = el.text().any(|x| {
                         let lower = x.to_lowercase();
                         keywords.iter().any(|keyword| lower.contains(keyword))
-                    })
-                })
-                .find_map(|el| el.attr("href"))
-                .map(ToOwned::to_owned);
+                    });
 
+                    let parent_contains_keywords = el
+                        .parent()
+                        .and_then(scraper::ElementRef::wrap)
+                        .map(|n| {
+                            n.text().any(|x| {
+                                let lower = x.to_lowercase();
+                                keywords.iter().any(|keyword| lower.contains(keyword))
+                            })
+                        })
+                        .unwrap_or_default();
+
+                    contains_keywords || parent_contains_keywords
+                })
+                .find_map(|el| {
+                    el.attr("href").and_then(|href| {
+                        let href = href.trim();
+                        if href.starts_with("http://") || href.starts_with("https://") {
+                            Some(href.to_owned())
+                        } else {
+                            None
+                        }
+                    })
+                });
             href
         });
+
+    dbg!(&website);
 
     Unsubscribe {
         get,
