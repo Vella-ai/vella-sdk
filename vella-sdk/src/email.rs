@@ -749,8 +749,6 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
             href
         });
 
-    dbg!(&website);
-
     Unsubscribe {
         get,
         post,
