@@ -192,6 +192,9 @@ fn parse_email(raw: String) -> Return<Email> {
     let parser = MessageParser::default();
     let message = parser.parse(&raw).ok_or(ParserError::EmailParseFailed)?;
 
+    let header_value_decoder = rfc2047_decoder::Decoder::new()
+        .too_long_encoded_word_strategy(rfc2047_decoder::RecoverStrategy::Decode);
+
     let from_header = message
         .header_raw(HeaderName::From)
         .ok_or(ParserError::NoFromHeader)?
@@ -284,7 +287,7 @@ fn parse_email(raw: String) -> Return<Email> {
         .flat_map(|x| extract_microdata(&x))
         .collect();
 
-    let unsubscribe = extract_unsubscribe(&message);
+    let unsubscribe = extract_unsubscribe(&message, header_value_decoder);
 
     let content_id = message.content_id().map(ToOwned::to_owned);
     let message_id = message.message_id().map(ToOwned::to_owned);
@@ -638,11 +641,15 @@ struct UnsubscribeEmail {
     headers: Vec<Header>,
 }
 
-fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
+fn extract_unsubscribe(
+    message: &mail_parser::Message<'_>,
+    header_value_decoder: rfc2047_decoder::Decoder,
+) -> Unsubscribe {
     let list_unsubscribe = message
         .header_raw("list-unsubscribe")
         .unwrap_or_default()
-        .trim();
+        .trim()
+        .to_owned();
 
     if list_unsubscribe.is_empty() {
         return Unsubscribe {
@@ -652,6 +659,14 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
             website: None,
         };
     }
+
+    let list_unsubscribe = if list_unsubscribe.starts_with('<') {
+        list_unsubscribe
+    } else if let Ok(decoded) = header_value_decoder.decode(&list_unsubscribe) {
+        decoded
+    } else {
+        list_unsubscribe
+    };
 
     let mut urls = list_unsubscribe
         .split(",")
@@ -765,7 +780,6 @@ mod test {
     fn do_test() {
         let responses = std::fs::read_dir("responses/allspark")
             .unwrap()
-            .into_iter()
             .filter_map(|x| x.ok())
             .map(|x| x.path());
 
