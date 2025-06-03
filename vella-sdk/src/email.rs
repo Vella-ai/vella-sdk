@@ -639,10 +639,14 @@ struct UnsubscribeEmail {
 }
 
 fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
+    let header_value_decoder = rfc2047_decoder::Decoder::new()
+        .too_long_encoded_word_strategy(rfc2047_decoder::RecoverStrategy::Decode);
+
     let list_unsubscribe = message
         .header_raw("list-unsubscribe")
         .unwrap_or_default()
-        .trim();
+        .trim()
+        .to_owned();
 
     if list_unsubscribe.is_empty() {
         return Unsubscribe {
@@ -652,6 +656,14 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
             website: None,
         };
     }
+
+    let list_unsubscribe = if list_unsubscribe.starts_with('<') {
+        list_unsubscribe
+    } else if let Ok(decoded) = header_value_decoder.decode(&list_unsubscribe) {
+        decoded
+    } else {
+        list_unsubscribe
+    };
 
     let mut urls = list_unsubscribe
         .split(",")
@@ -765,7 +777,6 @@ mod test {
     fn do_test() {
         let responses = std::fs::read_dir("responses/allspark")
             .unwrap()
-            .into_iter()
             .filter_map(|x| x.ok())
             .map(|x| x.path());
 
