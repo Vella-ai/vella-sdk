@@ -51,6 +51,23 @@ fn url_base64_decode(s: &str) -> Return<String> {
     }
 }
 
+trait DecodeHeader {
+    fn decode_header(self) -> String;
+}
+
+impl DecodeHeader for String {
+    fn decode_header(self) -> String {
+        if self.starts_with("=?") {
+            let decoder = rfc2047_decoder::Decoder::new()
+                .too_long_encoded_word_strategy(rfc2047_decoder::RecoverStrategy::Decode);
+
+            decoder.decode(&self).unwrap_or(self)
+        } else {
+            self
+        }
+    }
+}
+
 #[derive(uniffi::Record)]
 struct Email {
     from: EmailAddressWithText,
@@ -112,7 +129,7 @@ impl From<(&str, &str)> for Header {
     fn from((name, value): (&str, &str)) -> Self {
         Self {
             name: name.to_owned(),
-            value: value.to_owned(),
+            value: value.to_owned().decode_header(),
         }
     }
 }
@@ -195,7 +212,9 @@ fn parse_email(raw: String) -> Return<Email> {
     let from_header = message
         .header_raw(HeaderName::From)
         .ok_or(ParserError::NoFromHeader)?
-        .to_owned();
+        .trim()
+        .to_owned()
+        .decode_header();
 
     let from_addresses: Vec<EmailAddress> = message
         .from()
@@ -213,7 +232,9 @@ fn parse_email(raw: String) -> Return<Email> {
     let to_header = message
         .header_raw(HeaderName::To)
         .ok_or(ParserError::NoToHeader)?
-        .to_owned();
+        .trim()
+        .to_owned()
+        .decode_header();
 
     let to_addresses: Vec<EmailAddress> = message
         .to()
@@ -639,14 +660,12 @@ struct UnsubscribeEmail {
 }
 
 fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
-    let header_value_decoder = rfc2047_decoder::Decoder::new()
-        .too_long_encoded_word_strategy(rfc2047_decoder::RecoverStrategy::Decode);
-
     let list_unsubscribe = message
         .header_raw("list-unsubscribe")
         .unwrap_or_default()
         .trim()
-        .to_owned();
+        .to_owned()
+        .decode_header();
 
     if list_unsubscribe.is_empty() {
         return Unsubscribe {
@@ -656,14 +675,6 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
             website: None,
         };
     }
-
-    let list_unsubscribe = if list_unsubscribe.starts_with('<') {
-        list_unsubscribe
-    } else if let Ok(decoded) = header_value_decoder.decode(&list_unsubscribe) {
-        decoded
-    } else {
-        list_unsubscribe
-    };
 
     let mut urls = list_unsubscribe
         .split(",")
@@ -675,14 +686,14 @@ fn extract_unsubscribe(message: &mail_parser::Message<'_>) -> Unsubscribe {
     let url = urls.find(|u| u.scheme() == "http" || u.scheme() == "https");
     let list_unsubscribe_post = message
         .header_raw("list-unsubscribe-post")
-        .map(|x| x.trim());
+        .map(|x| x.trim().to_owned().decode_header());
 
-    let get = match (&url, list_unsubscribe_post) {
+    let get = match (&url, &list_unsubscribe_post) {
         (Some(url), None) => Some(url.to_string()),
         _ => None,
     };
 
-    let post = match (&url, list_unsubscribe_post) {
+    let post = match (&url, &list_unsubscribe_post) {
         (Some(url), Some(post)) => Some(UnsubscribePost {
             url: url.to_string(),
             body: post.to_owned(),
