@@ -2,7 +2,7 @@ use std::{collections::HashMap, fmt::Display};
 
 use chrono::{TimeZone, Utc};
 use icalendar::{Calendar, Component, DatePerhapsTime, EventLike};
-use lol_html::{element, HtmlRewriter, Settings};
+use lol_html::{rewrite_str, RewriteStrSettings};
 use mail_parser::{Addr, HeaderName, MessageParser, MimeHeaders};
 use rayon::prelude::*;
 use regex::Regex;
@@ -92,6 +92,7 @@ struct Email {
 
     text_bodies: Vec<EmailText>,
     html_bodies: Vec<EmailText>,
+    cleaned_html: Vec<String>,
 
     markups: Vec<String>,
     calendar_events: Vec<CalendarEvent>,
@@ -183,24 +184,71 @@ fn parse_visible_html(body: &str) -> Option<String> {
         return None;
     }
 
-    let mut output = Vec::new();
+    rewrite_str(
+        body,
+        RewriteStrSettings {
+            element_content_handlers: vec![
+                lol_html::element!(".gmail_quote", |el| {
+                    el.remove();
+                    Ok(())
+                }),
+                lol_html::element!(".gmail_quote_container", |el| {
+                    el.remove();
+                    Ok(())
+                }),
+            ],
+            ..RewriteStrSettings::new()
+        },
+    )
+    .ok()
+}
 
-    let mut rewriter = HtmlRewriter::new(
-        Settings {
-            element_content_handlers: vec![element!(".gmail_quote_container", |el| {
-                el.remove();
+#[uniffi::export]
+fn clean_html(body: String) -> Option<String> {
+    rewrite_str(
+        &body,
+        RewriteStrSettings {
+            element_content_handlers: vec![
+                lol_html::element!(
+                    ".gmail_quote, .gmail_quote_container, head, meta, title, link, script, style, img",
+                    |el| {
+                        el.remove();
+                        Ok(())
+                    }
+                ),
+                lol_html::element!("*[style]", |el| {
+                    if let Some(style) = el.get_attribute("style") {
+                        if style.contains("display:none") || style.contains("visibility:hidden") {
+                            el.remove();
+                        }
+                    }
+
+                    el.remove_attribute("style");
+                    Ok(())
+                }),
+                lol_html::element!("*[class]", |el| {
+                    el.remove_attribute("class");
+                    Ok(())
+                }),
+                lol_html::element!("html, body, table, tbody, tr, td, div", |el| {
+                    el.remove_and_keep_content();
+                    Ok(())
+                }),
+                lol_html::comments!("*", |c| {
+                    c.remove();
+                    Ok(())
+                }),
+            ],
+            document_content_handlers: vec![lol_html::doc_comments!(|c| {
+                c.remove();
                 Ok(())
             })],
-            ..Settings::new()
+
+            ..RewriteStrSettings::new()
         },
-        |c: &[u8]| output.extend_from_slice(c),
-    );
-
-    if rewriter.write(body.as_bytes()).is_err() {
-        return None;
-    }
-
-    String::from_utf8(output).ok()
+    )
+    .ok()
+    .map(|x| x.trim().replace("\r\n", "").replace("\n", ""))
 }
 
 #[uniffi::export]
@@ -277,6 +325,13 @@ fn parse_email(raw: String) -> Return<Email> {
         .map(|x| x.to_string())
         .map(parse_html)
         .collect();
+    let cleaned_html: Vec<String> = message
+        .html_bodies()
+        .par_bridge()
+        .map(|x| x.to_string())
+        .map(clean_html)
+        .flat_map(|x| x.into_par_iter())
+        .collect();
 
     let calendar_events: Vec<CalendarEvent> = message
         .attachments()
@@ -330,6 +385,7 @@ fn parse_email(raw: String) -> Return<Email> {
         headers,
         text_bodies,
         html_bodies,
+        cleaned_html,
         markups,
         calendar_events,
         microdata_items,
