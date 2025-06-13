@@ -92,7 +92,6 @@ struct Email {
 
     text_bodies: Vec<EmailText>,
     html_bodies: Vec<EmailText>,
-    cleaned_html: Vec<String>,
 
     markups: Vec<String>,
     calendar_events: Vec<CalendarEvent>,
@@ -325,13 +324,6 @@ fn parse_email(raw: String) -> Return<Email> {
         .map(|x| x.to_string())
         .map(parse_html)
         .collect();
-    let cleaned_html: Vec<String> = message
-        .html_bodies()
-        .par_bridge()
-        .map(|x| x.to_string())
-        .map(clean_html)
-        .flat_map(|x| x.into_par_iter())
-        .collect();
 
     let calendar_events: Vec<CalendarEvent> = message
         .attachments()
@@ -385,7 +377,6 @@ fn parse_email(raw: String) -> Return<Email> {
         headers,
         text_bodies,
         html_bodies,
-        cleaned_html,
         markups,
         calendar_events,
         microdata_items,
