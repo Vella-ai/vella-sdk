@@ -81,6 +81,10 @@ interface NativeModuleInterface {
     specialTokens: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
   ): Uint8Array;
+  ubrn_uniffi_vella_sdk_fn_func_clean_html(
+    body: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
   ubrn_uniffi_vella_sdk_fn_func_escape_text(
     text: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
@@ -101,6 +105,7 @@ interface NativeModuleInterface {
     body: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
   ): Uint8Array;
+  ubrn_uniffi_vella_sdk_checksum_func_clean_html(): number;
   ubrn_uniffi_vella_sdk_checksum_func_escape_text(): number;
   ubrn_uniffi_vella_sdk_checksum_func_parse_batch_response(): number;
   ubrn_uniffi_vella_sdk_checksum_func_parse_email(): number;

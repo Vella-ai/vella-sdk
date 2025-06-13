@@ -129,6 +129,8 @@ RustBuffer uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize(
 RustBuffer uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize_batch(
     void *ptr, RustBuffer input, RustBuffer special_tokens,
     RustCallStatus *uniffi_out_err);
+RustBuffer uniffi_vella_sdk_fn_func_clean_html(RustBuffer body,
+                                               RustCallStatus *uniffi_out_err);
 RustBuffer uniffi_vella_sdk_fn_func_escape_text(RustBuffer text,
                                                 RustCallStatus *uniffi_out_err);
 RustBuffer
@@ -267,6 +269,7 @@ void ffi_vella_sdk_rust_future_free_void(
     /*handle*/ uint64_t handle);
 void ffi_vella_sdk_rust_future_complete_void(
     /*handle*/ uint64_t handle, RustCallStatus *uniffi_out_err);
+uint16_t uniffi_vella_sdk_checksum_func_clean_html();
 uint16_t uniffi_vella_sdk_checksum_func_escape_text();
 uint16_t uniffi_vella_sdk_checksum_func_parse_batch_response();
 uint16_t uniffi_vella_sdk_checksum_func_parse_email();
@@ -1825,6 +1828,17 @@ NativeVellaSdk::NativeVellaSdk(
                 ->cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize_batch(
                     rt, thisVal, args, count);
           });
+  props["ubrn_uniffi_vella_sdk_fn_func_clean_html"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(rt,
+                                    "ubrn_uniffi_vella_sdk_fn_func_clean_html"),
+          1,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this->cpp_uniffi_vella_sdk_fn_func_clean_html(rt, thisVal,
+                                                                 args, count);
+          });
   props["ubrn_uniffi_vella_sdk_fn_func_escape_text"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -1878,6 +1892,17 @@ NativeVellaSdk::NativeVellaSdk(
           [this](jsi::Runtime &rt, const jsi::Value &thisVal,
                  const jsi::Value *args, size_t count) -> jsi::Value {
             return this->cpp_uniffi_vella_sdk_fn_func_parse_visible_text(
+                rt, thisVal, args, count);
+          });
+  props["ubrn_uniffi_vella_sdk_checksum_func_clean_html"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(
+              rt, "ubrn_uniffi_vella_sdk_checksum_func_clean_html"),
+          0,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this->cpp_uniffi_vella_sdk_checksum_func_clean_html(
                 rt, thisVal, args, count);
           });
   props["ubrn_uniffi_vella_sdk_checksum_func_escape_text"] =
@@ -2313,6 +2338,19 @@ jsi::Value NativeVellaSdk::
 
   return uniffi::vella_sdk::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
 }
+jsi::Value NativeVellaSdk::cpp_uniffi_vella_sdk_fn_func_clean_html(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  RustCallStatus status =
+      uniffi::vella_sdk::Bridging<RustCallStatus>::rustSuccess(rt);
+  auto value = uniffi_vella_sdk_fn_func_clean_html(
+      uniffi::vella_sdk::Bridging<RustBuffer>::fromJs(rt, callInvoker, args[0]),
+      &status);
+  uniffi::vella_sdk::Bridging<RustCallStatus>::copyIntoJs(
+      rt, callInvoker, status, args[count - 1]);
+
+  return uniffi::vella_sdk::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
+}
 jsi::Value NativeVellaSdk::cpp_uniffi_vella_sdk_fn_func_escape_text(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
@@ -2377,6 +2415,13 @@ jsi::Value NativeVellaSdk::cpp_uniffi_vella_sdk_fn_func_parse_visible_text(
       rt, callInvoker, status, args[count - 1]);
 
   return uniffi::vella_sdk::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
+}
+jsi::Value NativeVellaSdk::cpp_uniffi_vella_sdk_checksum_func_clean_html(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  auto value = uniffi_vella_sdk_checksum_func_clean_html();
+
+  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
 jsi::Value NativeVellaSdk::cpp_uniffi_vella_sdk_checksum_func_escape_text(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,

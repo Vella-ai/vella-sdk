@@ -71,6 +71,19 @@ const uniffiIsDebug =
   false;
 // Public interface members begin here.
 
+export function cleanHtml(body: string): string | undefined {
+  return FfiConverterOptionalString.lift(
+    uniffiCaller.rustCall(
+      /*caller:*/ (callStatus) => {
+        return nativeModule().ubrn_uniffi_vella_sdk_fn_func_clean_html(
+          FfiConverterString.lower(body),
+          callStatus
+        );
+      },
+      /*liftString:*/ FfiConverterString.lift
+    )
+  );
+}
 export function escapeText(text: string): string {
   return FfiConverterString.lift(
     uniffiCaller.rustCall(
@@ -2837,6 +2850,13 @@ function uniffiEnsureInitialized() {
     throw new UniffiInternalError.ContractVersionMismatch(
       scaffoldingContractVersion,
       bindingsContractVersion
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_vella_sdk_checksum_func_clean_html() !== 18414
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_vella_sdk_checksum_func_clean_html'
     );
   }
   if (

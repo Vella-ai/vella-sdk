@@ -61,6 +61,10 @@ protected:
   jsi::Value cpp_uniffi_vella_sdk_fn_method_customtokenizerinner_tokenize_batch(
       jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
       size_t count);
+  jsi::Value cpp_uniffi_vella_sdk_fn_func_clean_html(jsi::Runtime &rt,
+                                                     const jsi::Value &thisVal,
+                                                     const jsi::Value *args,
+                                                     size_t count);
   jsi::Value cpp_uniffi_vella_sdk_fn_func_escape_text(jsi::Runtime &rt,
                                                       const jsi::Value &thisVal,
                                                       const jsi::Value *args,
@@ -76,6 +80,9 @@ protected:
       jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
       size_t count);
   jsi::Value cpp_uniffi_vella_sdk_fn_func_parse_visible_text(
+      jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+      size_t count);
+  jsi::Value cpp_uniffi_vella_sdk_checksum_func_clean_html(
       jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
       size_t count);
   jsi::Value cpp_uniffi_vella_sdk_checksum_func_escape_text(
