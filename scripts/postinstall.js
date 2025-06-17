@@ -5,7 +5,7 @@ const os = require('os');
 const cliProgress = require('cli-progress');
 const tar = require('tar');
 
-const SUPABASE_URL = 'https://qqzbfyxqzqdkcycxyoyj.supabase.co/storage/v1/s3';
+const SUPABASE_URL = 'https://qqzbfyxqzqdkcycxyoyj.supabase.co';
 const SUPABASE_BUCKET = 'vella-sdk';
 
 let version;
