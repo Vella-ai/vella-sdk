@@ -91,3 +91,5 @@ nitrogen/
 .binary-version
 responses
 test-output
+
+.envrc

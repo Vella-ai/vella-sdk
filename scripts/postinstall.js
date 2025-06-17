@@ -5,6 +5,9 @@ const os = require('os');
 const cliProgress = require('cli-progress');
 const tar = require('tar');
 
+const SUPABASE_URL = 'https://qqzbfyxqzqdkcycxyoyj.supabase.co/storage/v1/s3';
+const SUPABASE_BUCKET = 'vella-sdk';
+
 let version;
 try {
   version = require('../package.json').version;
@@ -16,9 +19,9 @@ try {
   process.exit(1);
 }
 
-const baseURL = `https://github.com/Vella-ai/vella-sdk/releases/download/${version}/`;
+// Construct the Supabase Storage URL
 const archiveName = `vella-sdk-libs-${version}.tar.gz`;
-const archiveUrl = baseURL + archiveName;
+const archiveUrl = `${SUPABASE_URL}/storage/v1/object/public/${SUPABASE_BUCKET}/${archiveName}`;
 
 const projectRoot = path.join(__dirname, '..');
 const versionFilePath = path.join(projectRoot, '.binary-version');
@@ -45,7 +48,7 @@ const binaries = [
     dest: 'ios/VellaSDK.xcframework/ios-arm64/libvella_sdk.a',
   },
   {
-    name: 'ios-arm64_x86_64-simulator-simulator.a',
+    name: 'ios-arm64_x86_64-simulator.a', // Note: Corrected name from original script for consistency
     dest: 'ios/VellaSDK.xcframework/ios-arm64_x86_64-simulator/libvella_sdk.a',
   },
 ];
@@ -55,7 +58,7 @@ function formatBytes(bytes) {
   if (bytes === 0) return '0 Bytes';
   const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
   if (i === 0) return `${bytes} ${sizes[i]}`;
-  return `${(bytes / Math.pow(1024, i)).toFixed(1)} ${sizes[i]}`;
+  return `${(bytes / 1024 ** i).toFixed(1)} ${sizes[i]}`;
 }
 
 async function shouldSkipDownload() {
@@ -69,10 +72,9 @@ async function shouldSkipDownload() {
     if (err.code === 'ENOENT') {
       // No stored version, download is needed
       return false;
-    } else {
-      // Safer to download if we can't read the state
-      return false;
     }
+    // Safer to download if we can't read the state
+    return false;
   }
 
   if (storedVersion !== version) {
@@ -83,14 +85,9 @@ async function shouldSkipDownload() {
     const destPath = path.join(projectRoot, bin.dest);
     try {
       await fs.promises.access(destPath, fs.constants.F_OK);
-    } catch (err) {
-      if (err.code === 'ENOENT') {
-        // A file is missing
-        return false;
-      } else {
-        // Safer to download if we can't check a file
-        return false;
-      }
+    } catch {
+      // A file is missing or inaccessible, re-download
+      return false;
     }
   }
 
@@ -99,7 +96,7 @@ async function shouldSkipDownload() {
 
 function downloadWithProgress(url, dest) {
   return new Promise((resolve, reject) => {
-    console.log(`\n⬇️ Downloading ${path.basename(dest)}...`);
+    console.log(`\n⬇️ Downloading ${path.basename(dest)} from Supabase...`);
 
     const download = (currentUrl) => {
       https
@@ -162,7 +159,6 @@ function downloadWithProgress(url, dest) {
 
           file.on('finish', () => {
             file.close(() => {
-              // Ensure progress bar reaches 100% if total size was known
               const finalProgress = total || downloaded;
               progressBar.update(finalProgress, {
                 formattedValue: formatBytes(finalProgress).padStart(10, ' '),
@@ -174,13 +170,7 @@ function downloadWithProgress(url, dest) {
 
           file.on('error', (err) => {
             progressBar.stop();
-            fs.unlink(dest, (unlinkErr) => {
-              if (unlinkErr && unlinkErr.code !== 'ENOENT') {
-                console.error(
-                  `  ⚠️ Error deleting incomplete download ${dest}: ${unlinkErr.message}`
-                );
-              }
-            });
+            fs.unlink(dest, () => {}); // Attempt to delete incomplete file
             reject(
               new Error(`File system error writing to ${dest}: ${err.message}`)
             );
@@ -204,7 +194,6 @@ function downloadWithProgress(url, dest) {
     console.log(
       '\n🎉 Binaries are up-to-date. Skipping download and extraction.'
     );
-    process.exitCode = 0;
     return;
   }
 
@@ -252,60 +241,38 @@ function downloadWithProgress(url, dest) {
             `⚠️ WARNING: Binary ${bin.name} not found in extracted archive at ${sourcePath}, skipping move.`
           );
         } else {
-          console.error(
-            `❌ Error moving ${bin.name} to ${destPath}: ${err.message}`
+          throw new Error(
+            `Error moving ${bin.name} to ${destPath}: ${err.message}`
           );
-          throw err;
         }
       }
     }
 
-    if (filesMovedCount === expectedFiles) {
-      console.log('\n🎉 All expected binaries processed successfully.');
-      try {
-        console.log(
-          `\n💾 Storing current version (${version}) to ${path.basename(versionFilePath)}...`
-        );
-        await fs.promises.writeFile(versionFilePath, version, 'utf8');
-        console.log('✅ Version stored.');
-      } catch (writeErr) {
-        console.error(
-          `❌ Critical Warning: Failed to write version file to ${versionFilePath}: ${writeErr.message}`
-        );
-        console.error(
-          '   This may cause binaries to be re-downloaded unnecessarily on next install.'
-        );
-      }
-    } else if (filesMovedCount > 0) {
+    if (filesMovedCount > 0) {
+      console.log(
+        `\n💾 Storing current version (${version}) to ${path.basename(versionFilePath)}...`
+      );
+      await fs.promises.writeFile(versionFilePath, version, 'utf8');
+      console.log('✅ Version stored.');
+    } else {
+      throw new Error('No binaries were found or moved from the archive.');
+    }
+
+    if (filesMovedCount !== expectedFiles) {
       console.warn(
         `\n⚠️ Processed ${filesMovedCount} out of ${expectedFiles} expected binaries.`
       );
-      console.warn(
-        `   Version file ${path.basename(versionFilePath)} will not be updated.`
-      );
-      process.exitCode = 1;
     } else {
-      console.error(
-        `\n❌ No binaries were moved. Check archive content and paths.`
-      );
-      console.error(
-        `   Version file ${path.basename(versionFilePath)} will not be updated.`
-      );
-      throw new Error('No binaries found or moved from the archive.');
+      console.log('\n🎉 All expected binaries processed successfully.');
     }
   } catch (err) {
     console.error(`\n❌ Operation failed: ${err.message}`);
-    if (err.stack) {
-      console.error(err.stack);
-    }
     process.exitCode = 1;
 
+    // Attempt to remove version file on failure to force re-download next time
     try {
-      console.log(
-        `  Attempting to remove potentially outdated version file ${path.basename(versionFilePath)}...`
-      );
       await fs.promises.unlink(versionFilePath);
-      console.log(`  Version file removed.`);
+      console.log(`  -> Removed potentially outdated version file.`);
     } catch (unlinkErr) {
       if (unlinkErr.code !== 'ENOENT') {
         console.warn(
@@ -315,7 +282,7 @@ function downloadWithProgress(url, dest) {
     }
   } finally {
     if (tempDir) {
-      console.log(`\n🧹 Cleaning up temporary files in ${tempDir}...`);
+      console.log(`\n🧹 Cleaning up temporary files...`);
       try {
         await fs.promises.rm(tempDir, { recursive: true, force: true });
         console.log('✅ Cleanup complete.');
@@ -323,9 +290,6 @@ function downloadWithProgress(url, dest) {
         console.error(
           `⚠️ Failed to cleanup temporary directory ${tempDir}: ${cleanupErr.message}`
         );
-        if (!process.exitCode) {
-          process.exitCode = 1;
-        }
       }
     }
   }
