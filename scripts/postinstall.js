@@ -48,7 +48,7 @@ const binaries = [
     dest: 'ios/VellaSDK.xcframework/ios-arm64/libvella_sdk.a',
   },
   {
-    name: 'ios-arm64_x86_64-simulator.a', // Note: Corrected name from original script for consistency
+    name: 'ios-arm64_x86_64-simulator.a',
     dest: 'ios/VellaSDK.xcframework/ios-arm64_x86_64-simulator/libvella_sdk.a',
   },
 ];
